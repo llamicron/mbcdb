@@ -17,6 +17,9 @@ class CreateBadgeTable extends Migration
             $table->integer('counselor_id')->unsigned()->index();
             $table->integer('code')->unsigned();
             $table->string('name');
+            $table->string('description');
+            $table->string('requirements');
+            $table->string('url');
             $table->timestamps();
         });
     }
