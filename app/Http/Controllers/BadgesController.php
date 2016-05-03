@@ -8,9 +8,10 @@ use App\Http\Requests;
 
 class BadgesController extends Controller
 {
-    public function index()
-    {
-      $badges = Badge::get();
+    public function index() {
+      // retrives all merit badges and orders by code (merit badge id) ascending
+      // Then returns view badges.index
+      $badges = Badge::orderBy('code', 'ASC')->get();
       return view('badges.index', compact('badges'));
     }
 

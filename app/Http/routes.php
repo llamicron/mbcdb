@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('/badges', 'BadgesController@index');
 
-Route::get('/badges/{badge}', 'BadgesController@show');
+Route::get('/counselors', 'CounselorsController@index');
