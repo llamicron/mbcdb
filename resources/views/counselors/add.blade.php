@@ -3,9 +3,7 @@
 @section('head')
   <title>Add a Counselor</title>
 <pre>
-  <div class="container">
-      <h1>MBCDB</h1>
-  </div>
+    <button type="button" class="btn btn-primary" onClick="location='/'" name="home">Home</button>
 </pre>
   {{-- Encrypting the form token so that it will post correctly --}}
   <?php

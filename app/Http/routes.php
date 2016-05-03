@@ -22,3 +22,5 @@ Route::get('/counselors', 'CounselorsController@index');
 Route::get('/counselors/add', 'CounselorsController@add');
 
 Route::post('/counselors/add', 'CounselorsController@store');
+
+Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');

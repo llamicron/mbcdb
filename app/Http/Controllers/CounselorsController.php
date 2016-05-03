@@ -31,11 +31,16 @@ class CounselorsController extends Controller
       $counselor->email = $request->email;
       $counselor->primary_phone = $request->primary_phone;
       $counselor->secondary_phone = $request->secondary_phone;
-      $counselor->unit_num = $request->first_name;
+      $counselor->unit_num = $request->unit_num;
       $counselor->bsa_id = $request->bsa_id;
       $counselor->unit_only = $request->unit_only;
 
       $counselor->save();
+      return redirect('/counselors');
+    }
+
+    public function remove(Counselor $counselor) {
+      $counselor->delete();
       return redirect('/counselors');
     }
 }
