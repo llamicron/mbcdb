@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/badges', 'BadgesController@index');
 
 Route::get('/counselors', 'CounselorsController@index');
+
+Route::get('/counselors/add', 'CounselorsController@add');
+
+Route::post('/counselors/add', 'CounselorsController@store');

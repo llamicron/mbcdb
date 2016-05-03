@@ -23,7 +23,6 @@ class CreateCounselorsTable extends Migration
             $table->string('email');
             $table->string('primary_phone');
             $table->string('secondary_phone');
-            $table->string('unit_type');
             $table->string('unit_num');
             $table->string('bsa_id');
             $table->boolean('unit_only');
