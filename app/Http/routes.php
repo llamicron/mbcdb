@@ -24,3 +24,7 @@ Route::get('/counselors/add', 'CounselorsController@add');
 Route::post('/counselors/add', 'CounselorsController@store');
 
 Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
+
+Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');
+
+Route::patch('counselors/{counselor}/edit', 'CounselorsController@update');

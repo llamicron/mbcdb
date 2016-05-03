@@ -43,4 +43,27 @@ class CounselorsController extends Controller
       $counselor->delete();
       return redirect('/counselors');
     }
+
+    public function update(Counselor $counselor, Request $request) {
+      $counselor->first_name = $request->first_name;
+      $counselor->last_name = $request->last_name;
+      $counselor->address = $request->address;
+      $counselor->city = $request->city;
+      $counselor->state = $request->state;
+      $counselor->zip = $request->zip;
+      $counselor->email = $request->email;
+      $counselor->primary_phone = $request->primary_phone;
+      $counselor->secondary_phone = $request->secondary_phone;
+      $counselor->unit_num = $request->unit_num;
+      $counselor->bsa_id = $request->bsa_id;
+      $counselor->unit_only = $request->unit_only;
+
+      $counselor->save();
+      return redirect('/counselors');
+    }
+
+    public function edit(Counselor $counselor) {
+      return view('/counselors/edit', compact('counselor'));
+    }
+
 }
