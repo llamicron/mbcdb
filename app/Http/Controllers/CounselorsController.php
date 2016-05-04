@@ -18,6 +18,10 @@ class CounselorsController extends Controller
       return view('counselors.add');
     }
 
+    public function show(Counselor $counselor) {
+      return view('counselors.show', compact('counselor'));
+    }
+
     public function store(Request $request) {
       $counselor = new Counselor;
 

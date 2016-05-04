@@ -6,40 +6,40 @@
 
 
 @section('content')
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h1>All Counselors&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary" onClick="location='/counselors/add'" name="add_counselor">Add a Counselor</button></h1>
-      <ul class="list-group">
-        <li class="list-group-item">
+<div class="row">
+  <div class="col-md-12 col-md-offset">
+    <div class="container">
+      <h2>All Counselors</h2>
+      <table class="table table-striped">
 
-          {{-- echos out all the counselors.  no pagination yet.  yet. --}}
+        <thead>
+
+          <tr>
+            <th>Name</th>
+            <th>Troop</th>
+            <th>District</th>
+            <th>Badges</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
           @foreach($counselors as $counselor)
-            <h3>{{ $counselor->first_name }} {{ $counselor->last_name }}</h3><br>
-            Address:<br>
-            {{ $counselor->address }}<br>
-            {{ $counselor->city }} {{ $counselor->state }}, {{ $counselor->zip }}<br>
-            <br>
-            Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
-            Primary Phone: {{ $counselor->primary_phone }}<br>
-            Secondary Phone: {{ $counselor->secondary_phone }}<br>
-            <br>
-            Troop {{ $counselor->unit_num }}<br>
-            BSA ID: {{ $counselor->bsa_id }}<br>
-            Will teach outside of unit:
-            @if($counselor->unit_only == 1)
-              {{ "No" }}
-            @else
-              {{ "Yes" }}
-            @endif
-            <br>
-            <input TYPE="button" class="btn btn-primary" onClick="location='/'" value="Update Counselor">
-            <input TYPE="button" class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/remove'" value="Remove Counselor">
-            <hr>
-          @endforeach
 
-        </li>
-      </ul>
+          <tr>
+            <td><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name}} {{ $counselor->last_name }}</a></td>
+            <td>{{ $counselor->unit_num }}</td>
+            <td>{{ $counselor->district }}</td>
+            {{-- Will work someday *tear* --}}
+            {{-- <td>{{ $counselor->badges }}</td> --}}
+            <td>Placeholder</td>
+          </tr>
 
+        @endforeach
+        </tbody>
+
+      </table>
     </div>
   </div>
+</div>
 @endsection

@@ -20,7 +20,8 @@
         <h1>Add a Counselor</h1>
 
           <form class="form-group" action="/counselors/add" method="post">
-            {{-- {!! method_field('PATCH') !!} --}}
+
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
               <input class="form-control" type="text" name="first_name" placeholder="First Name"><br>
               <input class="form-control" type="text" name="last_name" placeholder="Last Name"><br>
