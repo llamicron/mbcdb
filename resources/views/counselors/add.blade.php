@@ -34,7 +34,6 @@
               <input class="form-control" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
               <input class="form-control" type="text" name="unit_num" placeholder="Unit Number"><br>
               <input class="form-control" type="text" name="bsa_id" placeholder="BSA ID"><br>
-              <input type="checkbox" name="unit_only" value="1">&nbsp;Unit only?<br>
               <hr>
               <input type="submit" class="btn btn-primary" name="submit" value="Submit">
               <input type="button" class="btn btn-danger float-right" name="cancel" value="Cancel" onClick="location='/counselors'">

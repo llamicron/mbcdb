@@ -8,8 +8,8 @@ use App\Badge;
 use App\Http\Requests;
 
 
-class CounselorsController extends Controller
-{
+class CounselorsController extends Controller {
+
     public function index() {
       $counselors = Counselor::get();
       return view('counselors.index', compact('counselors'));
@@ -39,7 +39,7 @@ class CounselorsController extends Controller
       $counselor->secondary_phone = $request->secondary_phone;
       $counselor->unit_num = $request->unit_num;
       $counselor->bsa_id = $request->bsa_id;
-      $counselor->unit_only = $request->unit_only;
+      $counselor->unit_only = 0;
 
       $counselor->save();
       return redirect('/counselors');

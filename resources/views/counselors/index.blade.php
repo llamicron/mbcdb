@@ -9,7 +9,10 @@
 <div class="row">
   <div class="col-md-12 col-md-offset">
     <div class="container">
-      <h2>All Counselors</h2>
+      <h2>
+        All Counselors
+        &nbsp;<button type="button" class="btn btn-primary" onClick="location='/counselors/add'" name="add_counselor">Add a Counselor</button>
+      </h2>
       <table class="table table-striped">
 
         <thead>
@@ -25,14 +28,19 @@
 
         <tbody>
           @foreach($counselors as $counselor)
-
           <tr>
             <td><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name}} {{ $counselor->last_name }}</a></td>
             <td>{{ $counselor->unit_num }}</td>
             <td>{{ $counselor->district }}</td>
-            {{-- Will work someday *tear* --}}
-            {{-- <td>{{ $counselor->badges }}</td> --}}
-            <td>Placeholder</td>
+            {{-- This is not the proper way to do this, but i cant think of another way --}}
+            {{-- The badges list must be retrieved from within the foreach loop --}}
+            {{-- NEED HELP PLEASE HELP SEND HELP PLS --}}
+            <?php $badges = $counselor->badges ?>
+            <td>
+              @foreach ($badges as $badge)
+                {{ $badge->name . ", " }}
+              @endforeach
+            </td>
           </tr>
 
         @endforeach

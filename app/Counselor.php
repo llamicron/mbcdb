@@ -10,4 +10,9 @@ class Counselor extends Model
   {
     return $this->belongsToMany("App\Badge");
   }
+
+  public function district()
+  {
+    return $this->belongsTo('App\District');
+  }
 }

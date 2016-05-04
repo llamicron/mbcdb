@@ -26,6 +26,7 @@ class CreateCounselorsTable extends Migration
             $table->string('unit_num');
             $table->string('bsa_id');
             $table->boolean('unit_only');
+            $table->integer('district_id');
             $table->timestamps();
         });
     }
