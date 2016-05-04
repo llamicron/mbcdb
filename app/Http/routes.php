@@ -29,4 +29,8 @@ Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
 
 Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');
 
-Route::patch('counselors/{counselor}/edit', 'CounselorsController@update');
+Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
+
+Route::get('/badges/{counselor}/add', 'BadgesController@add');
+
+Route::post('/badges/{counselor}/add', 'BadgesController@store');

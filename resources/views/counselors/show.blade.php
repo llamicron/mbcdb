@@ -7,7 +7,11 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-1">
+      <br>
+      <button type="button" class="btn btn-primary" onClick="location='/counselors'" name="back">&laquo; Back To All Counselors</button>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
       <br>
       <ul class="list-group">
         <li class="list-group-item">
@@ -29,7 +33,17 @@
               {{ "Yes" }}
             @endif
             <br>
+            <h3>Badge This Counselor Teaches:</h3>
+
+            <ul>
+              @foreach($badges as $badge)
+                <li>
+                  {{ $badge->name }}
+                </li>
+              @endforeach
+            </ul>
             <br>
+            <input TYPE="button" class="btn btn-primary" onClick="location='/badges/{{ $counselor->id }}/add'" value="Add A Badge To This Counselor">
             <input TYPE="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'" value="Update Counselor">
             <input TYPE="button" class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/remove'" value="Remove Counselor">
         </li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Counselor;
+use App\Badge;
 use App\Http\Requests;
 
 
@@ -19,7 +20,8 @@ class CounselorsController extends Controller
     }
 
     public function show(Counselor $counselor) {
-      return view('counselors.show', compact('counselor'));
+      $badges = $counselor->badges;
+      return view('counselors.show', compact('counselor', 'badges'));
     }
 
     public function store(Request $request) {
