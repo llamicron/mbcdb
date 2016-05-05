@@ -43,7 +43,7 @@
               @endforeach
             </ul>
             <br>
-            <input TYPE="button" class="btn btn-primary" onClick="location='/badges/{{ $counselor->id }}/add'" value="Add A Badge To This Counselor">
+            <input TYPE="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'" value="Add A Badge To This Counselor">
             <input TYPE="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'" value="Update Counselor">
             <input TYPE="button" class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/remove'" value="Remove Counselor">
         </li>

@@ -4,7 +4,6 @@
   <title>All Counselors</title>
 @endsection
 
-
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset">
@@ -18,24 +17,20 @@
         <thead>
 
           <tr>
-            <th>Name</th>
-            <th>Troop</th>
-            <th>District</th>
+            <th><a href="/counselors/sortByName">Name</a></th>
+            <th><a href="/counselors/sortByTroop">Troop</a></th>
+            <th><a href="/counselors/sortByDistrict">District</a></th>
             <th>Badges</th>
           </tr>
 
         </thead>
-
         <tbody>
           @foreach($counselors as $counselor)
+            <?php $badges = $counselor->badges; ?>
           <tr>
             <td><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name}} {{ $counselor->last_name }}</a></td>
             <td>{{ $counselor->unit_num }}</td>
-            <td>{{ $counselor->district }}</td>
-            {{-- This is not the proper way to do this, but i cant think of another way --}}
-            {{-- The badges list must be retrieved from within the foreach loop --}}
-            {{-- NEED HELP PLEASE HELP SEND HELP PLS --}}
-            <?php $badges = $counselor->badges ?>
+            <td>{{ "Arrowmoon" }}</td>
             <td>
               @foreach ($badges as $badge)
                 {{ $badge->name . ", " }}

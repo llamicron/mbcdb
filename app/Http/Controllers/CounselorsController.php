@@ -10,11 +10,23 @@ use App\Http\Requests;
 
 class CounselorsController extends Controller {
 
-    public function index() {
-      $counselors = Counselor::get();
+// ----------------- Index view sorting functions ----------------------
+    public function sortByName() {
+      $counselors = Counselor::orderBy('last_name', 'ASC')->get();
       return view('counselors.index', compact('counselors'));
     }
 
+    public function sortByDistrict() {
+      $counselors = Counselor::orderBy('district_id', 'DESC')->get();
+      return view('counselors.index', compact('counselors'));
+    }
+
+    public function sortByTroop() {
+      $counselors = Counselor::orderBy('unit_num', 'ASC')->get();
+      return view('counselors.index', compact('counselors'));
+    }
+
+// ----------------- Counselors CRUD ------------------------------------
     public function add() {
       return view('counselors.add');
     }
@@ -71,5 +83,7 @@ class CounselorsController extends Controller {
     public function edit(Counselor $counselor) {
       return view('/counselors/edit', compact('counselor'));
     }
+
+
 
 }
