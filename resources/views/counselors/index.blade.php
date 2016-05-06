@@ -43,7 +43,7 @@
           <tr>
             <td><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name}} {{ $counselor->last_name }}</a></td>
             <td>{{ $counselor->unit_num }}</td>
-            <td>{{ $district['district_name'] }}</td>
+              <td>{{ $district['name'] }}</td>
             <td>
               @foreach ($badges as $badge)
                 {{ $badge->name . ", " }}

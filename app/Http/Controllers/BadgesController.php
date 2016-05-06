@@ -18,7 +18,22 @@ class BadgesController extends Controller
     public function store(Counselor $counselor, Request $request) {
       $badge = Badge::find($request->merit_badge);
       $counselor->badges()->save($badge);
-      return redirect("/counselors/{$counselor->id}/show");
+      return redirect("/counselors/{{ $counselor->id }}/show");
     }
 
+    public function addBadge()
+    {
+      return view('/badges/addBadge');
+    }
+
+    public function storeBadge(Request $request)
+    {
+      $badge = new Badge;
+
+      $badge->name = $request->name;
+      $badge->code = $request->code;
+
+      $badge->save();
+      return redirect('/badges/addBadge');
+    }
 }

@@ -23,6 +23,9 @@
             Secondary Phone: {{ $counselor->secondary_phone }}<br>
             <br>
             Troop {{ $counselor->unit_num }}<br>
+            @if (isset($counselor->district))
+              {{ $counselor->district->name }} District<br>
+            @endif
             BSA ID: {{ $counselor->bsa_id }}<br>
             Will teach outside of unit:
             @if($counselor->unit_only == 1)
@@ -31,7 +34,7 @@
               {{ "Yes" }}
             @endif
             <br>
-            <h3>Badge This Counselor Teaches:</h3>
+            <h3>Badges This Counselor Teaches:</h3>
 
             <ul>
               @foreach($badges as $badge)

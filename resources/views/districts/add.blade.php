@@ -18,7 +18,7 @@
                 <select class="form-control" name="district">
                   @foreach ($districts as $district)
 
-                    <option value="{{ $district->district_name }}">{{ $district->district_name }}</option>
+                    <option value="{{ $district->name }}">{{ $district->name }}</option>
                   @endforeach
                 </select>
                 <br>

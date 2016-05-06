@@ -16,8 +16,9 @@ class DistrictsController extends Controller
   }
 
     public function store(Counselor $counselor, Request $request) {
-      $district = District::where('district_name', "=", $request->district)->first();
+      $district = District::where('name', "=", $request->district)->first();
       $district->counselors()->save($counselor);
-      return redirect('/counselors');
+
+      return redirect()->action("BadgesController@add", compact('counselor'));
     }
 }

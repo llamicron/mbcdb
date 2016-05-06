@@ -36,3 +36,6 @@ Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
 
 Route::get('/counselors/{counselor}/districts/add', 'DistrictsController@add');
 Route::patch('/counselors/{counselor}/districts/add', 'DistrictsController@store');
+
+Route::get('/badges/addBadge', 'BadgesController@addBadge');
+Route::post('/badges/addBadge', 'BadgesController@storeBadge');

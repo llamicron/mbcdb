@@ -56,7 +56,7 @@ class CounselorsController extends Controller {
       $counselor->unit_only = 0;
 
       $counselor->save();
-      return redirect('/counselors');
+      return redirect()->action('DistrictsController@add', compact('counselor'));
     }
 
     public function remove(Counselor $counselor) {
