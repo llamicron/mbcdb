@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Counselor;
 use App\Badge;
+use DB;
 use App\Http\Requests;
 
 
 class CounselorsController extends Controller {
 
-// ----------------- Index view sorting functions ----------------------
+// ----------------- counselors/index view sorting functions ----------------------
     public function sortByName() {
       $counselors = Counselor::orderBy('last_name', 'ASC')->get();
       return view('counselors.index', compact('counselors'));
@@ -22,7 +23,8 @@ class CounselorsController extends Controller {
     }
 
     public function sortByTroop() {
-      $counselors = Counselor::orderBy('unit_num', 'ASC')->get();
+      // THANK YOU BESTMOMO!
+      $counselors = Counselor::orderBy(DB::raw('LENGTH(unit_num), unit_num'))->get();
       return view('counselors.index', compact('counselors'));
     }
 

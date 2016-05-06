@@ -8,8 +8,6 @@
 @section('content')
   <div class="row">
     <div class="col-sm-1">
-      <br>
-      <button type="button" class="btn btn-primary" onClick="location='/counselors'" name="back">&laquo; Back To All Counselors</button>
     </div>
     <div class="col-md-8 col-md-offset-1">
       <br>

@@ -5,7 +5,8 @@
 | Application Routes
 |--------------------------------------------------------------------------
 */
-// ------------------ COUNSELOR FUNCTIONS ------------------------------
+
+// ------------------ COUNSELOR FUNCTIONS (CRUD) ------------------------------
 
 Route::get('/counselors/{counselor}/show', 'CounselorsController@show');
 
@@ -30,3 +31,7 @@ Route::get('/counselors/sortByTroop', 'CounselorsController@sortByTroop');
 
 Route::get('/counselors/{counselor}/badges/add', 'BadgesController@add');
 Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
+
+// --------------------- DISTRICT FUNCTIONS ------------------------------------
+
+Route::get('/counselors/{counselor/district/add}', 'DistrictController@add'');
