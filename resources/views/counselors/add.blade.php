@@ -6,9 +6,11 @@
     <button type="button" class="btn btn-primary" onClick="location='/'" name="home">Home</button>
 </pre>
   {{-- Encrypting the form token so that it will post correctly --}}
+  {{-- P.S. This actually isnt the fix. The real fix is the <input name="_token" down there --}}
+  {{-- Just keeping this in for clarity and so future me can see my mistakes --}}
   <?php
-    $encrypter = app('Illuminate\Encryption\Encrypter');
-    $encrypted_token = $encrypter->encrypt(csrf_token());
+  //  $encrypter = app('Illuminate\Encryption\Encrypter');
+  //  $encrypted_token = $encrypter->encrypt(csrf_token());
   ?>
 @endsection
 

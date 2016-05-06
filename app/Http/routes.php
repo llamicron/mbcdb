@@ -34,4 +34,5 @@ Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
 
 // --------------------- DISTRICT FUNCTIONS ------------------------------------
 
-Route::get('/counselors/{counselor/district/add}', 'DistrictController@add'');
+Route::get('/counselors/{counselor}/districts/add', 'DistrictsController@add');
+Route::patch('/counselors/{counselor}/districts/add', 'DistrictsController@store');

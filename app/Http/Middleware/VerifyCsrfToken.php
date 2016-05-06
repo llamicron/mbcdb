@@ -15,7 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        '/counselors/add',
-        '/counselors/{counselor}/edit'
+      // Put the path to where you dont want to get "security checked" with the CsrfToken
     ];
 }
