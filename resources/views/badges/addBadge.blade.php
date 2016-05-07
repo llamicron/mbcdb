@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 {{-- THIS IS A TEMPORARY page to add merit badges to the DB.  it will be deleted in production. --}}
 @section('head')
   <title>Add Badges</title>

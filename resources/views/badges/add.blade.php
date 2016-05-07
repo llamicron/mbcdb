@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('head')
 <title>Add a Merit Badge</title>

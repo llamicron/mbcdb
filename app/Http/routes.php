@@ -22,13 +22,14 @@ Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
 
 // -------------------- COUNSELOR SORTING --------------------------------------
 // Sort by name is default
-Route::get('/counselors', "CounselorsController@sortByName");
+// This route is a reidrect to home.  Originally the 'home' route was '/counselors',
+// but i decided to change it to this because it is easier for the user
+Route::get('/counselors', 'CounselorsController@home');
+Route::get('/home', 'CounselorsController@sortByName');
 
-Route::get('/counselors/sortByName', 'CounselorsController@sortByName');
+Route::get('/sortByDistrict', 'CounselorsController@sortByDistrict');
 
-Route::get('/counselors/sortByDistrict', 'CounselorsController@sortByDistrict');
-
-Route::get('/counselors/sortByTroop', 'CounselorsController@sortByTroop');
+Route::get('/sortByTroop', 'CounselorsController@sortByTroop');
 
 
 // --------------------- BADGE FUNCTIONS ---------------------------------------
@@ -57,4 +58,4 @@ Route::get('/sandbox/navbar', 'SandboxController@navbar');
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// sortByName is default for the home page.  Think of it like an 'index' method
