@@ -4,6 +4,14 @@
   <title>All Counselors</title>
 @endsection
 
+@section('navbar-left')
+  <li><a href="/counselors/add">Add a Counselor</a></li>
+@endsection
+
+@section('navbar-right')
+  <li><a href="#test">Test</a></li>
+@endsection
+
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset">
