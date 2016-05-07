@@ -11,6 +11,14 @@ use App\Http\Requests;
 
 class CounselorsController extends Controller {
 
+    public function __contruct()
+    {
+      $this->middleware('auth', ['except' => [
+          // Methods that you don't want to authenticate
+        ]]);
+    }
+
+
 // ----------------- counselors/index view sorting functions ----------------------
     public function sortByName() {
       $counselors = Counselor::orderBy('last_name', 'ASC')->get();

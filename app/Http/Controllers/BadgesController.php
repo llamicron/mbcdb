@@ -10,6 +10,14 @@ use App\Http\Requests;
 
 class BadgesController extends Controller
 {
+
+    public function __contruct()
+    {
+      $this->middleware('auth', ['except' => [
+          // Methods that you don't want to authenticate
+        ]]);
+    }
+
     public function add(Counselor $counselor) {
       $merit_badge_list = Badge::orderBy('name', 'asc')->get();
       return view('badges.add', compact('counselor', 'merit_badge_list'));

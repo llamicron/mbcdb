@@ -25,7 +25,7 @@ Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
 // This route is a reidrect to home.  Originally the 'home' route was '/counselors',
 // but i decided to change it to this because it is easier for the user
 Route::get('/counselors', 'CounselorsController@home');
-Route::get('/home', 'CounselorsController@sortByName');
+Route::get('/home', 'CounselorsController@sortByName')->middleware('auth');
 
 Route::get('/sortByDistrict', 'CounselorsController@sortByDistrict');
 
@@ -58,4 +58,5 @@ Route::get('/sandbox/navbar', 'SandboxController@navbar');
 
 Route::auth();
 
+Route::get('/', function() { return redirect('/login'); });
 // sortByName is default for the home page.  Think of it like an 'index' method

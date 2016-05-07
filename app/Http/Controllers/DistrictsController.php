@@ -10,6 +10,13 @@ use App\Http\Requests;
 class DistrictsController extends Controller
 {
 
+  public function __contruct()
+  {
+    $this->middleware('auth', ['except' => [
+        // Methods that you don't want to authenticate
+      ]]);
+  }
+
   public function add(Counselor $counselor) {
     $districts = District::get();
     return view('districts.add', compact('counselor', 'districts'));
