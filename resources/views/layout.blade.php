@@ -47,6 +47,7 @@
           </div>
         </div>
       </div>
+      {{-- These <br>'s are to keep the content of the page from coliding with the navbar --}}
       <br>
       <br>
     </head>

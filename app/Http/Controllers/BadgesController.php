@@ -18,7 +18,7 @@ class BadgesController extends Controller
     public function store(Counselor $counselor, Request $request) {
       $badge = Badge::find($request->merit_badge);
       $counselor->badges()->save($badge);
-      return redirect("/counselors/{{ $counselor->id }}/show");
+      return redirect("/counselors/$counselor->id/show");
     }
 
     // These two functions are temporary and will be deleted in production.

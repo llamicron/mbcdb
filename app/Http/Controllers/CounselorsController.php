@@ -65,6 +65,11 @@ class CounselorsController extends Controller {
     }
 
     public function update(Counselor $counselor, Request $request) {
+      // i could do something like:
+      //    $counselor->update($request->all());
+      // for simple stuff, but i think this is more descriptive of what i am doing
+      // and gives me more control over what is being passed in to the DB and model
+
       $counselor->first_name = $request->first_name;
       $counselor->last_name = $request->last_name;
       $counselor->address = $request->address;
