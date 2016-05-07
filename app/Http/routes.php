@@ -47,7 +47,14 @@ Route::get('/badges/addBadge', 'BadgesController@addBadge');
 Route::post('/badges/addBadge', 'BadgesController@storeBadge');
 
 
-// ------------------------ SANDBOX ----------------------------------------------
+// ---------------------- SANDBOX ----------------------------------------------
 
 
 Route::get('/sandbox/navbar', 'SandboxController@navbar');
+
+
+// ------------------------- AUTH ----------------------------------------------
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

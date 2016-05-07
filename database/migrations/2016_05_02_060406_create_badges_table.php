@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBadgeTable extends Migration
+class CreateBadgesTable extends Migration
 {
     /**
      * Run the migrations.
