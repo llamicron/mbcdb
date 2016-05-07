@@ -1,12 +1,13 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------------
 | Application Routes
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------------
 */
 
-// ------------------ COUNSELOR FUNCTIONS (CRUD) ------------------------------
+
+// ------------------ COUNSELOR FUNCTIONS (CRUD) -------------------------------
 
 Route::get('/counselors/{counselor}/show', 'CounselorsController@show');
 
@@ -18,7 +19,8 @@ Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
 Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');
 Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
 
-// -------------------- COUNSELOR SORTING -----------------------------------
+
+// -------------------- COUNSELOR SORTING --------------------------------------
 // Sort by name is default
 Route::get('/counselors', "CounselorsController@sortByName");
 
@@ -27,10 +29,14 @@ Route::get('/counselors/sortByName', 'CounselorsController@sortByName');
 Route::get('/counselors/sortByDistrict', 'CounselorsController@sortByDistrict');
 
 Route::get('/counselors/sortByTroop', 'CounselorsController@sortByTroop');
-// --------------------- BADGE FUNCTIONS ------------------------------------
+
+
+// --------------------- BADGE FUNCTIONS ---------------------------------------
 
 Route::get('/counselors/{counselor}/badges/add', 'BadgesController@add');
 Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
+
+
 
 // --------------------- DISTRICT FUNCTIONS ------------------------------------
 
@@ -39,3 +45,9 @@ Route::patch('/counselors/{counselor}/districts/add', 'DistrictsController@store
 
 Route::get('/badges/addBadge', 'BadgesController@addBadge');
 Route::post('/badges/addBadge', 'BadgesController@storeBadge');
+
+
+// ------------------------ SANDBOX ----------------------------------------------
+
+
+Route::get('/sandbox/navbar', 'SandboxController@navbar');

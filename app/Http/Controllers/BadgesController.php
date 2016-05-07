@@ -21,6 +21,8 @@ class BadgesController extends Controller
       return redirect("/counselors/{{ $counselor->id }}/show");
     }
 
+    // These two functions are temporary and will be deleted in production.
+    // They are only for me to add merit badges to the database faster if i need to.
     public function addBadge()
     {
       return view('/badges/addBadge');
@@ -36,4 +38,5 @@ class BadgesController extends Controller
       $badge->save();
       return redirect('/badges/addBadge');
     }
+    // </temp functions>
 }
