@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+{{--
+// I feel like i should add how to use my layout file.  not sure if this is standard or not.
+// The current yields() are:
+//
+//
+//    * Head         - self explainatory.  If you need anything in the <head> tags, put it in this yield
+//
+//    * Content      - self explainatory again.  Contains al content in the <body> tags
+//
+//    * navbar-left  - If you want an item in the navbar, put it in this yield or the following.  This will align
+//                     the item to the left, on the right side of the 'MBCDB' and 'Home' items.
+//
+//    * navbar-right - Does the same as above, but will align to the right.  It will place the items on the left side
+//                     of the 'Logout' item.
+//
+// Thank you for your patience.  I will update this if i add a new yield(), unless I forget.
+// Oh wait...
+// TODO: Add comment to the layout file when you add a new yield()
+//
+// P.S. I had made a custom layout file before i learned about auth.  This is the built in Auth layout file that i have
+// edited to fit with all of my views.  The above comments should still apply, but use with caution.
+//
+--}}
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -26,6 +50,9 @@
     </style>
 </head>
 <body id="app-layout">
+
+
+  {{-- NAVBAR --}}
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -47,12 +74,15 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
+                  {{-- Navbar Left yield --}}
                     @yield('navbar-left')
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                  {{-- Navbar Right yield --}}
                   @yield('navbar-right')
+
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
@@ -72,12 +102,17 @@
             </div>
         </div>
     </nav>
+{{-- END NAVBAR --}}
 
-    @yield('content')
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+
+    @yield('content')
+    
 </body>
 </html>
