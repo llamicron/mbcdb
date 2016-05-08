@@ -9,11 +9,9 @@ use App\Http\Requests;
 class SandboxController extends Controller
 {
 
-    public function __contruct()
+    public function __construct()
     {
-      $this->middleware('auth', ['except' => [
-          // Methods that you don't want to authenticate
-        ]]);
+      $this->middleware('auth');
     }
 
     public function navbar()
