@@ -7,7 +7,7 @@
 @section('content')
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1>Add a Merit Badge to {{ $counselor->first_name . " " . $counselor->last_name }}</h1>
+      <h2>Which Merit Badges Does {{ $counselor->first_name . " " . $counselor->last_name }} Teach?</h2>
 
         <form class="form-group" action="/counselors/{{ $counselor->id }}/badges/add" method="post">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">

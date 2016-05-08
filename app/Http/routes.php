@@ -24,6 +24,7 @@ Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
 // Sort by name is default
 // This route is a reidrect to home.  Originally the 'home' route was '/counselors',
 // but i decided to change it to this because it is easier for the user
+Route::get('/', 'CounselorsController@home');
 Route::get('/counselors', 'CounselorsController@home');
 Route::get('/home', 'CounselorsController@sortByName');
 
@@ -57,6 +58,3 @@ Route::get('/sandbox/navbar', 'SandboxController@navbar');
 // ------------------------- AUTH ----------------------------------------------
 
 Route::auth();
-
-Route::get('/', function() { return redirect('/login'); });
-// sortByName is default for the home page.  Think of it like an 'index' method

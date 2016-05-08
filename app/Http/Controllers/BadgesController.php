@@ -16,6 +16,9 @@ class BadgesController extends Controller
       $this->middleware('auth');
     }
 
+    // These functions are for adding a badge to the counselor, not adding a badge to the DB
+    // All badges are static and shouldn't have to be updated.  If new ones are added, then i will add
+    // them manually.
     public function add(Counselor $counselor) {
       $merit_badge_list = Badge::orderBy('name', 'asc')->get();
       return view('badges.add', compact('counselor', 'merit_badge_list'));
@@ -27,22 +30,4 @@ class BadgesController extends Controller
       return redirect("/counselors/$counselor->id/show");
     }
 
-    // These two functions are temporary and will be deleted in production.
-    // They are only for me to add merit badges to the database faster if i need to.
-    public function addBadge()
-    {
-      return view('/badges/addBadge');
-    }
-
-    public function storeBadge(Request $request)
-    {
-      $badge = new Badge;
-
-      $badge->name = $request->name;
-      $badge->code = $request->code;
-
-      $badge->save();
-      return redirect('/badges/addBadge');
-    }
-    // </temp functions>
 }
