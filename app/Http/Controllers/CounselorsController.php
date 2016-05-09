@@ -34,6 +34,11 @@ class CounselorsController extends Controller {
       return view('counselors.index', compact('counselors'));
     }
 
+    public function sortByCouncil()
+    {
+      //$counselors = Counselor::orderBy('')
+    }
+
 // ----------------- Counselors CRUD ------------------------------------
     public function add() {
       return view('counselors.add');

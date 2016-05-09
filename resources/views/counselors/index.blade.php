@@ -20,7 +20,7 @@
           </div>
           All Counselors
         </h2>
-        
+
         <div class="text-center">
           <i>Click a column name to sort</i>
         </div>
@@ -36,7 +36,7 @@
             <th><a href="/counselors/sortByName">Name</a></th>
             <th><a href="/counselors/sortByTroop">Troop</a></th>
             <th><a href="/counselors/sortByDistrict">District</a></th>
-            <th>Badges</th>
+            <th><a href="/counselors/sortByCouncil">Council</a></th>
           </tr>
 
         </thead>
@@ -44,16 +44,18 @@
           @foreach($counselors as $counselor)
             <?php $badges = $counselor->badges; ?>
             <?php $district = $counselor->district; ?>
+            <?php $council = $district->council ?>
           <tr>
-            <td><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name}} {{ $counselor->last_name }}</a></td>
-            <td>{{ $counselor->unit_num }}</td>
-              <td>{{ $district['name'] }}</td>
             <td>
-              @foreach ($badges as $badge)
-                {{ $badge->name . ", " }}
-              @endforeach
+              <a href="/counselors/{{ $counselor->id }}/show">
+                {{ $counselor->first_name}} {{ $counselor->last_name }}
+              </a>
             </td>
+            <td> {{ $counselor->unit_num }} </td>
+            <td> {{ $district->name }}    </td>
+            <td> {{ $council->name }}       </td>
           </tr>
+
         @endforeach
         </tbody>
 

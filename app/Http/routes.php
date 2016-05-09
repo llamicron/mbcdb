@@ -22,7 +22,7 @@ Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
 
 // -------------------- COUNSELOR SORTING --------------------------------------
 // Sort by name is default
-// This route is a reidrect to home.  Originally the 'home' route was '/counselors',
+// This route is a redirect to home.  Originally the 'home' route was '/counselors',
 // but i decided to change it to this because it is easier for the user
 Route::get('/', 'CounselorsController@home');
 Route::get('/counselors', 'CounselorsController@home');
@@ -31,6 +31,8 @@ Route::get('/home', 'CounselorsController@sortByName');
 Route::get('/sortByDistrict', 'CounselorsController@sortByDistrict');
 
 Route::get('/sortByTroop', 'CounselorsController@sortByTroop');
+
+Route::get('/sortByCouncil', 'CounselorsController@sortByCouncil');
 
 
 // --------------------- BADGE FUNCTIONS ---------------------------------------
