@@ -16,7 +16,9 @@
               {{-- <HEADER> --}}
         <h2>
           <div class="pull-right">
-            <button type="button" class="btn btn-primary" onClick="location='/counselors/add'" name="add_counselor">Add a Counselor</button>
+            <button type="button" class="btn btn-primary" onClick="location='/counselors/add'" name="add_counselor">
+              Add a Counselor
+            </button>
           </div>
           All Counselors
         </h2>
@@ -33,18 +35,24 @@
         <thead>
 
           <tr>
-            <th><a href="/counselors/sortByName">Name</a></th>
-            <th><a href="/counselors/sortByTroop">Troop</a></th>
-            <th><a href="/counselors/sortByDistrict">District</a></th>
-            <th><a href="/counselors/sortByCouncil">Council</a></th>
+            <th><a href="/home">Name</a></th>
+            <th><a href="/sortByTroop">Troop</a></th>
+            <th><a href="/sortByDistrict">District</a></th>
+            <th><a href="#">Council</a></th>
           </tr>
 
         </thead>
         <tbody>
+
           @foreach($counselors as $counselor)
-            <?php $badges = $counselor->badges; ?>
-            <?php $district = $counselor->district; ?>
-            <?php $council = $district->council ?>
+            <?php
+               // This PHP must be nested inside the foreach loop.  I am probably not doing this right,
+               // and i think i should put this in the controller, but i dont know how
+               // becuase we haven't pulled the induvidual counselors out of the Eloquent collection
+               $badges = $counselor->badges;
+               $district = $counselor->district;
+               $council = $district->council
+             ?>
           <tr>
             <td>
               <a href="/counselors/{{ $counselor->id }}/show">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Counselor;
 use App\Badge;
+use App\Council;
 use DB;
 use App\Http\Requests;
 
@@ -32,11 +33,6 @@ class CounselorsController extends Controller {
       // THANK YOU BESTMOMO!
       $counselors = Counselor::orderBy(DB::raw('LENGTH(unit_num), unit_num'))->get();
       return view('counselors.index', compact('counselors'));
-    }
-
-    public function sortByCouncil()
-    {
-      //$counselors = Counselor::orderBy('')
     }
 
 // ----------------- Counselors CRUD ------------------------------------
