@@ -22,21 +22,26 @@
 
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-              <input class="form-control" type="text" name="first_name" placeholder="First Name"><br>
-              <input class="form-control" type="text" name="last_name" placeholder="Last Name"><br>
-              <input class="form-control" type="text" name="address" placeholder="Address"><br>
-              <input class="form-control" type="text" name="city" placeholder="City"><br>
-              <input class="form-control" type="text" name="state" placeholder="State"><br>
-              <input class="form-control" type="text" name="zip" placeholder="Zip"><br>
+              <div class="form-inline">
+                <input class="form-control" style=" width: 45%" type="text" name="first_name" placeholder="First Name">&nbsp;&nbsp;
+                <input class="form-control" style=" width: 53%" type="text" name="last_name" placeholder="Last Name">
+              </div>
+              <br>
+              <div class="form-inline">
+                <input class="form-control" style=" width: 41%" type="text" name="address" placeholder="Address">
+                <input class="form-control" style=" width: 25%" type="text" name="city" placeholder="City">
+                <input class="form-control" style=" width: 16%" type="text" name="state" placeholder="State">
+                <input class="form-control" style=" width: 16%" type="text" name="zip" placeholder="Zip">
+                <br>
+              </div>
+              <br>
               <input class="form-control" type="text" name="email" placeholder="Email"><br>
               <input class="form-control" type="text" name="primary_phone" placeholder="Primary Phone"><br>
               <input class="form-control" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
               <input class="form-control" type="text" name="unit_num" placeholder="Unit Number"><br>
               <input class="form-control" type="text" name="bsa_id" placeholder="BSA ID"><br>
-              <button type="submit" class="btn btn-primary form-control" name="submit">Submit</button>
-              <br><br>
-              <button type="button" class="btn btn-danger form-control" onClick="location='/home'" name="cancel">Cancel</button>
-
+              <button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
+              <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>
           </form>
       </div>
     </div>

@@ -6,30 +6,34 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-3 col-md-offset-1">
-      <h1>Add a Counselor</h1>
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Edit {{ $counselor->first_name . " " . $counselor->last_name}}</h1>
 
-        <form class="form-group" action="/counselors/{{ $counselor->id }}/edit" method="post">
-          {!! method_field('PATCH') !!}
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <form class="form-group" action="/counselors/{{ $counselor->id }}/edit" method="post">
+        <input type="hidden" name="_method" value="PATCH">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-              <input value="{{ $counselor->first_name }}" class="form-control" type="text" name="first_name" placeholder="First Name"><br>
-              <input value="{{ $counselor->last_name }}" class="form-control" type="text" name="last_name" placeholder="Last Name"><br>
-              <input value="{{ $counselor->address }}" class="form-control" type="text" name="address" placeholder="Address"><br>
-              <input value="{{ $counselor->city }}" class="form-control" type="text" name="city" placeholder="City"><br>
-              <input value="{{ $counselor->state }}" class="form-control" type="text" name="state" placeholder="State"><br>
-              <input value="{{ $counselor->zip }}" class="form-control" type="text" name="zip" placeholder="Zip"><br>
-              <input value="{{ $counselor->email }}" class="form-control" type="text" name="email" placeholder="Email"><br>
-              <input value="{{ $counselor->primary_phone }}" class="form-control" type="text" name="primary_phone" placeholder="Primary Phone"><br>
-              <input value="{{ $counselor->secondary_phone }}" class="form-control" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
-              <input value="{{ $counselor->unit_num }}" class="form-control" type="text" name="unit_num" placeholder="Unit Number"><br>
-              <input value="{{ $counselor->bsa_id }}" class="form-control" type="text" name="bsa_id" placeholder="BSA ID"><br>
-              <input value="{{ $counselor->unit_only }}" type="checkbox" name="unit_only" value="1">&nbsp;Unit only?<br>
-              <hr>
-              <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-              <input type="button" class="btn btn-danger float-right" name="cancel" value="Cancel" onClick="location='/counselors'">
-
-        </form>
+          <div class="form-inline">
+            <input class="form-control" value="{{ $counselor->first_name }}" style=" width: 45%" type="text" name="first_name" placeholder="First Name">&nbsp;&nbsp;
+            <input class="form-control" value="{{ $counselor->last_name }}" style=" width: 53%" type="text" name="last_name" placeholder="Last Name">
+          </div>
+          <br>
+          <div class="form-inline">
+            <input class="form-control" value="{{ $counselor->address }}" style=" width: 41%" type="text" name="address" placeholder="Address">
+            <input class="form-control" value="{{ $counselor->city }}" style=" width: 25%" type="text" name="city" placeholder="City">
+            <input class="form-control" value="{{ $counselor->state }}" style=" width: 16%" type="text" name="state" placeholder="State">
+            <input class="form-control" value="{{ $counselor->zip }}" style=" width: 16%" type="text" name="zip" placeholder="Zip">
+            <br>
+          </div>
+          <br>
+          <input class="form-control" value="{{ $counselor->email }}" type="text" name="email" placeholder="Email"><br>
+          <input class="form-control" value="{{ $counselor->primary_phone }}" type="text" name="primary_phone" placeholder="Primary Phone"><br>
+          <input class="form-control" value="{{ $counselor->secondary_phone }}" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
+          <input class="form-control" value="{{ $counselor->unit_num }}" type="text" name="unit_num" placeholder="Unit Number"><br>
+          <input class="form-control" value="{{ $counselor->bsa_id }}" type="text" name="bsa_id" placeholder="BSA ID"><br>
+          <button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
+          <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>
+      </form>
     </div>
   </div>
 @endsection

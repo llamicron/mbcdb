@@ -20,6 +20,9 @@ Route::get('/about', 'PagesController@about');
   Route::get('/counselors/add', 'CounselorsController@add');
   Route::post('/counselors/add', 'CounselorsController@store');
 
+  Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');
+  Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
+
 Route::get('/', 'CounselorsController@home');
 Route::get('/counselors', 'CounselorsController@home');
 Route::get('/home', 'CounselorsController@sortByName');
@@ -39,8 +42,6 @@ Route::get('/counselors/{counselor}/show', 'CounselorsController@show');
 
 Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
 
-Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');
-Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
 
 
 // --------------------- BADGE FUNCTIONS ---------------------------------------

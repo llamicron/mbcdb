@@ -4,16 +4,22 @@
   <title>All Counselors</title>
 @endsection
 
+{{-- $context variable is passed from CounselorsController.  It's set to "userCounselors" when you click the link below
+to view the authed user's counselors --}}
+
 @section('navbar-left')
+  @if(isset($context) && $context == 'userCounselors')
+    <li><a href="/home">All Counselors</a></li>
+  @else
+    <li><a href="/counselors/{{ $user->id }}">Your Counselors</a></li>
+  @endif
   <li><a href="/counselors/add">Add a Counselor</a></li>
-  <li><a href="/counselors/{{ $user->id }}">Your Counselors</a></li>
 @endsection
 
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset">
     <div class="container">
-
               {{-- <HEADER> --}}
         <h2>
           <div class="pull-right">
@@ -71,6 +77,7 @@
           </tr>
 
         @endforeach
+
         </tbody>
 
       </table>

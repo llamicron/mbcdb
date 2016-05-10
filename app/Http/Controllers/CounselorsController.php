@@ -90,7 +90,7 @@ class CounselorsController extends Controller {
       // i could do something like:
       //    $counselor->update($request->all());
       // for simple stuff, but i think this is more descriptive of what i am doing
-      // and gives me more control over what is being passed in to the DB and model
+      // and gives me more control over what is being passed in to the DB 
 
 
       $counselor->first_name = $request->first_name;
