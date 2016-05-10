@@ -82,15 +82,21 @@ class CounselorsController extends Controller {
     }
 
     public function remove(Counselor $counselor) {
+      $user = User::find(\Auth::user()->id);
+      if ($counselor->user_id != $user->id) {
+        abort(403);
+      }
       $counselor->delete();
       return redirect('/counselors');
     }
 
     public function update(Counselor $counselor, Request $request) {
       // i could do something like:
+      //
       //    $counselor->update($request->all());
+      //
       // for simple stuff, but i think this is more descriptive of what i am doing
-      // and gives me more control over what is being passed in to the DB 
+      // and gives me more control over what is being passed in to the DB
 
 
       $counselor->first_name = $request->first_name;
@@ -113,6 +119,10 @@ class CounselorsController extends Controller {
     }
 
     public function edit(Counselor $counselor) {
+      $user = User::find(\Auth::user()->id);
+      if ($counselor->user_id != $user->id) {
+        abort(403);
+      }
       return view('/counselors/edit', compact('counselor'));
     }
 
