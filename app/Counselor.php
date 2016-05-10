@@ -15,4 +15,10 @@ class Counselor extends Model
   {
     return $this->belongsTo('App\District');
   }
+
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
+
 }

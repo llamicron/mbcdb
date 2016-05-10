@@ -7,6 +7,7 @@ use App\Counselor;
 use App\Badge;
 use App\Council;
 use DB;
+use App\User;
 use App\Http\Requests;
 
 
@@ -20,19 +21,30 @@ class CounselorsController extends Controller {
 
 // ----------------- counselors/index view sorting functions ----------------------
     public function sortByName() {
+      // bad form
+      $user = User::find(\Auth::user()->id);
       $counselors = Counselor::orderBy('last_name', 'ASC')->get();
-      return view('counselors.index', compact('counselors'));
+      return view('counselors.index', compact('counselors', 'user'));
     }
 
     public function sortByDistrict() {
+      $user = User::find(\Auth::user()->id);
       $counselors = Counselor::orderBy('district_id', 'DESC')->get();
-      return view('counselors.index', compact('counselors'));
+      return view('counselors.index', compact('counselors', 'user'));
     }
 
     public function sortByTroop() {
+      $user = User::find(\Auth::user()->id);
       // THANK YOU BESTMOMO!
       $counselors = Counselor::orderBy(DB::raw('LENGTH(unit_num), unit_num'))->get();
-      return view('counselors.index', compact('counselors'));
+      return view('counselors.index', compact('counselors', 'user'));
+    }
+
+    public function userCounselors(User $user)
+    {
+      $context = 'userCounselors';
+      $counselors = $user->counselors;
+      return view('counselors.index', compact('counselors', 'user', 'context'));
     }
 
 // ----------------- Counselors CRUD ------------------------------------

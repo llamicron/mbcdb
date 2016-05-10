@@ -32,6 +32,7 @@ Route::get('/sortByDistrict', 'CounselorsController@sortByDistrict');
 
 Route::get('/sortByTroop', 'CounselorsController@sortByTroop');
 
+Route::get('/counselors/{user}', 'CounselorsController@userCounselors');
 
 // --------------------- BADGE FUNCTIONS ---------------------------------------
 

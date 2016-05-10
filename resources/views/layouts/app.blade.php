@@ -15,8 +15,8 @@
 //                     of the 'Logout' item.
 //
 // Thank you for your patience.  I will update this if i add a new yield(), unless I forget.
-// Oh wait...
-// TODO: Add comment to the layout file when you add a new yield()
+//
+// Add comment to the layout file when you add a new yield()
 //
 // P.S. I had made a custom layout file before i learned about auth.  This is the built in Auth layout file that i have
 // edited to fit with all of my views.  The above comments should still apply, but use with caution.

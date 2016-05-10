@@ -6,6 +6,7 @@
 
 @section('navbar-left')
   <li><a href="/counselors/add">Add a Counselor</a></li>
+  <li><a href="/counselors/{{ $user->id }}">Your Counselors</a></li>
 @endsection
 
 @section('content')
@@ -20,11 +21,16 @@
               Add a Counselor
             </button>
           </div>
-          All Counselors
+          {{-- checks context --}}
+          @if(isset($context) && $context == "userCounselors")
+            Your Counselors
+          @else
+            All Counselors
+          @endif
         </h2>
 
         <div class="text-center">
-          <i>Click a column blame to sort</i>
+          <i>Click a column name to sort</i>
         </div>
               {{-- </HEADER> --}}
 
