@@ -17,10 +17,10 @@
                 <option value="{{ $merit_badge->id }}">{{ $merit_badge->name }}</option>
               @endforeach
             </select>
-
             <br>
-            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-            <input type="button" class="btn btn-danger" name="cancel" value="Cancel" onClick="location='/counselors'">
+            <input type="submit" class="btn btn-primary form-control" name="submit" value="Submit"><br>
+            <br>
+            <input type="button" class="btn btn-danger form-control" name="cancel" value="Cancel" onClick="location='/counselors'"><br>
 
         </form>
     </div>

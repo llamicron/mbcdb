@@ -53,12 +53,14 @@ class CounselorsController extends Controller {
     }
 
     public function show(Counselor $counselor) {
+      $user = User::find(\Auth::user()->id);
       $badges = $counselor->badges;
-      return view('counselors.show', compact('counselor', 'badges'));
+      return view('counselors.show', compact('counselor', 'badges', 'user'));
     }
 
     public function store(Request $request) {
       $counselor = new Counselor;
+      $user = User::find(\Auth::user()->id);
 
       // Instantiating the counselor
       $counselor->first_name = $request->first_name;
@@ -75,6 +77,7 @@ class CounselorsController extends Controller {
       $counselor->unit_only = 0;
 
       $counselor->save();
+      $user->counselors()->save($counselor);
       return redirect()->action('DistrictsController@add', compact('counselor'));
     }
 
@@ -88,6 +91,7 @@ class CounselorsController extends Controller {
       //    $counselor->update($request->all());
       // for simple stuff, but i think this is more descriptive of what i am doing
       // and gives me more control over what is being passed in to the DB and model
+
 
       $counselor->first_name = $request->first_name;
       $counselor->last_name = $request->last_name;
@@ -103,6 +107,8 @@ class CounselorsController extends Controller {
       $counselor->unit_only = $request->unit_only;
 
       $counselor->save();
+
+
       return redirect('/counselors');
     }
 

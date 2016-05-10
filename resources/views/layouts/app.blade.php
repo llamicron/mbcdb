@@ -44,17 +44,35 @@
             font-family: 'Lato';
         }
 
-        .copyright {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          text-align: left;
-          font-style: italic;
-          font-size: 5;
+        html, body {height: 100%;}
+
+        #wrap {min-height: 100%;}
+
+        #main {overflow:auto;
+        	padding-bottom: 150px;}  /* must be same height as the footer */
+
+        #footer {position: relative;
+        	margin-top: -15px; /* negative value of footer height */
+        	height: 15px;
+        	clear:both;}
+
+        /*Opera Fix*/
+        body:before {
+        	content:"";
+        	height:100%;
+        	float:left;
+        	width:0;
+        	margin-top:-32767px;/
         }
+
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        p.about {
+          font-size: 18px;
+
         }
     </style>
 </head>
@@ -91,7 +109,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   {{-- Navbar Right yield --}}
                   @yield('navbar-right')
-
+                  <li><a href="/about">About</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
@@ -121,9 +139,16 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 
+<div id="wrap">
+  <div id="main">
     @yield('content')
-<div class="copyright">
-  &nbsp;MBCDB | Luke Sweeney | 2016
+  </div>
 </div>
+    <div id="footer">
+      &nbsp;MBCDB | Luke Sweeney | 2016
+      <div class="pull-right">
+        <i><a href="https://laravel.com/">Made with Laravel&nbsp;</a></i>
+      </div>
+    </div>
 </body>
 </html>

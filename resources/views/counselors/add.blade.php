@@ -33,9 +33,9 @@
               <input class="form-control" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
               <input class="form-control" type="text" name="unit_num" placeholder="Unit Number"><br>
               <input class="form-control" type="text" name="bsa_id" placeholder="BSA ID"><br>
-              <hr>
-              <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-              <input type="button" class="btn btn-danger float-right" name="cancel" value="Cancel" onClick="location='/counselors'">
+              <button type="submit" class="btn btn-primary form-control" name="submit">Submit</button>
+              <br><br>
+              <button type="button" class="btn btn-danger form-control" onClick="location='/home'" name="cancel">Cancel</button>
 
           </form>
       </div>
