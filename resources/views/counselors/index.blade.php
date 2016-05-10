@@ -24,7 +24,7 @@
         </h2>
 
         <div class="text-center">
-          <i>Click a column name to sort</i>
+          <i>Click a column blame to sort</i>
         </div>
               {{-- </HEADER> --}}
 

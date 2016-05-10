@@ -44,6 +44,15 @@
             font-family: 'Lato';
         }
 
+        .copyright {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: left;
+          font-style: italic;
+          font-size: 5;
+        }
+
         .fa-btn {
             margin-right: 6px;
         }
@@ -113,6 +122,8 @@
 
 
     @yield('content')
-    
+<div class="copyright">
+  &nbsp;MBCDB | Luke Sweeney | 2016
+</div>
 </body>
 </html>

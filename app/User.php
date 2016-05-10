@@ -24,8 +24,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function isAdmin(User $user)
-    {
+
+    public function isAdmin(User $user) {
       if ($user->isAdmin == 1) {
           return true;
       } else {
