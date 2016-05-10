@@ -83,9 +83,13 @@ class CounselorsController extends Controller {
 
     public function remove(Counselor $counselor) {
       $user = User::find(\Auth::user()->id);
-      if ($counselor->user_id != $user->id) {
-        abort(403);
-      }
+        if ($user->isAdmin) {
+          // pass
+        } else {
+          if ($counselor->user_id != $user->id) {
+            return view('errors.notOwner');
+          }
+        }
       $counselor->delete();
       return redirect('/counselors');
     }
@@ -120,9 +124,14 @@ class CounselorsController extends Controller {
 
     public function edit(Counselor $counselor) {
       $user = User::find(\Auth::user()->id);
-      if ($counselor->user_id != $user->id) {
-        abort(403);
-      }
+      $user = User::find(\Auth::user()->id);
+        if ($user->isAdmin) {
+          // pass
+        } else {
+          if ($counselor->user_id != $user->id) {
+            return view('errors.notOwner');
+          }
+        }
       return view('/counselors/edit', compact('counselor'));
     }
 
