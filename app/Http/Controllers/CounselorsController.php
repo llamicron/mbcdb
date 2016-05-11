@@ -59,8 +59,25 @@ class CounselorsController extends Controller {
     }
 
     public function store(Request $request) {
+
+      $this->validate($request, [
+        'first_name'        => 'required',
+        'last_name'         => 'required',
+        'address'           => 'required',
+        'city'              => 'required',
+        'state'             => 'required',
+        'zip'               => 'required',
+        'email'             => 'email',
+        'primary_phone'     => 'required',
+        'secondary_phone'   => 'required',
+        'unit_num'          => 'required',
+        'bsa_id'            => 'required',
+      ]);
+
+
       $counselor = new Counselor;
       $user = User::find(\Auth::user()->id);
+
 
       // Instantiating the counselor
       $counselor->first_name = $request->first_name;

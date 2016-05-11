@@ -20,29 +20,39 @@
 
           <form class="form-group" action="/counselors/add" method="post">
 
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            {{ csrf_field() }}
 
               <div class="form-inline">
-                <input class="form-control" style=" width: 45%" type="text" name="first_name" placeholder="First Name">&nbsp;&nbsp;
-                <input class="form-control" style=" width: 53%" type="text" name="last_name" placeholder="Last Name">
+                <input class="form-control" style=" width: 45%" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="First Name">&nbsp;&nbsp;
+                <input class="form-control" style=" width: 53%" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name">
               </div>
               <br>
               <div class="form-inline">
-                <input class="form-control" style=" width: 41%" type="text" name="address" placeholder="Address">
-                <input class="form-control" style=" width: 25%" type="text" name="city" placeholder="City">
-                <input class="form-control" style=" width: 16%" type="text" name="state" placeholder="State">
-                <input class="form-control" style=" width: 16%" type="text" name="zip" placeholder="Zip">
+                <input class="form-control" style=" width: 41%" type="text" name="address" value="{{ old('address') }}" placeholder="Address">
+                <input class="form-control" style=" width: 25%" type="text" name="city" value="{{ old('city') }}" placeholder="City">
+                <input class="form-control" style=" width: 16%" type="text" name="state" value="{{ old('state') }}" placeholder="State">
+                <input class="form-control" style=" width: 16%" type="text" name="zip" value="{{ old('zip') }}" placeholder="Zip">
                 <br>
               </div>
               <br>
-              <input class="form-control" type="text" name="email" placeholder="Email"><br>
-              <input class="form-control" type="text" name="primary_phone" placeholder="Primary Phone"><br>
-              <input class="form-control" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
-              <input class="form-control" type="text" name="unit_num" placeholder="Unit Number"><br>
-              <input class="form-control" type="text" name="bsa_id" placeholder="BSA ID"><br>
+              <input class="form-control" type="text" name="email" value="{{ old('email') }}" placeholder="Email"><br>
+              <input class="form-control" type="text" name="primary_phone" value="{{ old('primary_phone') }}" placeholder="Primary Phone"><br>
+              <input class="form-control" type="text" name="secondary_phone" value="{{ old('secondary_phone') }}" placeholder="Secondary Phone"><br>
+              <input class="form-control" type="text" name="unit_num" value="{{ old('unit_num') }}" placeholder="Unit Number"><br>
+              <input class="form-control" type="text" name="bsa_id" value="{{ old('bsa_id') }}" placeholder="BSA ID"><br>
               <button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
               <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>
           </form>
+
+         <div class="alert alert-danger">
+            @if(count($errors))
+                <ul>
+                  @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+            @endif
+          </div>
       </div>
     </div>
 @endsection

@@ -34,6 +34,14 @@
           <button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
           <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>
       </form>
+
+      @if(count($errors))
+          <ul>
+            @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+      @endif
     </div>
   </div>
 @endsection
