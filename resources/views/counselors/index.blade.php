@@ -51,6 +51,7 @@ to view the authed user's counselors --}}
             <th><a href="/sortByTroop">Troop</a></th>
             <th><a href="/sortByDistrict">District</a></th>
             <th><a href="#">Council</a></th>
+            <th></th>
           </tr>
 
         </thead>
@@ -74,6 +75,11 @@ to view the authed user's counselors --}}
             <td> {{ $counselor->unit_num }} </td>
             <td> {{ $district->name }}    </td>
             <td> {{ $council->name }}       </td>
+            <td>
+              <div class="pull-right">
+                <button type="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/show'" name="view">View</button>
+              </div>
+            </td>
           </tr>
 
         @endforeach

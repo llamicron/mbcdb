@@ -20,7 +20,9 @@
             <h3>{{ $counselor->first_name }} {{ $counselor->last_name }}</h3><br>
             Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
             Primary Phone: {{ $counselor->primary_phone }}<br>
-            Secondary Phone: {{ $counselor->secondary_phone }}<br>
+            @if(isset($counselor->secondary))
+              Secondary Phone: {{ $counselor->secondary_phone }}<br>
+            @endif
             <br>
             Troop {{ $counselor->unit_num }}<br>
               {{ $counselor->district->name }} District<br>

@@ -65,13 +65,8 @@ class CounselorsController extends Controller {
       $this->validate($request, [
         'first_name'        => 'required',
         'last_name'         => 'required',
-        'address'           => 'required',
-        'city'              => 'required',
-        'state'             => 'required',
-        'zip'               => 'required',
         'email'             => 'email',
         'primary_phone'     => 'required',
-        'secondary_phone'   => 'required',
         'unit_num'          => 'required',
         'bsa_id'            => 'required',
         'district'          => 'required',

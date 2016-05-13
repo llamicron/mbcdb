@@ -44,9 +44,14 @@
 
 
     <style>
+
         body {
             font-family: 'Yantramanav';
             /*font-family: 'Lato';*/
+        }
+
+        .font {
+          font-size: 1.1em;
         }
 
         html, body {height: 100%;}
@@ -152,7 +157,11 @@
 
 <div id="wrap">
   <div id="main">
-    @yield('content')
+    <div class="font">
+      @yield('content')
+    </div>
+
+    <!-- Echoing flashed status -->
     @if(Session::has('status'))
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -163,6 +172,7 @@
         </div>
       </div>
     @endif
+
   </div>
 </div>
     <div id="footer">

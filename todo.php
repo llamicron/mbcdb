@@ -4,3 +4,4 @@
 // TODO: Database cleaning???
 // FIXME: If a counselor doesnt have a set district, it won't display the 'counselors/index' page at all.  I would set a default district.  Maybe create a new 'no' district.
 // IDEA: Add pagination to 'counselors/index'
+// TODO: Make error massage (especially duplicate messages) look pretty

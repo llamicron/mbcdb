@@ -21,6 +21,7 @@
             <input type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit" value="Submit">
             <input type="button" class="btn btn-danger form-control" style=" width: 49%" name="cancel" value="Cancel" onClick="location='/counselors'"><br>
 
+
         </form>
     </div>
   </div>
