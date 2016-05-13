@@ -1,3 +1,6 @@
-<?php // TODO: Add verification for all form.  I will add a fixme note to all the forms that still need verification, but i might miss some.  probably will
- // example: // FIXME: verification
+<?php
+// TODO: Add a 'set as admin' tool for you
+// TODO: Add succes and failure messages
 // TODO: Database cleaning???
+// FIXME: If a counselor doesnt have a set district, it won't display the 'counselors/index' page at all.  I would set a default district.  Maybe create a new 'no' district.
+// IDEA: Add pagination to 'counselors/index'

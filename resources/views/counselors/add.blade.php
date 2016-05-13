@@ -4,6 +4,7 @@
   <title>Add a Counselor</title>
   {{-- Encrypting the form token so that it will post correctly --}}
   {{-- P.S. This actually isnt the fix. The real fix is the <input name="_token" down there --}}
+  {{-- OR this: {{ csrf_field() }} --}}
   {{-- Just keeping this in for clarity and so future me can see my mistakes --}}
   <?php
   //  $encrypter = app('Illuminate\Encryption\Encrypter');
@@ -11,6 +12,9 @@
   ?>
 @endsection
 
+@section('navbar-left')
+  <li><a href="/home">All Counselors</a></li>
+@endsection
 
 {{-- i will need to add elements to the form to allow counselors to be related to users with Eloquent --}}
 @section('content')
@@ -40,19 +44,25 @@
               <input class="form-control" type="text" name="secondary_phone" value="{{ old('secondary_phone') }}" placeholder="Secondary Phone"><br>
               <input class="form-control" type="text" name="unit_num" value="{{ old('unit_num') }}" placeholder="Unit Number"><br>
               <input class="form-control" type="text" name="bsa_id" value="{{ old('bsa_id') }}" placeholder="BSA ID"><br>
+              <select class="form-control" name="district">
+                @foreach ($districts as $district)
+                  <option value="{{ $district->id }}">{{ $district->name }}</option>
+                @endforeach
+              </select>
+              <hr>e
               <button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
               <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>
           </form>
 
-         <div class="alert alert-danger">
             @if(count($errors))
+              <div class="alert alert-danger">
                 <ul>
                   @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
                   @endforeach
                 </ul>
+              </div>
             @endif
-          </div>
       </div>
     </div>
 @endsection

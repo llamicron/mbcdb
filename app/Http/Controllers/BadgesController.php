@@ -19,6 +19,9 @@ class BadgesController extends Controller
     // These functions are for adding a badge to the counselor, not adding a badge to the DB
     // All badges are static and shouldn't have to be updated.  If new ones are added, then i will add
     // them manually.
+    //
+    // I had built a tool that let me add the badges through the front end, but i commited that with something else,
+    // and had to roll back.  I should improve my git skills...
     public function add(Counselor $counselor) {
       $merit_badge_list = Badge::orderBy('name', 'asc')->get();
       return view('badges.add', compact('counselor', 'merit_badge_list'));
@@ -27,7 +30,9 @@ class BadgesController extends Controller
     public function store(Counselor $counselor, Request $request) {
       $badge = Badge::find($request->merit_badge);
       $counselor->badges()->save($badge);
-      return redirect("/counselors/$counselor->id/show");
+      \Session::flash('status', 'Badge Added');
+      // the "['counselor' => $counselor]" was a total guess.  Can't believe that worked.  I am a genius.
+      return redirect()->action('BadgesController@add', ['counselor' => $counselor]);
     }
 
 }

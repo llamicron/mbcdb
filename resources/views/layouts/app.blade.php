@@ -31,17 +31,22 @@
 
     @yield('head')
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
+    <!-- Fonts -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <!-- Josefin Slab and Yantramanav -->
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,300,300italic,700,700italic|Yantramanav:400,100,700' rel='stylesheet' type='text/css'>
+
+
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'Yantramanav';
+            /*font-family: 'Lato';*/
         }
 
         html, body {height: 100%;}
@@ -74,62 +79,68 @@
           font-size: 18px;
 
         }
+
+        .alert-success {
+          font-family: 'Lato';
+          font-weight: 300;
+        }
     </style>
 </head>
+
 <body id="app-layout">
 
 
   {{-- NAVBAR --}}
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <!-- Collapsed Hamburger -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    MBCDB
-                </a>
-            </div>
+        <!-- Branding Image -->
+        <a class="navbar-brand" href="{{ url('/home') }}">
+          MBCDB
+        </a>
+      </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                  {{-- Navbar Left yield --}}
-                    @yield('navbar-left')
-                </ul>
+      <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <!-- Left Side Of Navbar -->
+        <ul class="nav navbar-nav">
+          {{-- Navbar Left yield --}}
+          @yield('navbar-left')
+        </ul>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                  {{-- Navbar Right yield --}}
-                  @yield('navbar-right')
-                  <li><a href="/about">About</a></li>
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+        <!-- Right Side Of Navbar -->
+        <ul class="nav navbar-nav navbar-right">
+          {{-- Navbar Right yield --}}
+          @yield('navbar-right')
+          <li><a href="/about">About</a></li>
+          <!-- Authentication Links -->
+          @if (Auth::guest())
+            <li><a href="{{ url('/login') }}">Login</a></li>
+            <li><a href="{{ url('/register') }}">Register</a></li>
+          @else
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav>
-{{-- END NAVBAR --}}
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+              </ul>
+            </li>
+          @endif
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {{-- END NAVBAR --}}
 
 
 
@@ -142,6 +153,16 @@
 <div id="wrap">
   <div id="main">
     @yield('content')
+    @if(Session::has('status'))
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ Session::get('status') }}</strong>
+          </div>
+        </div>
+      </div>
+    @endif
   </div>
 </div>
     <div id="footer">

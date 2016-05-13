@@ -1,12 +1,24 @@
 @extends('layouts.app')
 
 @section('head')
-
+  <title>Edit {{ $counselor->first_name . " " . $counselor->last_name }}</title>
 @endsection
 
 @section('content')
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
+
+      <!-- echo errors -->
+        @if(count($errors))
+          <div class="alert alert-danger">
+          <ul>
+            @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
       <h1>Edit {{ $counselor->first_name . " " . $counselor->last_name}}</h1>
 
       <form class="form-group" action="/counselors/{{ $counselor->id }}/edit" method="post">
@@ -34,14 +46,6 @@
           <button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
           <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>
       </form>
-
-      @if(count($errors))
-          <ul>
-            @foreach($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-      @endif
     </div>
   </div>
 @endsection

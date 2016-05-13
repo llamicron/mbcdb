@@ -17,13 +17,11 @@
 
                 <select class="form-control" name="district">
                   @foreach ($districts as $district)
-
                     <option value="{{ $district->name }}">{{ $district->name }}</option>
                   @endforeach
                 </select>
                 <br>
                 <button type="submit" class="btn btn-primary form-control" name="add_district">Add District</button>
-
           </form>
 
 
