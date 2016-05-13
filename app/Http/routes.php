@@ -67,18 +67,17 @@ Route::get('admins/{user}/remove', 'AdminsController@delete');
 
   // --------------------- DISTRICT FUNCTIONS ------------------------------------
 
-  Route::get('/counselors/{counselor}/districts/add', 'DistrictsController@add');
-  Route::patch('/counselors/{counselor}/districts/add', 'DistrictsController@store');
+Route::get('/counselors/{counselor}/districts/add', 'DistrictsController@add');
+Route::patch('/counselors/{counselor}/districts/add', 'DistrictsController@store');
 
-  Route::get('/badges/addBadge', 'BadgesController@addBadge');
-  Route::post('/badges/addBadge', 'BadgesController@storeBadge');
-
-
-  // ---------------------- SANDBOX ----------------------------------------------
+Route::get('/badges/addBadge', 'BadgesController@addBadge');
+Route::post('/badges/addBadge', 'BadgesController@storeBadge');
 
 
-  Route::get('/sandbox/navbar', 'SandboxController@navbar');
+  // ---------------------- SANDBOX and TESTS----------------------------------------------
 
+
+Route::get('/sandbox/navbar', 'SandboxController@navbar');
 
 
 // ------------------------- AUTH ----------------------------------------------

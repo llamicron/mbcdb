@@ -1,11 +1,11 @@
 @extends('layouts.warning')
 
 @section('title')
-  Down for Maintenance
+  Page not Found
 @endsection
 
 @section('message')
-  Uh oh. <br> Looks like we're down for maintenance. <br> Be back soon.
+  Uh oh. <br> Looks like that page can't be found.
 @endsection
 
 @section('buttons')

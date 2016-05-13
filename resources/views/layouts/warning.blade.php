@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Restricted</title>
+        <title>@yield('title')</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <style>
             html, body {
                 height: 100%;
             }
+
 
             body {
                 margin: 0;
@@ -31,6 +32,8 @@
                 display: inline-block;
             }
 
+            @yield('style')
+
             .title {
                 font-size: 72px;
                 margin-bottom: 40px;
@@ -40,9 +43,20 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Sorry, but you aren't the owner of this counselor, so you can't change it</div>
-                <button type="button" class="btn btn-primary btn-large" onClick="location='/home'" name="button"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Safety</button>
+                <div class="title">
+                  @yield('message')
+                </div>
+                @yield('buttons')
             </div>
         </div>
     </body>
 </html>
+
+{{-- example of a large red button for cancels and such --}}
+{{-- <a href="#" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete User</a> --}}
+
+{{-- large blue '<- back' button --}}
+{{-- <a href="#" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back</a> --}}
+
+{{-- 'back to safety' button --}}
+{{-- <button type="button" class="btn btn-primary" onClick="location='/home'" name="button"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Safety</button> --}}
