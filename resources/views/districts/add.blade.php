@@ -21,7 +21,7 @@
                   @endforeach
                 </select>
                 <br>
-                <button type="submit" class="btn btn-primary form-control" name="add_district">Add District</button>
+                <button type="submit" class="btn btn-primary form-control" name="add_district"><span class="glyphicon glyphicon-plus"></span>Add District</button>
           </form>
 
 

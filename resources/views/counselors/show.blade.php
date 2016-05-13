@@ -40,9 +40,9 @@
         </li>
         <br>
         @if($counselor->user_id == $user->id || $user->isAdmin)
-          <input TYPE="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'" value="Add A Badge To This Counselor">
-          <input TYPE="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'" value="Update Counselor">
-          <input TYPE="button" class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'" value="Remove Counselor">
+          <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge To This Counselor</button>
+          <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
+          <button class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
         @endif
       </ul>
 

@@ -13,7 +13,9 @@ to view the authed user's counselors --}}
   @else
     <li><a href="/counselors/{{ $user->id }}">Your Counselors</a></li>
   @endif
-  <li><a href="/counselors/add">Add a Counselor</a></li>
+  <li><a href="/counselors/add">
+    Add a Counselor
+  </a></li>
 @endsection
 
 @section('content')
@@ -24,6 +26,7 @@ to view the authed user's counselors --}}
         <h2>
           <div class="pull-right">
             <button type="button" class="btn btn-primary" onClick="location='/counselors/add'" name="add_counselor">
+              <span class="glyphicon glyphicon-plus"></span>&nbsp;
               Add a Counselor
             </button>
           </div>
@@ -77,7 +80,10 @@ to view the authed user's counselors --}}
             <td> {{ $council->name }}       </td>
             <td>
               <div class="pull-right">
-                <button type="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/show'" name="view">View</button>
+                <button type="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/show'" name="view">
+                  <span class="glyphicon glyphicon-zoom-in"></span>&nbsp;
+                  View
+                </button>
               </div>
             </td>
           </tr>

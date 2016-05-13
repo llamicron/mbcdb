@@ -118,6 +118,7 @@
 
         <!-- Branding Image -->
         <a class="navbar-brand" href="{{ url('/home') }}">
+          <span class="glyphicon glyphicon-home"></span>&nbsp;
           MBCDB
         </a>
       </div>
