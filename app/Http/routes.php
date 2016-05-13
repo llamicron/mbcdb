@@ -51,6 +51,17 @@
   Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
 
 
+// ----------------------- ADMIN FUNCTIONS --------------------------------------
+
+Route::get('/admins', function () { return redirect('/admins/manageUsers'); });
+Route::get('/admins/manageUsers', 'AdminsController@manageUsers');
+
+Route::get('/admins/{user}/show', 'AdminsController@show');
+
+Route::get('/admins/{user}/delete', 'AdminsController@showDelete');
+Route::get('admins/{user}/remove', 'AdminsController@delete');
+
+
 
   // --------------------- DISTRICT FUNCTIONS ------------------------------------
 

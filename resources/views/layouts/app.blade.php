@@ -80,6 +80,14 @@
             margin-right: 6px;
         }
 
+        .message-page {
+          font-family: 'Lato';
+          font-weight: 100;
+          text-align: center;
+          vertical-align: middle;
+          font-size: 3em;
+        }
+
         p.about {
           font-size: 18px;
 
