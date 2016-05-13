@@ -42,7 +42,7 @@
         @if($counselor->user_id == $user->id || $user->isAdmin)
           <input TYPE="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'" value="Add A Badge To This Counselor">
           <input TYPE="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'" value="Update Counselor">
-          <input TYPE="button" class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/remove'" value="Remove Counselor">
+          <input TYPE="button" class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'" value="Remove Counselor">
         @endif
       </ul>
 

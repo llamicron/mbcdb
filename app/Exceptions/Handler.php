@@ -36,6 +36,7 @@ class Handler extends ExceptionHandler
         parent::report($e);
     }
 
+    
     /**
      * Render an exception into an HTTP response.
      *

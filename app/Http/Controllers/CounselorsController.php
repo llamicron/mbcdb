@@ -102,13 +102,25 @@ class CounselorsController extends Controller {
       return redirect()->action('BadgesController@add', compact('counselor'));
     }
 
+    public function confirmRemoval(Counselor $counselor) {
+      $user = User::find(\Auth::user()->id);
+        if ($user->isAdmin) {
+          // pass
+        } else {
+          if ($counselor->user_id != $user->id) {
+            return view('warnings.notOwner');
+          }
+        }
+      return view('warnings.confirmRemoval', compact('counselor'));
+    }
+
     public function remove(Counselor $counselor) {
       $user = User::find(\Auth::user()->id);
         if ($user->isAdmin) {
           // pass
         } else {
           if ($counselor->user_id != $user->id) {
-            return view('errors.notOwner');
+            return view('warnings.notOwner');
           }
         }
       $counselor->delete();
@@ -163,7 +175,7 @@ class CounselorsController extends Controller {
           // pass
         } else {
           if ($counselor->user_id != $user->id) {
-            return view('errors.notOwner');
+            return view('warnings.notOwner');
           }
         }
       return view('/counselors/edit', compact('counselor'));

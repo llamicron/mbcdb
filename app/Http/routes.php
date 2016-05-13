@@ -41,6 +41,8 @@
   Route::get('/counselors/{counselor}/show', 'CounselorsController@show');
 
 
+  Route::get('/counselors/{counselor}/confirmRemoval', 'CounselorsController@confirmRemoval');
+
   Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
 
 
