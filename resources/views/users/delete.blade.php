@@ -5,7 +5,7 @@
 @endsection
 
 @section('navbar-left')
-  <li><a href="/admins/manageUsers">All User</a></li>
+  <li><a href="/users/manageUsers">All Users</a></li>
 @endsection
 
 @section('content')
@@ -13,8 +13,8 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="message-page">
         Warning! <br> This user will be deleted and cannot be restored. <br> Are you sure you want to delete this user?<br>
-        <a href="/admins/manageUsers" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back</a><hr>
-        <a href="/admins/{{ $user->id }}/remove" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete User</a>
+        <a href="/users/manageUsers" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back</a><hr>
+        <a href="/users/{{ $user->id }}/remove" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete User</a>
       </div>
     </div>
   </div>

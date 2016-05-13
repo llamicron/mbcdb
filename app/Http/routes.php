@@ -55,13 +55,13 @@
 
 // ----------------------- ADMIN FUNCTIONS --------------------------------------
 
-Route::get('/admins', function () { return redirect('/admins/manageUsers'); });
-Route::get('/admins/manageUsers', 'AdminsController@manageUsers');
+Route::get('/admin', function () { return redirect('/users/manageUsers'); });
+Route::get('/users/manageUsers', 'AdminsController@manageUsers');
 
-Route::get('/admins/{user}/show', 'AdminsController@show');
+Route::get('/users/{user}/show', 'AdminsController@show');
 
-Route::get('/admins/{user}/delete', 'AdminsController@showDelete');
-Route::get('admins/{user}/remove', 'AdminsController@delete');
+Route::get('/users/{user}/delete', 'AdminsController@showDelete');
+Route::get('/users/{user}/remove', 'AdminsController@delete');
 
 
 

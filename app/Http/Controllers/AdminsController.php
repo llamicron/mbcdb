@@ -21,24 +21,24 @@ class AdminsController extends Controller
     public function manageUsers()
     {
       $users = User::get();
-      return view('admins.users', compact('users'));
+      return view('users.index', compact('users'));
     }
 
     public function show(User $user)
     {
       $counselors = $user->counselors;
-      return view('admins.show', compact('user', 'counselors'));
+      return view('users.show', compact('user', 'counselors'));
     }
 
     public function showDelete(User $user)
     {
-      return view('admins.delete', compact('user'));
+      return view('users.delete', compact('user'));
     }
 
     public function delete(User $user)
     {
         $user->delete();
-        return redirect('/admins/manageUsers');
+        return redirect('/users/manageUsers');
     }
-
+    
 }

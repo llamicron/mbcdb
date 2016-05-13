@@ -5,7 +5,7 @@
 @endsection
 
 @section('navbar-left')
-  <li><a href="/admins/manageUsers">All Users</a></li>
+  <li><a href="/users/manageUsers">All Users</a></li>
 @endsection
 
 @section('content')
@@ -32,8 +32,7 @@
           </ul>
         </li>
       </ul>
-      <button type="button" class="btn btn-primary" onClick="location='/admins/{{ $user->id }}/edit'" name="edit">Edit User</button>
-      <button type="button" class="btn btn-danger" onClick="location='/admins/{{ $user->id }}/delete'" name="delete">Delete User</button>
+      <button type="button" class="btn btn-danger" onClick="location='/users/{{ $user->id }}/delete'" name="delete">Delete User</button>
     </div>
   </div>
 @endsection

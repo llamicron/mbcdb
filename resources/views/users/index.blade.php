@@ -42,10 +42,9 @@
           </td>
             <td style=" text-align: right; ">
               <?php // TODO: Create show method and page for the line below ?>
-              <button type="button" class="btn btn-primary" onClick="location='/admins/{{ $user->id }}/show'" name="view">View</button>
-              <button type="button" class="btn btn-primary" onClick="location='/admins/{{ $user->id }}/edit'" name="update">Update</button>
+              <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
               <button type="button" class="btn btn-danger"
-                onclick="location='/admins/{{ $user->id }}/delete'"
+                onclick="location='/users/{{ $user->id }}/delete'"
                 name="delete">Delete
               </button>
             </td>
