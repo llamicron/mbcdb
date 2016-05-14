@@ -93,8 +93,16 @@ to view the authed user's counselors --}}
         </tbody>
 
       </table>
-              {{-- </TABLE> --}}
+    {{-- </TABLE> --}}
 
+        <?php
+          $page = $_GET['page'];
+          $prev_page = $page - 1;
+          $next_page = $page + 1;
+        ?>
+          <a style=" float: left; " href="/home?page={{ $prev_page }}">&laquo; Previous Page</a>
+          <a style=" float: right; " href="/home?page={{ $next_page }}">Next Page &raquo;</a>
+      </div>
     </div>
   </div>
 </div>

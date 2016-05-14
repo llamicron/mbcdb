@@ -25,20 +25,20 @@ class CounselorsController extends Controller {
     public function sortByName() {
       // bad form, i think
       $user = User::find(\Auth::user()->id);
-      $counselors = Counselor::orderBy('last_name', 'ASC')->get();
+      $counselors = Counselor::orderBy('last_name', 'ASC')->paginate(25);
       return view('counselors.index', compact('counselors', 'user'));
     }
 
     public function sortByDistrict() {
       $user = User::find(\Auth::user()->id);
-      $counselors = Counselor::orderBy('district_id', 'DESC')->get();
+      $counselors = Counselor::orderBy('district_id', 'DESC')->paginate(25);
       return view('counselors.index', compact('counselors', 'user'));
     }
 
     public function sortByTroop() {
       $user = User::find(\Auth::user()->id);
       // THANK YOU BESTMOMO!
-      $counselors = Counselor::orderBy(DB::raw('LENGTH(unit_num), unit_num'))->get();
+      $counselors = Counselor::orderBy(DB::raw('LENGTH(unit_num), unit_num'))->paginate(25);
       return view('counselors.index', compact('counselors', 'user'));
     }
 
