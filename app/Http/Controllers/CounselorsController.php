@@ -21,6 +21,7 @@ class CounselorsController extends Controller {
 
 
 // ----------------- counselors/index view sorting functions ----------------------
+
     public function sortByName() {
       // bad form, i think
       $user = User::find(\Auth::user()->id);

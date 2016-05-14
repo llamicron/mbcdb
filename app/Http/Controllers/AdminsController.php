@@ -32,7 +32,7 @@ class AdminsController extends Controller
 
     public function showDelete(User $user)
     {
-      return view('users.delete', compact('user'));
+      return view('warnings.confirmUserRemoval', compact('user'));
     }
 
     public function delete(User $user)
@@ -40,5 +40,22 @@ class AdminsController extends Controller
         $user->delete();
         return redirect('/users/manageUsers');
     }
-    
+
+    public function setAdminWarning(User $user)
+    {
+      return view('warnings.confirmAdmin', compact('user'));
+    }
+
+    public function setAdmin(User $user)
+    {
+      $user->isAdmin = 1;
+      $user->save();
+      return redirect('admin');
+    }
+
+    public function home()
+    {
+      return redirect('/users/manageUsers');
+    }
+
 }

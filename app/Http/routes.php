@@ -53,9 +53,10 @@
   Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
 
 
-// ----------------------- ADMIN FUNCTIONS --------------------------------------
+// ----------------------- ADMIN/USERS FUNCTIONS --------------------------------------
 
 Route::get('/admin', function () { return redirect('/users/manageUsers'); });
+
 Route::get('/users/manageUsers', 'AdminsController@manageUsers');
 
 Route::get('/users/{user}/show', 'AdminsController@show');
@@ -63,6 +64,8 @@ Route::get('/users/{user}/show', 'AdminsController@show');
 Route::get('/users/{user}/delete', 'AdminsController@showDelete');
 Route::get('/users/{user}/remove', 'AdminsController@delete');
 
+Route::get('/users/{user}/setAdminWarning', 'AdminsController@setAdminWarning');
+Route::get('/users/{user}/setAdmin', 'AdminsController@setAdmin');
 
 
   // --------------------- DISTRICT FUNCTIONS ------------------------------------

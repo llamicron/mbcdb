@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-  <title>Delete User</title>
+  <title>Delete Counselor</title>
 @endsection
 
 @section('navbar-left')

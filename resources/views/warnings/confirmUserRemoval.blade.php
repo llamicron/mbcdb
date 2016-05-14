@@ -5,7 +5,7 @@
 @endsection
 
 @section('navbar-left')
-  <li><a href="/users/manageUsers">All Users</a></li>
+  <li><a href="/users/manageUsers">All users</a></li>
 @endsection
 
 @section('content')
