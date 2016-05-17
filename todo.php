@@ -1,2 +1,3 @@
 <?php
-// IDEA: Add pagination to 'counselors/index'
+// TODO: Add a search function
+// FIXME: Make it not look like crap

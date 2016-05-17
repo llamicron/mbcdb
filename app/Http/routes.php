@@ -80,8 +80,7 @@ Route::post('/badges/addBadge', 'BadgesController@storeBadge');
   // ---------------------- SANDBOX and TESTS----------------------------------------------
 
 
-Route::get('/sandbox/navbar', 'SandboxController@navbar');
-
+Route::get('/sandbox', 'SandboxController@test');
 
 // ------------------------- AUTH ----------------------------------------------
 

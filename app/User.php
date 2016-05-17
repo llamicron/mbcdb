@@ -25,8 +25,8 @@ class User extends Authenticatable
     ];
 
 
-    public function isAdmin(User $user) {
-      if ($user->isAdmin == 1) {
+    public function isAdmin() {
+      if ($this->isAdmin == 1) {
           return true;
       } else {
         return flase;
@@ -34,8 +34,9 @@ class User extends Authenticatable
 
     }
 
-      public function counselors()
-      {
-        return $this->hasMany('App\Counselor');
-      }
+
+    public function counselors() {
+      return $this->hasMany('App\Counselor');
+    }
+
 }

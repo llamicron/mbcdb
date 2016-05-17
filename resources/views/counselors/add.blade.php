@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-  <title><span class="glyphicon glyphicon-plus"></span>&nbsp;Add a Counselor</title>
+  <title>Add a Counselor</title>
   {{-- Encrypting the form token so that it will post correctly --}}
   {{-- P.S. This actually isnt the fix. The real fix is the <input name="_token" down there --}}
   {{-- OR this: {{ csrf_field() }} --}}
@@ -20,7 +20,7 @@
 @section('content')
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h1><span class="glyphicon glyphicon-plus"></span>&nbsp;Add a Counselor</h1>
+        <h1>Add a Counselor</h1>
 
           <form class="form-group" action="/counselors/add" method="post">
 
