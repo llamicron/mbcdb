@@ -51,7 +51,7 @@ Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
 
 
 // --------------------- BADGE FUNCTIONS ---------------------------------------
-
+// this is a test change
 // add to counselor
 Route::get('/counselors/{counselor}/badges/add', 'BadgesController@add');
 Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
