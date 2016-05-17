@@ -27,6 +27,17 @@
             Troop {{ $counselor->unit_num }}<br>
               {{ $counselor->district->name }} District<br>
             <br>
+            {{--
+              For some reason, belongsTo was returning true every time.  I would write:
+                @if ($user->isAdmin || $counselor->belongsTo($user))
+              But it isnt working.
+            --}}
+            @if ($user->isAdmin || $counselor->isChildOf($user))
+              <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
+              <button class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
+            @endif
+        </li>
+        <li class="list-group-item">
             <h3>Badges This Counselor Teaches:</h3>
 
             <ul>
@@ -37,13 +48,11 @@
               @endforeach
             </ul>
             <br>
+            @if($counselor->isChildOf($user) || $user->isAdmin)
+              <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge To This Counselor</button>
+            @endif
         </li>
         <br>
-        @if($counselor->user_id == $user->id || $user->isAdmin)
-          <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge To This Counselor</button>
-          <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
-          <button class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
-        @endif
       </ul>
 
     </div>

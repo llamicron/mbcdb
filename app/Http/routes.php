@@ -23,10 +23,15 @@ Route::get('/about', 'PagesController@about');
 Route::get('/', 'CounselorsController@home');
 Route::get('/counselors', 'CounselorsController@home');
 Route::get('/home', 'CounselorsController@sortByName');
-
 // other sorting functions
 Route::get('/sortByDistrict', 'CounselorsController@sortByDistrict');
 Route::get('/sortByTroop', 'CounselorsController@sortByTroop');
+
+// add
+// these routes belongs lower, but the route order matters, and i dont know how to fix it.
+Route::get('/counselors/add', 'CounselorsController@add');
+Route::post('/counselors/add', 'CounselorsController@store');
+
 
 // Sort counselors by current authed user
 Route::get('/counselors/{user}', 'CounselorsController@userCounselors');
@@ -36,9 +41,6 @@ Route::get('/counselors/{user}', 'CounselorsController@userCounselors');
 
 Route::get('/counselors/{counselor}/show', 'CounselorsController@show');
 
-// add
-Route::get('/counselors/add', 'CounselorsController@add');
-Route::post('/counselors/add', 'CounselorsController@store');
 
 // edit
 Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');
@@ -52,7 +54,7 @@ Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
 
 // --------------------- BADGE FUNCTIONS ---------------------------------------
 // this is a test change
-// add to counselor
+
 Route::get('/counselors/{counselor}/badges/add', 'BadgesController@add');
 Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
 

@@ -21,4 +21,13 @@ class Counselor extends Model
     return $this->belongsTo('App\User');
   }
 
+  public function isChildOf(User $user)
+  {
+    if ($user->id == $this->user_id) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

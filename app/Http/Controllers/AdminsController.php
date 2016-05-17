@@ -52,7 +52,7 @@ class AdminsController extends Controller {
     public function setAdmin(User $user) {
       $user->isAdmin = 1;
       $user->save();
-      return redirect('admin');
+      return redirect('admin-login');
     }
 
     public function home() {

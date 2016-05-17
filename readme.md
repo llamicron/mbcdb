@@ -1,21 +1,4 @@
-
-  --- Objects that this project uses ---
-
-  - Counselor (Counselor)
-  - Merit Badge (Badge)
-  - District (District)
-  - Training Code (tCode)
-  - User (User)
-
-  --- Relationships ---
-
-  - Counselor hasMany Badges
-  - Badge hasMany Counselors
-  - Counselor belongsTo District
-  - District hasMany Counselors
-  - tCode hasMany Counselors
-  - Counselor belongsTo tCode
-
+## Made with
 ----------------------------------------------------------------------------------------------------------------------------------------
 # Laravel PHP Framework
 
