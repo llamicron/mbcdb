@@ -30,4 +30,9 @@ class Counselor extends Model
     }
   }
 
+  public function codes()
+  {
+    return $this->belongsToMany('App\Code');
+  }
+
 }
