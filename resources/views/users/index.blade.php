@@ -45,7 +45,7 @@
               <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
               <button type="button" class="btn btn=primary" onClick="location='/users/{{ $user->id }}/setAdminWarning'" name="set_admin">Set as Admin</button>
               <button type="button" class="btn btn-danger"
-                onclick="location='/users/{{ $user->id }}/delete'"
+                onclick="location='/users/{{ $user->id }}/confirmRemoval'"
                 name="delete">Delete
               </button>
             </td>

@@ -112,7 +112,8 @@ class CounselorsController extends Controller {
             return view('warnings.notOwner');
           }
         }
-      return view('warnings.confirmRemoval', compact('counselor'));
+        $item = "counselor";
+      return view('warnings.confirmRemoval', compact('counselor', 'item'));
     }
 
     public function remove(Counselor $counselor) {

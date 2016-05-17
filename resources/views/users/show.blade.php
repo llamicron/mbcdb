@@ -32,7 +32,7 @@
           </ul>
         </li>
       </ul>
-      <button type="button" class="btn btn-danger" onClick="location='/users/{{ $user->id }}/delete'" name="delete">Delete User</button>
+      <button type="button" class="btn btn-danger" onClick="location='/users/{{ $user->id }}/confirmRemoval'" name="delete">Delete User</button>
     </div>
   </div>
 @endsection

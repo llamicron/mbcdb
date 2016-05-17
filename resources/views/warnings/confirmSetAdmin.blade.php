@@ -8,10 +8,10 @@
   <h2>
     If you set {{ $user->name }} as an admin, they will have full permission to:
     <ul class="list-group">
-      <li class="list-group-item"><span class="glyphicon glyphicon-minus"></span>&nbsp;Delete any counselor</li>
-      <li class="list-group-item"><span class="glyphicon glyphicon-minus"></span>&nbsp;Update any counselor</li>
-      <li class="list-group-item"><span class="glyphicon glyphicon-minus"></span>&nbsp;Delete any user</li>
-      <li class="list-group-item"><span class="glyphicon glyphicon-minus"></span>&nbsp;Set any user as admin</li>
+      <li class="list-group-item">Delete any counselor</li>
+      <li class="list-group-item">Update any counselor</li>
+      <li class="list-group-item">Delete any user</li>
+      <li class="list-group-item">Give any user admin privileges</li>
     </ul>
     Are you sure you want to continue?
   </h2>
