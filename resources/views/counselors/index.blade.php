@@ -67,7 +67,7 @@ to view the authed user's counselors --}}
                // becuase we haven't pulled the induvidual counselors out of the Eloquent collection
                $badges = $counselor->badges;
                $district = $counselor->district;
-               $council = $district->council
+               $council = $district->council;
              ?>
           <tr>
             <td>
