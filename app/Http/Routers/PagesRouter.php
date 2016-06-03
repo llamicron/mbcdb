@@ -8,6 +8,8 @@ use Route; // Route facade (Illuminate\Support\Facades\Route)
 
 class PagesRouter implements RouterInterface {
     public static function setRoutes() {
+
       Route::get('/about', 'PagesController@about');
+      
     }
 }

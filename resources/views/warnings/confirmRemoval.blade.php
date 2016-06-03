@@ -19,7 +19,7 @@
           <a href="/counselors/{{ $counselor->id }}/remove" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete {{ $item }}</a>
         @endif
         @if (isset($user))
-          <a href="/users/{{ $user->id }}/show" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back</a>
+          <a href="/admin" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back</a>
           <hr>
           <a href="/users/{{ $user->id }}/remove" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete {{ $item }}</a>
         @endif

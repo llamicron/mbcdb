@@ -29,7 +29,7 @@ class User extends Authenticatable
       if ($this->isAdmin == 1) {
           return true;
       } else {
-        return flase;
+        return false;
       }
 
     }

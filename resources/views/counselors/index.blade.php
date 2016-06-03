@@ -34,7 +34,7 @@ to view the authed user's counselors --}}
           @if(isset($context) && $context == "userCounselors")
             Your Counselors
           @else
-            All Counselors
+            All Counselors&nbsp;&nbsp;&nbsp;Latest!.
           @endif
         </h2>
 

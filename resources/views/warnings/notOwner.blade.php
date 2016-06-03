@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Sorry, but you aren't the owner of this counselor, so you can't change it</div>
+                <div class="title">Sorry, but you aren't allowed to do this</div>
                 <button type="button" class="btn btn-primary btn-large" onClick="location='/home'" name="button"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Safety</button>
             </div>
         </div>
