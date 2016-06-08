@@ -34,7 +34,7 @@ to view the authed user's counselors --}}
           @if(isset($context) && $context == "userCounselors")
             Your Counselors
           @else
-            All Counselors&nbsp;&nbsp;&nbsp;Latest!.
+            All Counselors
           @endif
         </h2>
 
@@ -61,23 +61,15 @@ to view the authed user's counselors --}}
         <tbody>
 
           @foreach($counselors as $counselor)
-            <?php
-               // This PHP must be nested inside the foreach loop.  I am probably not doing this right,
-               // and i think i should put this in the controller, but i dont know how
-               // becuase we haven't pulled the induvidual counselors out of the Eloquent collection
-               $badges = $counselor->badges;
-               $district = $counselor->district;
-               $council = $district->council;
-             ?>
           <tr>
             <td>
               <a href="/counselors/{{ $counselor->id }}/show">
-                {{ $counselor->first_name}} {{ $counselor->last_name }}
+                {{ $counselor->first_name }} {{ $counselor->last_name }}
               </a>
             </td>
             <td> {{ $counselor->unit_num }} </td>
-            <td> {{ $district->name }}    </td>
-            <td> {{ $council->name }}       </td>
+            <td> {{ $counselor->district->name }}    </td>
+            <td> {{ $counselor->district->council->name }}       </td>
             <td>
               <div class="pull-right">
                 <button type="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/show'" name="view">
