@@ -97,6 +97,16 @@
           font-family: 'Lato';
           font-weight: 300;
         }
+
+        .table {
+          table-layout:fixed;
+        }
+
+        .table td {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
     </style>
 </head>
 
