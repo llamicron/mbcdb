@@ -7,6 +7,7 @@ use App\User;
 use App\Counselor;
 use App\Http\Requests;
 use Search;
+use Auth;
 
 class SandboxController extends Controller
 {
@@ -16,22 +17,8 @@ class SandboxController extends Controller
       $this->middleware('admin');
     }
 
-    public function navbar()
-    {
-      return view('sandbox.navbar');
-    }
-
     public function test()
     {
       return view('sandbox.test');
-    }
-
-    public function search()
-    {
-      $results = Counselor::where('first_name', "David")->get();
-      foreach ($results as $result) {
-        echo $result->first_name . " " . $result->last_name . "<br />";
-      }
-
     }
 }

@@ -177,8 +177,6 @@ class CounselorsController extends Controller {
     }
 
     public function home() {
-      // this is merely a redirect to '/home'.  See comment on routes.php above
-      // the Route::get('/counselors') line.
       return redirect('/home');
     }
 

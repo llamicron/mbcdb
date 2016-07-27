@@ -10,22 +10,15 @@ use App\User;
 
 class SearchController extends Controller
 {
-  public function search(Request $request)
-  {
 
-    $fields = [
-      'first_name',
-      'last_name',
-      'address',
-      'city',
-      'state',
-      'zip',
-      'email',
-      'primary_phone',
-      'secondary_phone',
-      'unit_num',
-      'bsa_id',
-    ];
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
+
+  public function searchCounselors(Request $request) {
+
+      $fields = Counselor::getFields();
 
       foreach ($fields as $field) {
         $results = Counselor::where($field, 'LIKE', "%{$request['search']}%")->get();
@@ -33,6 +26,7 @@ class SearchController extends Controller
           break;
         }
       }
+
       $user = User::find(\Auth::user()->id);
       return view('counselors.results', compact('results', 'user'));
     }

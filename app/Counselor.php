@@ -38,4 +38,22 @@ class Counselor extends Model
     return $this->belongsToMany('App\Code');
   }
 
+  public static function getFields()
+  {
+    $fields = [
+      'first_name',
+      'last_name',
+      'address',
+      'city',
+      'state',
+      'zip',
+      'email',
+      'primary_phone',
+      'secondary_phone',
+      'unit_num',
+      'bsa_id',
+    ];
+    return $fields;
+  }
+
 }
