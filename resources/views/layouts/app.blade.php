@@ -144,6 +144,12 @@
         <ul class="nav navbar-nav navbar-right">
           {{-- Navbar Right yield --}}
           @yield('navbar-right')
+          <li style="padding-top: 0.5em">
+            <form class="" action="/search" method="post">
+              {{ csrf_field() }}
+              <input type="text" name="search" class="form-control" value="" placeholder="Search">&nbsp;
+            </form>
+          </li>
           <li><a href="/about">About</a></li>
           <!-- Authentication Links -->
           @if (Auth::guest())

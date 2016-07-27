@@ -13,3 +13,5 @@ PagesRouter::setRoutes();
 AdminRouter::setRoutes();
 SandboxRouter::setRoutes();
 AuthRouter::setRoutes();
+
+Route::post('/search', 'SearchController@search');

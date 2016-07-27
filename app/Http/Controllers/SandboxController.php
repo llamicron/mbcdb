@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Counselor;
 use App\Http\Requests;
+use Search;
 
 class SandboxController extends Controller
 {
@@ -26,11 +28,10 @@ class SandboxController extends Controller
 
     public function search()
     {
-      $searchParams['index'] = 'my_index';
-      $searchParams['size'] = 50;
-      $searchParams['body']['query']['query_string']['query'] = 'foofield:barstring';
+      $results = Counselor::where('first_name', "David")->get();
+      foreach ($results as $result) {
+        echo $result->first_name . " " . $result->last_name . "<br />";
+      }
 
-      $result = Es::search($searchParams);
-      return $result;
     }
 }

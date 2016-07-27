@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Counselor extends Model
 {
+
+  // Relationships
+
   public function badges()
   {
     return $this->belongsToMany("App\Badge");

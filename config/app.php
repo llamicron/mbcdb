@@ -155,7 +155,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'Shift31\LaravelElasticsearch\ElasticsearchServiceProvider',
+        Mmanos\Search\SearchServiceProvider::class,
 
     ],
 
@@ -202,6 +202,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Search' => Mmanos\Search\Facade::class,
 
     ],
 

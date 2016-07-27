@@ -23,6 +23,5 @@ class CounselorsRouter implements RouterInterface {
       Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
       Route::get('/counselors/{counselor}/districts/add', 'DistrictsController@add');
       Route::patch('/counselors/{counselor}/districts/add', 'DistrictsController@store');
-
     }
 }
