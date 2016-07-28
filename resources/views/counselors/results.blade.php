@@ -33,6 +33,13 @@
 
 
               {{-- <TABLE> --}}
+        @if (is_null($results))
+          <div class="text-center">
+            <h2>
+              {{ "Sorry, we couldn't find anything" }}
+            </h2>
+          </div>
+        @else
         <table class="table table-striped">
 
           <thead>
@@ -69,10 +76,10 @@
             </tr>
 
           @endforeach
-
           </tbody>
 
         </table>
+        @endif
     {{-- </TABLE> --}}
       </div>
     </div>
