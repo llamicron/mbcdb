@@ -63,4 +63,9 @@ class SearchController extends Controller
 
   }
 
+  public function search()
+  {
+    $user = \Auth::user();
+    return view('counselors.search', compact('user'));
+  }
 }
