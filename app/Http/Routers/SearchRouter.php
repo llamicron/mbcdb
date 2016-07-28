@@ -9,6 +9,7 @@ class SearchRouter implements RouterInterface {
       Route::get('/search', 'SearchController@search');
       Route::post('/search', 'SearchController@searchCounselors');
       Route::get('/searchDistricts', 'SearchController@searchDistricts');
+      Route::get('/searchBadges', 'SearchController@searchBadges');
       Route::get('/noResults', 'SearchController@noResults');
     }
 }

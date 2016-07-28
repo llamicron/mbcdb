@@ -203,7 +203,7 @@
     <div id="footer">
       &nbsp;MBCDB | Luke Sweeney | 2016
       <div class="pull-right">
-        <i><a href="https://laravel.com/">Made with Laravel&nbsp;</a></i>
+        <i><a target="_blank" href="https://laravel.com/">Made with Laravel&nbsp;</a></i>
       </div>
     </div>
 </body>
