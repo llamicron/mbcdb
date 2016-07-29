@@ -11,7 +11,7 @@ to view the authed user's counselors --}}
   @if(isset($context) && $context == 'userCounselors')
     <li><a href="/home">All Counselors</a></li>
   @else
-    <li><a href="/counselors/{{ $user->id }}">Your Counselors</a></li>
+    <li><a href="/counselors/{{ Auth::user()->id }}">Your Counselors</a></li>
   @endif
   <li><a href="/counselors/add">
     Add a Counselor

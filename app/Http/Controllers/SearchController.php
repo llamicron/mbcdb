@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Counselor;
-use App\User;
 use App\District;
 use App\Council;
 use App\Badge;
@@ -29,8 +28,7 @@ class SearchController extends Controller {
   }
 
   public function search() {
-    $user = \Auth::user();
-    return view('counselors.search', compact('user'));
+    return view('counselors.search');
   }
 
   /*
@@ -53,9 +51,8 @@ class SearchController extends Controller {
         $results = Counselor::where($field, 'LIKE', "%{$term}%")->get();
         // 3. check if results are null
         if (!$results->isEmpty()) {
-          $user = User::find(\Auth::user()->id);
           // 4. Happy Path
-          return view('counselors.results', compact('results', 'user'));
+          return view('counselors.results', compact('results'));
         }
       }
       // 5. continue search
@@ -68,13 +65,12 @@ class SearchController extends Controller {
 
     // 2. Search for records by search term
     $districts = District::where('name', 'LIKE', "%{$term}%")->get();
-    
+
     // 3. check if results are null
     if (!$districts->isEmpty()) {
       $results = $districts->first()->counselors;
-      $user = User::find(\Auth::user()->id);
       // 4. Happy path
-      return view('counselors.results', compact('results', 'user'));
+      return view('counselors.results', compact('results'));
     }
 
     // 5. continue search in badges
@@ -84,7 +80,6 @@ class SearchController extends Controller {
   public function searchBadges() {
     // 1. Retrive search term and search fields (if necessary)
     $term = $_GET['term'];
-    $user = \Auth::user();
 
     // 2. Search for records by search term
     $badges = Badge::where('name', 'LIKE', "%$term%")->get();
@@ -92,7 +87,7 @@ class SearchController extends Controller {
     if (!$badges->isEmpty()) {
       $results = $badges->first()->counselors;
       // 4. Happy path
-      return view('counselors.results', compact('results', 'user'));
+      return view('counselors.results', compact('results'));
     }
 
     // 5. no results
@@ -100,9 +95,8 @@ class SearchController extends Controller {
   }
 
   public function noResults() {
-    $user = \Auth::user();
     $results = null;
-    return view('counselors.results', compact('results', 'user'));
+    return view('counselors.results', compact('results'));
 
   }
 

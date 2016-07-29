@@ -20,7 +20,7 @@
 
     </form>
     <div class="text-center">
-      <i>This is a tool for the devs to add merit badges behind the scenes.  If you are on this page (and you won't be) please disregard and consider clicking <a href="/counselors">this link.</a></i>
+      <i>This is a tool for the devs to add merit badges behind the scenes.  If you are on this page (and you won't be) please disregard and consider clicking <a href="/counselors">this.</a></i>
     </div>
   </div>
 </div>

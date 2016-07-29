@@ -6,7 +6,7 @@
 
 @section('navbar-left')
     <li><a href="/home">All Counselors</a></li>
-    <li><a href="/counselors/{{ $user->id }}">Your Counselors</a></li>
+    <li><a href="/counselors/{{ Auth::user()->id }}">Your Counselors</a></li>
     <li><a href="/counselors/add">Add a Counselor</a></li>
 @endsection
 @section('content')

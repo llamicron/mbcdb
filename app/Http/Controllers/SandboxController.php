@@ -12,13 +12,11 @@ use Auth;
 class SandboxController extends Controller
 {
 
-    public function __construct()
-    {
+    public function __construct() {
       $this->middleware('admin');
     }
 
-    public function test()
-    {
+    public function test() {
       return view('sandbox.test');
     }
 }

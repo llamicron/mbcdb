@@ -31,7 +31,6 @@ class BadgesController extends Controller
       $badge = Badge::find($request->merit_badge);
       $counselor->badges()->save($badge);
       \Session::flash('status', 'Badge Added');
-      // the "['counselor' => $counselor]" was a total guess.  Can't believe that worked.  I am a genius.
       return redirect()->action('BadgesController@add', ['counselor' => $counselor]);
     }
 

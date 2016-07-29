@@ -32,7 +32,7 @@
                 @if ($user->isAdmin || $counselor->belongsTo($user))
               But it isnt working.
             --}}
-            @if ($user->isAdmin || $counselor->isChildOf($user))
+            @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
               <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
               <button class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
             @endif
@@ -48,7 +48,7 @@
               @endforeach
             </ul>
             <br>
-            @if($counselor->isChildOf($user) || $user->isAdmin)
+            @if($counselor->isChildOf(Auth::user()) || Auth::user()->isAdmin)
               <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge To This Counselor</button>
             @endif
         </li>

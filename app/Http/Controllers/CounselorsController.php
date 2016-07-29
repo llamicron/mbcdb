@@ -23,26 +23,22 @@ class CounselorsController extends Controller {
 // ----------------- counselors/index view sorting functions ----------------------
 
     public function sortByName() {
-      $user = User::find(\Auth::user()->id);
       $counselors = Counselor::with('district.council')->orderBy('last_name', 'ASC')->get();
-      return view('counselors.index', compact('counselors', 'user'));
+      return view('counselors.index', compact('counselors'));
     }
 
     public function sortByDistrict() {
-      $user = User::find(\Auth::user()->id);
       $counselors = Counselor::with('district.council')->orderBy('district_id', 'DESC')->get();
-      return view('counselors.index', compact('counselors', 'user'));
+      return view('counselors.index', compact('counselors'));
     }
 
     public function sortByTroop() {
-      $user = User::find(\Auth::user()->id);
       // THANK YOU BESTMOMO!
       $counselors = Counselor::with('district.council')->orderBy(DB::raw('LENGTH(unit_num), unit_num'))->get();
-      return view('counselors.index', compact('counselors', 'user'));
+      return view('counselors.index', compact('counselors'));
     }
 
-    public function userCounselors(User $user)
-    {
+    public function userCounselors(User $user) {
       $context = 'userCounselors';
       $counselors = $user->counselors;
       return view('counselors.index', compact('counselors', 'user', 'context'));
@@ -55,13 +51,13 @@ class CounselorsController extends Controller {
     }
 
     public function show(Counselor $counselor) {
-      $user = User::find(\Auth::user()->id);
+      // FIXME: You can retrieve the badges from inside the view
       $badges = $counselor->badges;
-      return view('counselors.show', compact('counselor', 'badges', 'user'));
+      return view('counselors.show', compact('counselor', 'badges'));
     }
 
     public function store(Request $request) {
-
+      // FIXME:  This is Terrible.  Fix it.
       $this->validate($request, [
         'first_name'        => 'required',
         'last_name'         => 'required',
@@ -103,24 +99,22 @@ class CounselorsController extends Controller {
     }
 
     public function confirmRemoval(Counselor $counselor) {
-      $user = User::find(\Auth::user()->id);
-        if ($user->isAdmin) {
+        if (\Auth::user()->isAdmin) {
           // pass
         } else {
-          if ($counselor->user_id != $user->id) {
+        if ($counselor->user_id != \Auth::user()->id) {
             return view('warnings.notOwner');
-          }
         }
-        $item = "counselor";
+      }
+      $item = "counselor";
       return view('warnings.confirmRemoval', compact('counselor', 'item'));
     }
 
     public function remove(Counselor $counselor) {
-      $user = User::find(\Auth::user()->id);
-        if ($user->isAdmin) {
+        if (\Auth::user()->isAdmin) {
           // pass
         } else {
-          if ($counselor->user_id != $user->id) {
+          if ($counselor->user_id != \Auth::user()->id) {
             return view('warnings.notOwner');
           }
         }
@@ -164,6 +158,7 @@ class CounselorsController extends Controller {
     }
 
     public function edit(Counselor $counselor) {
+      // FIXME: the check below has been used about 3 times now.  automate it.
       $user = User::find(\Auth::user()->id);
         if ($user->isAdmin) {
           // pass

@@ -1,5 +1,5 @@
 <?php
-// TODO: Add a search function
+// TODO: CounselorsController has been \Authed.  Need to do DistrictsController and down.
 
 // training codes:
 //
