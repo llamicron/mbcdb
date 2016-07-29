@@ -41,7 +41,7 @@
             <h3>Badges This Counselor Teaches:</h3>
 
             <ul>
-              @foreach($badges as $badge)
+              @foreach($counselor->badges as $badge)
                 <li>
                   {{ $badge->name }}
                 </li>

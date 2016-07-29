@@ -18,7 +18,7 @@ class AdminsController extends Controller {
     }
 
     public function confirmAdmin() {
-      if(!Auth::user()->isAdmin) {
+      if(\Auth::user()->isAdmin) {
         $users = User::get();
         return view('users.index', compact('users'));
       }

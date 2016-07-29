@@ -41,7 +41,6 @@
             @endif
           </td>
             <td style=" text-align: right; ">
-              <?php // TODO: Create show method and page for the line below ?>
               <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
               <button type="button" class="btn btn=primary" onClick="location='/users/{{ $user->id }}/setAdminWarning'" name="set_admin">Set as Admin</button>
               <button type="button" class="btn btn-danger"

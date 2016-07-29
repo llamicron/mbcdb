@@ -1,5 +1,4 @@
 <?php
-// TODO: CounselorsController has been \Authed.  Need to do DistrictsController and down.
 
 // training codes:
 //

@@ -30,4 +30,14 @@ class User extends Authenticatable
       return $this->hasMany('App\Counselor');
     }
 
+		public function isAdminOrOwner($counselor)
+		{
+			if ($this->isAdmin == 1) {
+				return true;
+			} elseif ($this->id == $counselor->user_id) {
+				return true;
+			}
+			return false;
+		}
+
 }

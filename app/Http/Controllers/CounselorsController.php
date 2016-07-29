@@ -51,9 +51,7 @@ class CounselorsController extends Controller {
     }
 
     public function show(Counselor $counselor) {
-      // FIXME: You can retrieve the badges from inside the view
-      $badges = $counselor->badges;
-      return view('counselors.show', compact('counselor', 'badges'));
+      return view('counselors.show', compact('counselor'));
     }
 
     public function store(Request $request) {
@@ -99,27 +97,19 @@ class CounselorsController extends Controller {
     }
 
     public function confirmRemoval(Counselor $counselor) {
-        if (\Auth::user()->isAdmin) {
-          // pass
-        } else {
-        if ($counselor->user_id != \Auth::user()->id) {
-            return view('warnings.notOwner');
-        }
-      }
-      $item = "counselor";
-      return view('warnings.confirmRemoval', compact('counselor', 'item'));
+			if (\Auth::user()->isAdminOrOwner($counselor)) {
+				$item = "counselor";
+				return view('warnings.confirmRemoval', compact('counselor', 'item'));
+			}
+      return view('warnings.notOwner');
     }
 
     public function remove(Counselor $counselor) {
-        if (\Auth::user()->isAdmin) {
-          // pass
-        } else {
-          if ($counselor->user_id != \Auth::user()->id) {
-            return view('warnings.notOwner');
-          }
-        }
-      $counselor->delete();
-      return redirect('/counselors');
+			if (\Auth::user()->isAdminOrOwner($counselor)) {
+				$counselor->delete();
+				return redirect('/counselors');
+			}
+			return view('warnings.notOwner');
     }
 
     public function update(Counselor $counselor, Request $request) {
@@ -158,16 +148,10 @@ class CounselorsController extends Controller {
     }
 
     public function edit(Counselor $counselor) {
-      // FIXME: the check below has been used about 3 times now.  automate it.
-      $user = User::find(\Auth::user()->id);
-        if ($user->isAdmin) {
-          // pass
-        } else {
-          if ($counselor->user_id != $user->id) {
-            return view('warnings.notOwner');
-          }
-        }
-      return view('/counselors/edit', compact('counselor'));
+			if (!\Auth::user()->isAdminOrOwner($counselor)) {
+				return view('warnings.notOwner');
+			}
+			return view('/counselors/edit', compact('counselor'));
     }
 
     public function home() {

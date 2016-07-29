@@ -10,4 +10,9 @@ class Council extends Model
     {
       return $this->hasMany('App\District');
     }
+
+    public function counselors()
+    {
+      return $this->hasMany('App\Counselor');
+    }
 }

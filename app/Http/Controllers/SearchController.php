@@ -20,7 +20,6 @@ use App\Badge;
 * it should redirect to 'SearchController@noResults'
 */
 
-
 class SearchController extends Controller {
 
   public function __construct() {
@@ -32,11 +31,11 @@ class SearchController extends Controller {
   }
 
   /*
-    // 1. Retrive search term and search fields (if necessary)
-    // 2. Search for records by search term
-    // 3. check if results are null
-    // 4. Happy path
-    // 5. continue search
+    * 1. Retrive search term and search fields (if necessary)
+    * 2. Search for records by search term
+    * 3. check if results are null
+    * 4. Happy path
+    * 5. continue search
   */
 
   /* Search Functions */
@@ -91,7 +90,7 @@ class SearchController extends Controller {
     }
 
     // 5. no results
-    return redirect()->action('SearchController@noResults');
+    return redirect("/noResults");
   }
 
   public function noResults() {
