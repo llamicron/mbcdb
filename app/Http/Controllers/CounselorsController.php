@@ -74,6 +74,7 @@ class CounselorsController extends Controller {
       // 'Instantiating' the counselor
       $counselor->first_name = $request->first_name;
       $counselor->last_name = $request->last_name;
+			$counselor->name = $request->first_name . " " . $request->last_name;
       $counselor->address = $request->address;
       $counselor->city = $request->city;
       $counselor->state = $request->state;
@@ -130,6 +131,7 @@ class CounselorsController extends Controller {
 
       $counselor->first_name = $request->first_name;
       $counselor->last_name = $request->last_name;
+			$counselor->name = $request->first_name . " " . $request->last_name;
       $counselor->address = $request->address;
       $counselor->city = $request->city;
       $counselor->state = $request->state;

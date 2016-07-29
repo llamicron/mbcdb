@@ -41,55 +41,41 @@ class SearchController extends Controller {
   /* Search Functions */
   public function searchCounselors(Request $request) {
 
-      // 1. Retrive search term and search fields (if necessary)
       $fields = Counselor::getFields();
       $term = $request['search'];
 
       foreach ($fields as $field) {
-        // 2. Search for records by search term
         $results = Counselor::where($field, 'LIKE', "%{$term}%")->get();
-        // 3. check if results are null
         if (!$results->isEmpty()) {
-          // 4. Happy Path
           return view('counselors.results', compact('results'));
         }
       }
-      // 5. continue search
       return redirect("/searchDistricts?term=$term");
+
     }
 
   public function searchDistricts() {
-    // 1. Retrive search term and search fields (if necessary)
     $term = $_GET['term'];
 
-    // 2. Search for records by search term
     $districts = District::where('name', 'LIKE', "%{$term}%")->get();
 
-    // 3. check if results are null
     if (!$districts->isEmpty()) {
       $results = $districts->first()->counselors;
-      // 4. Happy path
       return view('counselors.results', compact('results'));
     }
 
-    // 5. continue search in badges
     return redirect("/searchBadges?term=$term");
   }
 
   public function searchBadges() {
-    // 1. Retrive search term and search fields (if necessary)
     $term = $_GET['term'];
 
-    // 2. Search for records by search term
     $badges = Badge::where('name', 'LIKE', "%$term%")->get();
-    // 3. check if results are null
     if (!$badges->isEmpty()) {
       $results = $badges->first()->counselors;
-      // 4. Happy path
       return view('counselors.results', compact('results'));
     }
 
-    // 5. no results
     return redirect("/noResults");
   }
 

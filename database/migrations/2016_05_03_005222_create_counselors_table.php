@@ -16,6 +16,7 @@ class CreateCounselorsTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
+						$table->string('name');
             $table->string('address');
             $table->string('city');
             $table->string('state');
@@ -27,6 +28,7 @@ class CreateCounselorsTable extends Migration
             $table->string('bsa_id');
             $table->boolean('unit_only');
             $table->integer('district_id');
+						$table->integer('council_id');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
