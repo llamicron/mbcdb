@@ -25,8 +25,7 @@ class AdminsController extends Controller {
     }
 
     public function show(User $user) {
-      $counselors = $user->counselors;
-      return view('users.show', compact('user', 'counselors'));
+      return view('users.show', compact('user'));
     }
 
     public function confirmRemoval(User $user) {

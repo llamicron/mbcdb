@@ -23,7 +23,7 @@ class BadgesController extends Controller
     // I had built a tool that let me add the badges through the front end, but i commited that with something else,
     // and had to roll back.  I should improve my git skills...
     public function add(Counselor $counselor) {
-      $merit_badge_list = Badge::orderBy('name', 'asc')->get();
+      $badges = Badge::orderBy('name', 'asc')->get();
       return view('badges.add', compact('counselor', 'merit_badge_list'));
     }
 

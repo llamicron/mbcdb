@@ -13,8 +13,8 @@
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <select class="form-control" style=" width: 99%" name="merit_badge">
-              @foreach($merit_badge_list as $merit_badge)
-                <option value="{{ $merit_badge->id }}">{{ $merit_badge->name }}</option>
+              @foreach($badges as $badge)
+                <option value="{{ $bade->id }}">{{ $merit_badge->name }}</option>
               @endforeach
             </select>
             <br>
