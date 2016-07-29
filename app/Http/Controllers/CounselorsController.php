@@ -165,7 +165,6 @@ class CounselorsController extends Controller {
 
     public function edit(Counselor $counselor) {
       $user = User::find(\Auth::user()->id);
-      $user = User::find(\Auth::user()->id);
         if ($user->isAdmin) {
           // pass
         } else {
