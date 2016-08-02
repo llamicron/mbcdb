@@ -6,10 +6,8 @@ use Route;
 
 class SearchRouter implements RouterInterface {
     public static function setRoutes() {
-      Route::get('/search', 'SearchController@search');
-      Route::post('/search', 'SearchController@searchCounselors');
-      Route::get('/searchDistricts', 'SearchController@searchDistricts');
-      Route::get('/searchBadges', 'SearchController@searchBadges');
-      Route::get('/noResults', 'SearchController@noResults');
-    }
+			Route::post("/search", 'SearchController@search');
+			Route::get('/noResults', 'SearchController@noResults');
+			Route::get('/searchStub', 'SearchController@searchStub');
+		}
 }

@@ -9,6 +9,7 @@ use App\Counselor;
 use App\District;
 use App\Council;
 use App\Badge;
+use App\Search;
 
 /*
 * The 'search' function returns a stub page that has a a search box on it.
@@ -26,9 +27,15 @@ class SearchController extends Controller {
     $this->middleware('auth');
   }
 
-  public function search() {
+  public function searchStub() {
     return view('counselors.search');
   }
+
+	public function search(Request $request)
+	{
+		return Search::byClass('App\Counselor', $request['search']);
+		return Search::byClass('App\Counselor', $request['search']);
+	}
 
   /*
     * 1. Retrive search term and search fields (if necessary)
@@ -82,7 +89,6 @@ class SearchController extends Controller {
   public function noResults() {
     $results = null;
     return view('counselors.results', compact('results'));
-
   }
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+// TODO: Assign seeded counselors to users
+
 // training codes:
 //
 //  - CPR -
