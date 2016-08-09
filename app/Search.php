@@ -16,16 +16,16 @@ class Search extends Model
 					'last_name',
 					'name',
 					'unit_num',
-		      'first_name',
+					'first_name',
 					'address',
 					'city',
-		      'state',
-		      'zip',
-		      'email',
-		      'primary_phone',
-		      'secondary_phone',
-		      'bsa_id',
-		    ];
+					'state',
+					'zip',
+					'email',
+					'primary_phone',
+					'secondary_phone',
+					'bsa_id',
+				];
 			}
 
 

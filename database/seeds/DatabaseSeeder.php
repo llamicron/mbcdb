@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
 				$this->call(CouncilsTableSeeder::class);
 			  $this->call(DistrictsTableSeeder::class);
+			  $this->call(UsersTableSeeder::class);
 				$this->call(CounselorsTableSeeder::class);
         $this->call(LukeSeeder::class);
     }
@@ -63,11 +64,23 @@ class CounselorsTableSeeder extends Seeder {
 			$counselor = factory('App\Counselor')->create();
 			$district = App\District::all()->random(1);
 			$district->counselors()->save($counselor);
+			$user = App\User::all()->random(1);
+			$user->counselors()->save($counselor);
 
 			$badges = App\Badge::all()->random(7);
 			foreach($badges as $badge) {
 				$counselor->badges()->save($badge);
 			}
+		}
+	}
+}
+
+class UsersTableSeeder extends Seeder
+{
+	public function run()
+	{
+		for ($i=0; $i < 35; $i++) {
+			$user = factory('App\User')->create();
 		}
 	}
 }

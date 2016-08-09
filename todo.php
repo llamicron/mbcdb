@@ -1,6 +1,7 @@
 <?php
-
-// TODO: Assign seeded counselors to users
+// TODO: Make search for not able to post with no value
+// TODO: fix the 'multiple table' search problem
+// TODO: Add pagination for search results
 
 // training codes:
 //

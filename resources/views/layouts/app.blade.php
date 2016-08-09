@@ -183,21 +183,21 @@
 <div id="wrap">
   <div id="main">
     <div class="font">
+			<!-- Echoing flashed status -->
+			@if(Session::has('status'))
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="alert alert-success">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<strong>{{ Session::get('status') }}</strong>
+						</div>
+					</div>
+				</div>
+			@endif
+			
       @yield('content')
-    </div>
 
-    <!-- Echoing flashed status -->
-    @if(Session::has('status'))
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>{{ Session::get('status') }}</strong>
-          </div>
-        </div>
-      </div>
-    @endif
-
+		</div>
   </div>
 </div>
     <div id="footer">

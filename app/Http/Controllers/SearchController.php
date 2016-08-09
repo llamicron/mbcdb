@@ -33,7 +33,10 @@ class SearchController extends Controller {
 
 	public function search(Request $request)
 	{
-		return Search::byClass('App\Counselor', $request['search']);
+		if (empty($request['search'])) {
+			\Session::flash('status', 'Search cannot be blank');
+			return redirect('/');
+		}
 		return Search::byClass('App\Counselor', $request['search']);
 	}
 
