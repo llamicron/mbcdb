@@ -40,19 +40,20 @@ class Counselor extends Model
 
   public static function getFields()
   {
-    $fields = [
-      'first_name',
-      'last_name',
-      'address',
-      'city',
-      'state',
-      'zip',
-      'email',
-      'primary_phone',
-      'secondary_phone',
-      'unit_num',
-      'bsa_id',
-    ];
+		$fields = [
+			'last_name',
+			'name',
+			'unit_num',
+			'first_name',
+			'address',
+			'city',
+			'state',
+			'zip',
+			'email',
+			'primary_phone',
+			'secondary_phone',
+			'bsa_id',
+		];
     return $fields;
   }
 

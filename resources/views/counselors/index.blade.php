@@ -85,9 +85,12 @@ to view the authed user's counselors --}}
         </tbody>
 
       </table>
-    {{-- </TABLE> --}}
-      </div>
+    	{{-- </TABLE> --}}
+			<div class="text-center">
+				{{ $counselors->links() }}
+			</div>
     </div>
   </div>
 </div>
+
 @endsection

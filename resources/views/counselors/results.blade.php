@@ -77,8 +77,10 @@
 
           @endforeach
           </tbody>
-
         </table>
+				<div class="text-center">
+					{{ $results->links() }}
+				</div>
         @endif
     {{-- </TABLE> --}}
       </div>

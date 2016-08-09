@@ -29,12 +29,26 @@ class LukeSeeder extends Seeder {
     $user->password = bcrypt("password");
     $user->save();
 
+		for ($i=0; $i < 10; $i++) {
+			$counselor = factory('App\Counselor')->create();
+			$district = App\District::all()->random(1);
+			$district->counselors()->save($counselor);
+			$user->counselors()->save($counselor);
+		}
+
     $user = new App\User;
     $user->name = "Luke's Non Admin";
     $user->email = "lukesjunk@thesweeneys.org";
     $user->isAdmin = 0;
     $user->password = bcrypt("password");
     $user->save();
+
+		for ($i=0; $i < 10; $i++) {
+			$counselor = factory('App\Counselor')->create();
+			$district = App\District::all()->random(1);
+			$district->counselors()->save($counselor);
+			$user->counselors()->save($counselor);
+		}
   }
 }
 
@@ -75,8 +89,7 @@ class CounselorsTableSeeder extends Seeder {
 	}
 }
 
-class UsersTableSeeder extends Seeder
-{
+class UsersTableSeeder extends Seeder {
 	public function run()
 	{
 		for ($i=0; $i < 35; $i++) {

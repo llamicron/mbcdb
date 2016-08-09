@@ -12,25 +12,12 @@ class Search extends Model
 
 		public static function byClass($class, $term, $fields=['name']) {
 			if ($class == 'App\Counselor') {
-				$fields = [
-					'last_name',
-					'name',
-					'unit_num',
-					'first_name',
-					'address',
-					'city',
-					'state',
-					'zip',
-					'email',
-					'primary_phone',
-					'secondary_phone',
-					'bsa_id',
-				];
+				$fields = Counselor::getFields();
 			}
 
 
 			foreach ($fields as $field) {
-				$results = $class::where($field, 'LIKE', "%{$term}%")->get();
+				$results = $class::where($field, 'LIKE', "%{$term}%")->paginate(1);
 				if (!$results->isEmpty()) {
 					return view('counselors.results', compact('results'));
 				}
