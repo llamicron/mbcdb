@@ -1,6 +1,5 @@
 <?php
 // TODO: fix the 'multiple table' search problem
-// TODO: Add pagination for search results
 
 // training codes:
 //

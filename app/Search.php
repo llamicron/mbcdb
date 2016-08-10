@@ -17,14 +17,12 @@ class Search extends Model
 
 
 			foreach ($fields as $field) {
-				$results = $class::where($field, 'LIKE', "%{$term}%")->paginate(1);
-				if (!$results->isEmpty()) {
-					return view('counselors.results', compact('results'));
+	  		$results = $class::where($field, 'LIKE', "%{$term}%")->paginate(25);
+		  	if (!$results->isEmpty()) {
+			  	return view('counselors.results', compact('results'));
 				}
 			}
 			return redirect('/noResults');
 		}
-
-
 
 }

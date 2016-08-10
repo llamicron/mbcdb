@@ -24,7 +24,7 @@ class SearchController extends Controller {
 		}
 
 		return Search::byClass('App\Counselor', $request['search']);
-		
+
 	}
 
 }
