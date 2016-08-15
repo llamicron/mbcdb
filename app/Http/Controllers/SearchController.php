@@ -17,14 +17,22 @@ class SearchController extends Controller {
     return view('counselors.search');
   }
 
-	public function search(Request $request)
+	public function searchCounselors(Request $request)
 	{
 		if (empty($request['search'])) {
-			return redirect('/');
+			return redirect('/noResults');
 		}
 
-		return Search::byClass('App\Counselor', $request['search']);
+		$results = Search::byClass('App\Counselor', $request['search']);
 
+		return view('counselors.results', compact('results'));
+
+	}
+
+	public function noResults()
+	{
+		$results = null;
+		return view('counselors.results', compact('results'));
 	}
 
 }

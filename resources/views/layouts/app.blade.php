@@ -145,7 +145,7 @@
           {{-- Navbar Right yield --}}
           @yield('navbar-right')
           <li style="padding-top: 0.5em">
-            <form class="" action="/search" method="post">
+            <form class="" action="/searchCounselors" method="post">
               {{ csrf_field() }}
               <input type="text" name="search" class="form-control" value="" placeholder="Search">&nbsp;
             </form>
@@ -194,7 +194,7 @@
 					</div>
 				</div>
 			@endif
-			
+
       @yield('content')
 
 		</div>
