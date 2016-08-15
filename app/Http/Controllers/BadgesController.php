@@ -24,7 +24,7 @@ class BadgesController extends Controller
     // and had to roll back.  I should improve my git skills...
     public function add(Counselor $counselor) {
       $badges = Badge::orderBy('name', 'asc')->get();
-      return view('badges.add', compact('counselor', 'merit_badge_list'));
+      return view('badges.add', compact('counselor', 'badges'));
     }
 
     public function store(Counselor $counselor, Request $request) {

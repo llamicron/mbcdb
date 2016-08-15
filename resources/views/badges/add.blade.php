@@ -14,7 +14,7 @@
 
             <select class="form-control" style=" width: 99%" name="merit_badge">
               @foreach($badges as $badge)
-                <option value="{{ $bade->id }}">{{ $merit_badge->name }}</option>
+                <option value="{{ $badge->id }}">{{ $badge->name }}</option>
               @endforeach
             </select>
             <br>
