@@ -57,4 +57,9 @@ class Counselor extends Model
     return $fields;
   }
 
+	public function Council()
+	{
+		return $this->belongsTo('App\Council');
+	}
+
 }

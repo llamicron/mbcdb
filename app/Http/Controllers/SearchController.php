@@ -17,6 +17,12 @@ class SearchController extends Controller {
     return view('counselors.search');
   }
 
+	public function noResults()
+	{
+		$results = null;
+		return view('counselors.results', compact('results'));
+	}
+
 	public function searchCounselors(Request $request)
 	{
 		if (empty($request['search'])) {
@@ -29,10 +35,42 @@ class SearchController extends Controller {
 
 	}
 
-	public function noResults()
+	public function searchOther(Request $request)
 	{
-		$results = null;
-		return view('counselors.results', compact('results'));
-	}
+		switch ($request['class']) {
+			case 'App\District':
+				$districts = \App\District::where('name', 'LIKE', $request['search'])->get();
+				$results = new \Illuminate\Database\Eloquent\Collection;
+				foreach ($districts as $district) {
+					$results->add($district->counselors);
+				}
+				return view('counselors.results', compact('results'));
+				break;
 
+			case 'App\Badge':
+				$badges = \App\Badge::where('name', 'LIKE', $request['search'])->get();
+				$results = new \Illuminate\Database\Eloquent\Collection;
+				foreach ($badges as $badge) {
+					$results->add($badge->counselors);
+				}
+				return view('counselors.results', compact('results'));
+				break;
+
+			case 'App\Council':
+				$councils = \App\Council::where('name', 'LIKE', $request['search'])->get();
+				$results = new \Illuminate\Database\Eloquent\Collection;
+				foreach ($councils as $council) {
+					$districts = $council->districts;
+					foreach ($districts as $district) {
+						$results->add($district->counselors);
+					}
+				}
+				return view('counselors.results', compact('results'));
+				break;
+
+			default:
+				# code...
+				break;
+		}
+	}
 }

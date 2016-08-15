@@ -19,4 +19,5 @@ class SandboxController extends Controller
     public function test() {
       return view('sandbox.test');
     }
+
 }

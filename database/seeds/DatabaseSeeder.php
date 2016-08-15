@@ -76,15 +76,24 @@ class CounselorsTableSeeder extends Seeder {
 	public function run() {
 		for ($c=0; $c < 50; $c++) {
 			$counselor = factory('App\Counselor')->create();
+
+			// Associate counselor with district
 			$district = App\District::all()->random(1);
 			$district->counselors()->save($counselor);
+
+			// Associate counselor with user
 			$user = App\User::all()->random(1);
 			$user->counselors()->save($counselor);
 
+			// Associate counselor with 7 badges
 			$badges = App\Badge::all()->random(7);
 			foreach($badges as $badge) {
 				$counselor->badges()->save($badge);
 			}
+
+			// Associate counselor with council
+			$council = App\Council::all()->random(1);
+			$council->counselors()->save($counselor);
 		}
 	}
 }

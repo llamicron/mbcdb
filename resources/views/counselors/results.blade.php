@@ -91,6 +91,7 @@
 				<h4>
 					<form class="" action="/searchOther" method="post">
 						{{ csrf_field() }}
+						<label for="class">Search by: </label>
 						<select class="form-control" name="class">
 							<option value="App\Counselor">Counselors</option>
 							<option value="App\Badge">Merit Badge</option>
