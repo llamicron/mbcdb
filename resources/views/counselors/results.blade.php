@@ -97,7 +97,7 @@
 							<option value="App\Badge">Merit Badge</option>
 							<option value="App\District">District</option>
 							<option value="App\Council">Council</option>
-							<option value="App\Counselor">Troop Number</option>
+							<option value="unit_num">Troop Number</option>
 						</select>
 						<br><br>
 						<input type="text" class="form-control" name="search" value="" placeholder="Search Term"><br>

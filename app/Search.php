@@ -14,10 +14,6 @@ class Search extends Model
 
 		public static function byClass($class, $term, $fields=['name']) {
 
-			if ($class == 'App\Counselor') {
-				$fields = Counselor::getFields();
-			}
-
 			if (!isset($results)) {
 				$results = new \Illuminate\Database\Eloquent\Collection;
 			}

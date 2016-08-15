@@ -23,21 +23,10 @@ class SearchController extends Controller {
 		return view('counselors.results', compact('results'));
 	}
 
-	public function searchCounselors(Request $request)
-	{
-		if (empty($request['search'])) {
-			return redirect('/noResults');
-		}
-
-		$results = Search::byClass('App\Counselor', $request['search']);
-
-		return view('counselors.results', compact('results'));
-
-	}
-
 	public function search(Request $request)
 	{
 		switch ($request['class']) {
+
 			case 'App\District':
 				$districts = \App\District::where('name', 'LIKE', $request['search'])->get();
 				$results = new \Illuminate\Database\Eloquent\Collection;
@@ -48,7 +37,7 @@ class SearchController extends Controller {
 				break;
 
 			case 'App\Counselor':
-				$results = \App\Search::byClass('App\Counselor', $request['search']);
+				$results = \App\Search::byClass('App\Counselor', $request['search'], \App\Counselor::getFields());
 				return view('counselors.results', compact('results'));
 				break;
 
@@ -61,6 +50,11 @@ class SearchController extends Controller {
 						$results->add($district->counselors);
 					}
 				}
+				return view('counselors.results', compact('results'));
+				break;
+
+			case 'unit_num':
+				$results = \App\Search::byClass('App\Counselor', $request['search'], ['unit_num']);
 				return view('counselors.results', compact('results'));
 				break;
 

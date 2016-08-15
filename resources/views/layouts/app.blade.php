@@ -147,7 +147,7 @@
           <li style="padding-top: 0.5em">
             <form class="" action="/search" method="post">
               {{ csrf_field() }}
-              <input type="text" name="search" class="form-control" value="" placeholder="Search by Merit Badge">&nbsp;
+              <input type="text" name="search" class="form-control" value="" placeholder="Search Merit Badges">&nbsp;
             </form>
           </li>
           <li><a href="/about">About</a></li>

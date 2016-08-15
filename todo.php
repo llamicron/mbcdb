@@ -1,5 +1,5 @@
 <?php
-// TODO: fix the 'multiple table' search problem
+// FIXME: Sorting by troop, council, district, and name destroy search results
 
 // training codes:
 //
