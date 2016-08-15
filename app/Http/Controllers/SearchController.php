@@ -35,7 +35,7 @@ class SearchController extends Controller {
 
 	}
 
-	public function searchOther(Request $request)
+	public function search(Request $request)
 	{
 		switch ($request['class']) {
 			case 'App\District':
@@ -47,12 +47,8 @@ class SearchController extends Controller {
 				return view('counselors.results', compact('results'));
 				break;
 
-			case 'App\Badge':
-				$badges = \App\Badge::where('name', 'LIKE', $request['search'])->get();
-				$results = new \Illuminate\Database\Eloquent\Collection;
-				foreach ($badges as $badge) {
-					$results->add($badge->counselors);
-				}
+			case 'App\Counselor':
+				$results = \App\Search::byClass('App\Counselor', $request['search']);
 				return view('counselors.results', compact('results'));
 				break;
 
@@ -69,7 +65,12 @@ class SearchController extends Controller {
 				break;
 
 			default:
-				# code...
+				$badges = \App\Badge::where('name', 'LIKE', $request['search'])->get();
+				$results = new \Illuminate\Database\Eloquent\Collection;
+				foreach ($badges as $badge) {
+					$results->add($badge->counselors);
+				}
+				return view('counselors.results', compact('results'));
 				break;
 		}
 	}

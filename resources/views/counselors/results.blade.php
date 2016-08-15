@@ -89,7 +89,7 @@
 			<div class="text-center">
 				<h3>Refine your search: </h3>
 				<h4>
-					<form class="" action="/searchOther" method="post">
+					<form class="" action="/search" method="post">
 						{{ csrf_field() }}
 						<label for="class">Search by: </label>
 						<select class="form-control" name="class">
