@@ -72,9 +72,9 @@ class CounselorsController extends Controller {
 
 
       // 'Instantiating' the counselor
-      $counselor->first_name = $request->first_name;
-      $counselor->last_name = $request->last_name;
-			$counselor->name = $request->first_name . " " . $request->last_name;
+      $counselor->first_name = trim($request->first_name);
+      $counselor->last_name = trim($request->last_name);
+			$counselor->name = trim($request->first_name) . " " . trim($request->last_name);
       $counselor->address = $request->address;
       $counselor->city = $request->city;
       $counselor->state = $request->state;
@@ -82,7 +82,7 @@ class CounselorsController extends Controller {
       $counselor->email = $request->email;
       $counselor->primary_phone = $request->primary_phone;
       $counselor->secondary_phone = $request->secondary_phone;
-      $counselor->unit_num = $request->unit_num;
+      $counselor->unit_num = trim($request->unit_num);
       $counselor->bsa_id = $request->bsa_id;
       $counselor->unit_only = 0;
       $counselor->save();
