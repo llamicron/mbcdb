@@ -24,6 +24,7 @@ class MailController extends Controller
 		$user = User::where('token', $_GET['token'])->first();
 		$user->verified = 1;
 		$user->save();
+		\Session::flash('status', 'Your account is now verified');
 		return redirect('/');
 	}
 

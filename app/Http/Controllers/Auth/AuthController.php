@@ -64,6 +64,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
 
+
 				$data['token'] = str_random(30);
 				\Mail::send('emails.welcome', $data, function ($message) use($data) {
 					$message->to($data['email'])
@@ -71,19 +72,28 @@ class AuthController extends Controller
 				});
 
 
-				$user = new User;
-				$user->name = $data['name'];
-				$user->email = $data['email'];
-				$user->password = bcrypt($data['password']);
-				$user->token = $data['token'];
-				$user->verified = 0;
-				$user->save();
-				return $user;
+				// $user = new User;
+				// $user->name = $data['name'];
+				// $user->email = $data['email'];
+				// $user->password = bcrypt($data['password']);
+				// $user->token = $data['token'];
+				// $user->verified = 0;
+				// $user->save();
 
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => bcrypt($data['password']),
-        // ]);
+				// \Session::flash('status', 'Please confirm your email address before logging in');
+				// return redirect()->back();
+
+        $return = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+
+				$user = User::where('email', $data['email'])->first();
+				$user->token = $data['token'];
+				$user->save();
+				return $return;
+
     }
+
 }
