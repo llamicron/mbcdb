@@ -17,7 +17,15 @@ class SandboxController extends Controller
     }
 
     public function test() {
-      return view('sandbox.test');
+
+			$data = [];
+
+			\Mail::send('emails.welcome', $data, function ($message) {
+				$message->to('luke@thesweeneys.org')
+								->subject('Welcome to MBCDB');
+			});
+
+
     }
 
 }
