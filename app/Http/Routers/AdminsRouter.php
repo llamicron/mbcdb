@@ -14,5 +14,9 @@ class AdminsRouter implements RouterInterface {
       Route::get('/users/{user}/setAdminWarning', 'AdminsController@setAdminWarning');
       Route::get('/users/{user}/setAdmin', 'AdminsController@setAdmin');
 
+			Route::get('/users/sortByName', 'AdminsController@sortByName');
+			Route::get('/users/sortByEmail', 'AdminsController@sortByEmail');
+			Route::get('/users/sortByPrivilege', 'AdminsController@sortByPrivilege');
+
     }
 }

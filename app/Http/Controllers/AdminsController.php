@@ -24,6 +24,24 @@ class AdminsController extends Controller {
       }
     }
 
+		public function sortByName()
+		{
+			$users = User::orderBy('name', 'ASC')->paginate(25);
+			return view('users.index', compact('users'));
+		}
+
+		public function sortByEmail()
+		{
+			$users = User::orderBy('email', 'ASC')->paginate(25);
+			return view('users.index', compact('users'));
+		}
+
+		public function sortByPrivilege()
+		{
+			$users = User::orderBy('isAdmin', 'DESC')->paginate(25);
+			return view('users.index', compact('users'));
+		}
+
     public function show(User $user) {
       return view('users.show', compact('user'));
     }
