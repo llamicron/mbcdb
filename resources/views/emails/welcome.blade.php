@@ -6,7 +6,8 @@
 	</head>
 	<body>
 		<p>
-			Welcome to MBCDB
+			Welcome to MBCDB!
+			Please <a href='{{ url("/users/verify?token=$token") }}'>verify your account</a>
 		</p>
 	</body>
 </html>
