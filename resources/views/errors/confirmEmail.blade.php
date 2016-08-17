@@ -9,5 +9,5 @@
 @endsection
 
 @section('buttons')
-  <button type="button" class="btn btn-primary" onClick="location='/login'" name="button"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Safety</button>
+  <button type="button" class="btn btn-primary" onClick="location='/login'" name="button"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Refresh</button>
 @endsection

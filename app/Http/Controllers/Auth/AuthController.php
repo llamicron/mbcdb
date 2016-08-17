@@ -68,7 +68,7 @@ class AuthController extends Controller
 				$data['token'] = str_random(30);
 				\Mail::send('emails.welcome', $data, function ($message) use($data) {
 					$message->to($data['email'])
-									->subject('Welcome to MBCDB');
+									->subject('Thanks for signing up for the MBCDB');
 				});
 
         $return = User::create([

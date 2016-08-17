@@ -9,12 +9,10 @@ use App\Http\Requests;
 class MailController extends Controller
 {
 
-	public function welcome()
+	public function welcome($data)
 	{
-		$data = [];
-
 		\Mail::send('emails.welcome', $data, function ($message) {
-			$message->to('luke@thesweeneys.org')
+			$message->to($data['email'])
 							->subject('Welcome to MBCDB');
 		});
 	}
@@ -22,6 +20,10 @@ class MailController extends Controller
 	public function verify()
 	{
 		$user = User::where('token', $_GET['token'])->first();
+		if(is_null($user)) {
+			\Session::flash('status', "Sorry, that user doesn't exist. Try creating another");
+			return redirect('/register');
+		}
 		$user->verified = 1;
 		$user->save();
 		\Session::flash('status', 'Your account is now verified');
