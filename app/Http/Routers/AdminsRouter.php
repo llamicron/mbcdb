@@ -4,7 +4,7 @@ namespace App\Http\Routers;
 
 use Route; // Route facade (Illuminate\Support\Facades\Route)
 
-class AdminRouter implements RouterInterface {
+class AdminsRouter implements RouterInterface {
     public static function setRoutes() {
 
       Route::get('/admin', 'AdminsController@confirmAdmin');

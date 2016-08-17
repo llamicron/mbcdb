@@ -19,7 +19,7 @@ class AdminsController extends Controller {
 
     public function confirmAdmin() {
       if(\Auth::user()->isAdmin) {
-        $users = User::get();
+        $users = User::paginate(25);
         return view('users.index', compact('users'));
       }
     }
@@ -42,7 +42,7 @@ class AdminsController extends Controller {
       }
     }
 
-    public function setAdminWarning(User $user) {
+		public function setAdminWarning(User $user) {
       return view('warnings.confirmSetAdmin', compact('user'));
     }
 

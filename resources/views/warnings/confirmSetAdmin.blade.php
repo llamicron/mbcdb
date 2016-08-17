@@ -22,6 +22,6 @@
 
 @section('buttons')
 
-<a href="/admin-login" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
+<a href="/users/{{ $user->id }}/show" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
 <a href="/users/{{ $user->id }}/setAdmin" class="btn btn-lg btn-primary">Continue</a>
 @endsection

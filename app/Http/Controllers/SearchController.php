@@ -61,6 +61,11 @@ class SearchController extends Controller {
 				return view('counselors.results', compact('results'));
 				break;
 
+			case 'App\User':
+				$results = \App\Search::byClass('App\User', $request['search'], ['name', 'email']);
+				return view('users.results', compact('results'));
+				break;
+
 			default:
 				$badges = \App\Badge::where('name', 'LIKE', $request['search'])->get();
 				$results = new \Illuminate\Database\Eloquent\Collection;

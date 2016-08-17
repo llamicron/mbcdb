@@ -12,9 +12,16 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
 
-    <h2>All Users</h2>
+		<h2>
+			<form class="" action="/search" method="post">
+				{{ csrf_field() }}
+				All Users
+				<input type="hidden" name="class" value="App\User">
+			 	<input type="test" class="form-control" style="width: 15%; float: right" name="search" placeholder="Search Users" value="">
+			</form>
+		</h2>
 
-          {{-- <TABLE> --}}
+      {{-- <TABLE> --}}
       <table class="table table-striped">
 
       <thead>
@@ -48,13 +55,15 @@
                 name="delete">Delete
               </button>
             </td>
-        </tr>
-        @endforeach
-      </tbody>
+	        </tr>
+				@endforeach
+	      </tbody>
 
-      </table>
-          {{-- </TABLE> --}}
-
-  </div>
+	      </table>
+	    	{{-- </TABLE> --}}
+			<div class="text-center">
+				{{ $users->links() }}
+			</div>
+	</div>
 </div>
 @endsection
