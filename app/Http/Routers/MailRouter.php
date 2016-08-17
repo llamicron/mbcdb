@@ -4,8 +4,10 @@ namespace App\Http\Routers;
 
 use Route; // Route facade (Illuminate\Support\Facades\Route)
 
-class SandboxRouter implements RouterInterface {
+class MailRouter implements RouterInterface {
     public static function setRoutes() {
-      Route::get('/test', 'SandboxController@test');
-    }
+
+			Route::get('/users/verify', 'MailController@verify');
+
+		}
 }

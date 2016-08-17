@@ -7,6 +7,7 @@ use App\Http\Routers\AdminsRouter;
 use App\Http\Routers\SandboxRouter;
 use App\Http\Routers\AuthRouter;
 use App\Http\Routers\SearchRouter;
+use App\Http\Routers\MailRouter;
 
 // setting the routes
 CounselorsRouter::setRoutes();
@@ -15,3 +16,4 @@ AdminsRouter::setRoutes();
 SandboxRouter::setRoutes();
 AuthRouter::setRoutes();
 SearchRouter::setRoutes();
+MailRouter::setRoutes();

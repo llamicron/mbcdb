@@ -63,10 +63,25 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+
+				$data['token'] = str_random(30);
+				\Mail::send('emails.welcome', $data, function ($message) use($data) {
+					$message->to($data['email'])
+									->subject('Thanks for signing up for the MBCDB');
+				});
+
+        $return = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+				$user = User::where('email', $data['email'])->first();
+				$user->token = $data['token'];
+				$user->save();
+				return $return;
+
     }
+
 }

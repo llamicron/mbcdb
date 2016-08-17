@@ -50,8 +50,8 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'admin' => \App\Http\Middleware\MustBeAdministrator::class
-        // dont forget the comma right                     here  ^
+        'admin' => \App\Http\Middleware\MustBeAdministrator::class,
+        'verify' => \App\Http\Middleware\MustBeVerified::class,
         // Add middleware here to assign it to a route or controller
     ];
 }
