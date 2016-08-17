@@ -26,9 +26,13 @@
 
           <h2>This user's counselors</h2>
           <ul>
-            @foreach($user->counselors as $counselor)
-              <li><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name . " " . $counselor->last_name}}</a></li>
-            @endforeach
+						@if ($user->counselors->isEmpty())
+							<li><h4>This user doesn't have any counselors</h4></li>
+						@else
+	            @foreach($user->counselors as $counselor)
+	              <li><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name . " " . $counselor->last_name}}</a></li>
+	          	@endforeach
+						@endif
           </ul>
         </li>
       </ul>
