@@ -25,6 +25,9 @@ class Authenticate
             }
         }
 
-        return $next($request);
+				if (\Auth::user()->verified == 0) {
+					return view('errors.confirmEmail');
+				}
+				return $next($request);
     }
 }

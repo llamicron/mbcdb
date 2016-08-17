@@ -71,18 +71,6 @@ class AuthController extends Controller
 									->subject('Welcome to MBCDB');
 				});
 
-
-				// $user = new User;
-				// $user->name = $data['name'];
-				// $user->email = $data['email'];
-				// $user->password = bcrypt($data['password']);
-				// $user->token = $data['token'];
-				// $user->verified = 0;
-				// $user->save();
-
-				// \Session::flash('status', 'Please confirm your email address before logging in');
-				// return redirect()->back();
-
         $return = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
