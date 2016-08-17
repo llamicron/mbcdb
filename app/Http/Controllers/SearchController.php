@@ -54,7 +54,10 @@ class SearchController extends Controller {
 				break;
 
 			case 'unit_num':
-				$results = \App\Search::byClass('App\Counselor', $request['search'], ['unit_num']);
+				$search_results = \App\Counselor::where('unit_num', $request['search'])->get();
+				// Super ghetto.  This adds another 'dimension' to the collection.
+				$results = new \Illuminate\Database\Eloquent\Collection;
+				$results->add($search_results);
 				return view('counselors.results', compact('results'));
 				break;
 

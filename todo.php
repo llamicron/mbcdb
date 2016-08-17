@@ -1,16 +1,5 @@
 <?php
 // FIXME: Sorting by troop, council, district, and name destroy search results
-
-// training codes:
-//
-//  - CPR -
-//  - AED -
-//  - Red Cross First aid cert -
-//  Wilderness first aid
-//  NRA
-//  Safe Swim Defense
-//  Safety Afloat
-//  Weather Hazards
-//  Climb On Safely
-//  Trek Safely
-//
+// TODO: Finish email verification
+// TODO: Add some snippets: bootstrap, HTML form
+// TODO: 
