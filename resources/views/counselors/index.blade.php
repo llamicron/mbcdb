@@ -54,7 +54,6 @@ to view the authed user's counselors --}}
             <th><a href="/sortByTroop">Troop</a></th>
             <th><a href="/sortByDistrict">District</a></th>
             <th><a href="#">Council</a></th>
-            <th></th>
           </tr>
 
         </thead>
@@ -70,14 +69,6 @@ to view the authed user's counselors --}}
             <td> {{ $counselor->unit_num }} </td>
             <td> {{ $counselor->district->name }}    </td>
             <td> {{ $counselor->district->council->name }}       </td>
-            <td>
-              <div class="pull-right">
-                <button type="button" class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/show'" name="view">
-                  <span class="glyphicon glyphicon-zoom-in"></span>&nbsp;
-                  View
-                </button>
-              </div>
-            </td>
           </tr>
 
         @endforeach
