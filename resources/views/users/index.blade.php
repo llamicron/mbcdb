@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-12">
 
 		<h2>
 			<form class="" action="/search" method="post">
@@ -48,7 +48,6 @@
           </td>
             <td style=" text-align: right; ">
               <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
-              <button type="button" class="btn btn=primary" onClick="location='/users/{{ $user->id }}/setAdminWarning'" name="set_admin">Set as Admin</button>
               <button type="button" class="btn btn-danger"
                 onclick="location='/users/{{ $user->id }}/confirmRemoval'"
                 name="delete">Delete

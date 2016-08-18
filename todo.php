@@ -1,8 +1,6 @@
 <?php
-// TODO: update bootform snippet to include action and method
-
-
-
+// TODO: Fix update counselor form.  check all forms.
+// TODO: CHECK EVERY PAGES FOR BUGS.  THIS WILL TAKE A WHILE> DO IT WELL.
 
 
 // ctrl-shift-t to find dispersed todos, fixmes, etc.

@@ -10,7 +10,8 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
+
 
 		<h2>
 			<form class="" action="/search" method="post">
@@ -37,7 +38,8 @@
       </thead>
       <tbody>
 				@foreach ($results as $users)
-	        @foreach($users as $user)
+					@foreach ($users as $user)
+
 	          <tr>
 	          <td><a href="/users/{{ $user->id }}/show">{{ $user->name }}</a></td>
 	          <td>{{ $user->email }}</td>
@@ -50,20 +52,18 @@
 	          </td>
 	            <td style=" text-align: right; ">
 	              <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
-	              <button type="button" class="btn btn=primary" onClick="location='/users/{{ $user->id }}/setAdminWarning'" name="set_admin">Set as Admin</button>
 	              <button type="button" class="btn btn-danger"
 	                onclick="location='/users/{{ $user->id }}/confirmRemoval'"
 	                name="delete">Delete
 	              </button>
 	            </td>
-	        </tr>
-	        @endforeach
+	        	</tr>
+					@endforeach
 				@endforeach
       </tbody>
 
       </table>
     	{{-- </TABLE> --}}
-
 		</div>
 	</div>
 @endsection

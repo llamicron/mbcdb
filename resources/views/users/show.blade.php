@@ -37,6 +37,9 @@
         </li>
       </ul>
       <button type="button" class="btn btn-danger" onClick="location='/users/{{ $user->id }}/confirmRemoval'" name="delete">Delete User</button>
+			@if (Auth::user()->isAdmin == 1)
+				<button type="button" onClick="location='/users/{{ $user->id }}/setAdmin'" class="btn btn-primary" name="setAdmin">Make this user an Administrator</button>
+			@endif
     </div>
   </div>
 @endsection

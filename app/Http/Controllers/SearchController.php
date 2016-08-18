@@ -25,10 +25,15 @@ class SearchController extends Controller {
 
 	public function search(Request $request)
 	{
+
+		if ($request['search'] == '') {
+			return redirect()->back();
+		}
+
 		switch ($request['class']) {
 
 			case 'App\District':
-				$districts = \App\District::where('name', 'LIKE', $request['search'])->get();
+				$districts = \App\District::where('name', 'LIKE', $request['search'])->paginate(25);
 				$results = new \Illuminate\Database\Eloquent\Collection;
 				foreach ($districts as $district) {
 					$results->add($district->counselors);
@@ -42,7 +47,7 @@ class SearchController extends Controller {
 				break;
 
 			case 'App\Council':
-				$councils = \App\Council::where('name', 'LIKE', $request['search'])->get();
+				$councils = \App\Council::where('name', 'LIKE', $request['search'])->paginate(25);
 				$results = new \Illuminate\Database\Eloquent\Collection;
 				foreach ($councils as $council) {
 					$districts = $council->districts;
@@ -54,7 +59,7 @@ class SearchController extends Controller {
 				break;
 
 			case 'unit_num':
-				$search_results = \App\Counselor::where('unit_num', $request['search'])->get();
+				$search_results = \App\Counselor::where('unit_num', $request['search'])->paginate(25);
 				// Super ghetto.  This adds another 'dimension' to the collection.
 				$results = new \Illuminate\Database\Eloquent\Collection;
 				$results->add($search_results);
@@ -67,7 +72,7 @@ class SearchController extends Controller {
 				break;
 
 			default:
-				$badges = \App\Badge::where('name', 'LIKE', $request['search'])->get();
+				$badges = \App\Badge::where('name', 'LIKE', $request['search'])->paginate(25);
 				$results = new \Illuminate\Database\Eloquent\Collection;
 				foreach ($badges as $badge) {
 					$results->add($badge->counselors);

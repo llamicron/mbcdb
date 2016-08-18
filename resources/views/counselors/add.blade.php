@@ -19,13 +19,11 @@
 {{-- i will need to add elements to the form to allow counselors to be related to users with Eloquent --}}
 @section('content')
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-8 col-md-offset-2">
         <h1>Add a Counselor</h1>
 
           <form class="form-group" action="/counselors/add" method="post">
-
             {{ csrf_field() }}
-
               <div class="form-inline">
                 <input class="form-control" style=" width: 45%" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="* First Name">&nbsp;&nbsp;
                 <input class="form-control" style=" width: 53%" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="* Last Name">

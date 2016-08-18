@@ -19,7 +19,7 @@ class Search extends Model
 			}
 
 			foreach ($fields as $field) {
-		  	$results->add($class::where($field, 'LIKE', "%{$term}%")->get());
+		  	$results->add($class::where($field, 'LIKE', "%{$term}%")->paginate(25));
 			}
 			return $results;
 		}

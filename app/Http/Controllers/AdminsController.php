@@ -67,7 +67,8 @@ class AdminsController extends Controller {
     public function setAdmin(User $user) {
       $user->isAdmin = 1;
       $user->save();
-      return redirect('admin-login');
+			\Session::flash('status', "$user->name is now an admin");
+      return redirect("/users/$user->id/show");
     }
 
     public function home() {
