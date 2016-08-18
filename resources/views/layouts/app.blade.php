@@ -117,19 +117,19 @@
           {{-- Navbar Left yield --}}
           @yield('navbar-left')
         </ul>
-        <form class="navbar-form navbar-right" role="search" action="/search" method="post">
-          {{ csrf_field() }}
-        <div class="form-group">
-          <input type="text" class="form-control" name="search" placeholder="Search Merit Badges">
-        </div>
-					{{-- <input type="hidden" name="class" value=""> --}}
-        </form>
         <!-- Right Side Of Navbar -->
         <ul class="nav navbar-nav navbar-right">
           {{-- Navbar Right yield --}}
           @yield('navbar-right')
 
           <li><a href="/about">About</a></li>
+					<form class="navbar-form navbar-right" role="search" action="/search" method="post">
+						{{ csrf_field() }}
+						<div class="form-group">
+							<input type="text" class="form-control" name="search" placeholder="Search Merit Badges">
+						</div>
+						{{-- <input type="hidden" name="class" value=""> --}}
+					</form>
           <!-- Authentication Links -->
           @if (Auth::guest())
             <li><a href="{{ url('/login') }}">Login</a></li>
