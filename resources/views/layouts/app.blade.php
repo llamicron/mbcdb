@@ -29,17 +29,22 @@
           font-size: 1.1em;
         }
 
-        html, body {height: 100%;}
+        html, body {height: 100%; overflow-x: hidden;}
 
-        #wrap {min-height: 100%;}
+        #wrap {}
 
-        #main {overflow:auto;
-        	padding-bottom: 150px;}  /* must be same height as the footer */
+        #main {
+        	 padding-bottom: 150px;
+          }  /* must be same height as the footer */
 
-        #footer {position: relative;
-        	margin-top: -15px; /* negative value of footer height */
-        	height: 15px;
-        	clear:both;}
+        #footer {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 1rem;
+          background-color: #efefef;
+        }
 
         /*Opera Fix*/
         body:before {
@@ -78,9 +83,7 @@
         }
 
         .table td {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+
         }
     </style>
 </head>
@@ -114,17 +117,18 @@
           {{-- Navbar Left yield --}}
           @yield('navbar-left')
         </ul>
-
+        <form class="navbar-form navbar-right" role="search" action="/search" method="post">
+          {{ csrf_field() }}
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
         <!-- Right Side Of Navbar -->
         <ul class="nav navbar-nav navbar-right">
           {{-- Navbar Right yield --}}
           @yield('navbar-right')
-          <li style="padding-top: 0.5em">
-            <form class="" action="/search" method="post">
-              {{ csrf_field() }}
-              <input type="text" name="search" class="form-control" value="" placeholder="Search Merit Badges">&nbsp;
-            </form>
-          </li>
+
           <li><a href="/about">About</a></li>
           <!-- Authentication Links -->
           @if (Auth::guest())
@@ -163,7 +167,7 @@
 
 
 <div id="wrap">
-  <div id="main">
+  <div id="main" class="container">
     <div class="font">
 			<!-- Echoing flashed status -->
 			@if(Session::has('status'))
@@ -179,19 +183,19 @@
 
       @yield('content')
 
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		@if($errors->has())
-			<hr>
-			@foreach ($errors->all() as $error)
-				<div class="alert alert-danger"><li>{{ $error }}</li></div>
-			@endforeach
-		@endif
-	</div>
-</div>
-		</div>
+  <div class="row">
+  	<div class="col-md-4 col-md-offset-4">
+  		@if($errors->has())
+  			<hr>
+  			@foreach ($errors->all() as $error)
+  				<div class="alert alert-danger"><li>{{ $error }}</li></div>
+  			@endforeach
+  		@endif
+  	</div>
   </div>
-</div>
+  		</div>
+    </div>
+  </div>
     <div id="footer">
 			<a href="/feedback">&nbsp;Send Feedback</a>
       <div class="pull-right">
