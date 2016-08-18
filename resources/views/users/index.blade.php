@@ -27,7 +27,6 @@
       <thead>
 
       <tr>
-        <?php // TODO: Add sorting functions for users on AdminsController ?>
         <th><a href="/users/sortByName">Name</a></th>
         <th><a href="/users/sortByEmail">Email</a></th>
         <th><a href="/users/sortByPrivilege">Privileges</a></th>

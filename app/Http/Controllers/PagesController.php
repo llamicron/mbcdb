@@ -33,4 +33,44 @@ class PagesController extends Controller
 			return redirect('/');
 		}
 
+		public function feedback()
+		{
+			return view('static.feedback');
+		}
+
+
+		public function sendFeedback(Request $request)
+		{
+
+			$this->validate($request, [
+				'subject' => 'required',
+				'message' => 'required',
+				'from' => "required|email"
+			]);
+
+
+			switch ($request['type']) {
+				case 'bug':
+					$type = "[BUG REPORT]";
+					break;
+
+				default:
+					$type = "[FEEDBACK]";
+					break;
+			}
+
+			$data['from'] = $request['from'];
+			$data['type'] = $type;
+			$data['subject'] = $request['subject'];
+			$data['letter'] = $request['message'];
+
+			\Mail::send('emails.feedback', $data, function ($message) use ($data) {
+				$message->to('mbcdb.help@gmail.com')
+								->subject($data['type'] . " | " . $data['subject']);
+			});
+
+			\Session::flash('status', 'Feedback sent! Thank you for helping us improve!');
+			return redirect('/');
+		}
+
 }

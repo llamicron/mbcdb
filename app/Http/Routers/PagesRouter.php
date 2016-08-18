@@ -12,7 +12,8 @@ class PagesRouter implements RouterInterface {
 			Route::get('/users/self/edit', function () {
 				return view('users.self');
 			});
-
 			Route::post('/users/{user}/edit', 'PagesController@edit');
+			Route::get('/feedback', 'PagesController@feedback');
+			Route::post('/feedback', 'PagesController@sendFeedback');
     }
 }

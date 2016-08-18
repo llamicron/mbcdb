@@ -55,7 +55,6 @@ class CounselorsController extends Controller {
     }
 
     public function store(Request $request) {
-      // FIXME:  This is Terrible.  Fix it.
       $this->validate($request, [
         'first_name'        => 'required',
         'last_name'         => 'required',

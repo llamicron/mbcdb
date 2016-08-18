@@ -12,7 +12,7 @@ class CounselorsRouter implements RouterInterface {
       Route::get('/sortByTroop', 'CounselorsController@sortByTroop');
       Route::get('/counselors', 'CounselorsController@home');
       Route::get('/counselors/add', 'CounselorsController@add');
-      Route::post('/counselors/add', 'CounselorsController@store');
+			Route::post('/counselors/add', 'CounselorsController@store');
       Route::get('/counselors/{user}', 'CounselorsController@userCounselors');
       Route::get('/counselors/{counselor}/show', 'CounselorsController@show');
       Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');

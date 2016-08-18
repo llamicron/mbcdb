@@ -144,6 +144,7 @@
 
               <ul class="dropdown-menu" role="menu">
 								<li><a href="/users/self/edit"><i class="fa fa-btn fa-cog"></i>Edit Account</a></li>
+								<li><a href="/feedback"><i class="fa fa-btn fa-send"></i>Send Feedback</a></li>
                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
               </ul>
             </li>
@@ -179,11 +180,21 @@
 
       @yield('content')
 
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		@if($errors->has())
+			<hr>
+			@foreach ($errors->all() as $error)
+				<div class="alert alert-danger"><li>{{ $error }}</li></div>
+			@endforeach
+		@endif
+	</div>
+</div>
 		</div>
   </div>
 </div>
     <div id="footer">
-      &nbsp;MBCDB | Luke Sweeney | 2016
+			<a href="/feedback">&nbsp;Send Feedback</a>
       <div class="pull-right">
         <i><a target="_blank" href="https://laravel.com/">Made with Laravel&nbsp;</a></i>
       </div>
