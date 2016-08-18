@@ -1,11 +1,12 @@
 <?php
-
-if (!defined('RDS_HOSTNAME')) {
-  define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
-  define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
-  define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
-  define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
-}
+// keep commented for localhost.  this file is .gitignored, so you shouldn't have to worry about this.
+// production server should be uncommented
+// if (!defined('RDS_HOSTNAME')) {
+//   define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
+//   define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
+//   define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
+//   define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
+// }
 
 return [
 
@@ -33,7 +34,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => 'mysql',
 
     /*
     |--------------------------------------------------------------------------
@@ -61,11 +62,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => RDS_HOSTNAME,
+            'host' => env('DB_HOST'),
             'port' => env('DB_PORT', '3306'),
-            'database' => RDS_DB_NAME,
-            'username' => RDS_USERNAME,
-            'password' => RDS_PASSWORD,
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
