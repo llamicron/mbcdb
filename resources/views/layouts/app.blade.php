@@ -120,9 +120,9 @@
         <form class="navbar-form navbar-right" role="search" action="/search" method="post">
           {{ csrf_field() }}
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" name="search" placeholder="Search Merit Badges">
         </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+					{{-- <input type="hidden" name="class" value=""> --}}
         </form>
         <!-- Right Side Of Navbar -->
         <ul class="nav navbar-nav navbar-right">
