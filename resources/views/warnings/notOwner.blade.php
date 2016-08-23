@@ -1,48 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Restricted</title>
+@extends('layouts.warning')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('title')
+	Unauthorized
+@endsection
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                /*color: #B0BEC5;*/
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('message')
+  Sorry, but you're not authorized to do this
+@endsection
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Sorry, but you aren't allowed to do this</div>
-                <button type="button" class="btn btn-primary btn-large" onClick="location='/home'" name="button"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Safety</button>
-            </div>
-        </div>
-    </body>
-</html>
+@section('buttons')
+  <button type="button" class="btn btn-primary" onClick="location='/home'" name="button"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Safety</button>
+@endsection

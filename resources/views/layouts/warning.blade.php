@@ -35,8 +35,8 @@
             @yield('style')
 
             .title {
-                font-size: 72px;
-                margin-bottom: 40px;
+                font-size: 36px;
+                margin: 40px;
             }
         </style>
     </head>
@@ -44,9 +44,11 @@
         <div class="container">
             <div class="content">
                 <div class="title">
-                  @yield('message')
+									<div class="alert alert-danger">
+                  	@yield('message')
+									</div>
                 </div>
-                @yield('buttons')
+              	@yield('buttons')
             </div>
         </div>
     </body>
