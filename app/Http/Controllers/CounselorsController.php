@@ -145,7 +145,7 @@ class CounselorsController extends Controller {
       $counselor->save();
 
 
-      return redirect('/counselors');
+      return redirect("/counselors/$counselor->id/show");
     }
 
     public function edit(Counselor $counselor) {

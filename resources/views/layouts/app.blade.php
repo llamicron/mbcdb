@@ -87,7 +87,6 @@
         }
     </style>
 </head>
-
 <body id="app-layout">
 
 
@@ -164,20 +163,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-
-
 <div id="wrap">
   <div id="main" class="container">
     <div class="font">
 			<!-- Echoing flashed status -->
 			@if(Session::has('status'))
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="alert alert-success">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>{{ Session::get('status') }}</strong>
-						</div>
-					</div>
+				<div class="alert alert-success">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					{{ Session::get('status') }}
 				</div>
 			@endif
 

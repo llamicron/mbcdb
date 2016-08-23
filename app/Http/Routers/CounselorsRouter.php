@@ -6,7 +6,7 @@ use Route; // Route facade (Illuminate\Support\Facades\Route)
 
 class CounselorsRouter implements RouterInterface {
     public static function setRoutes() {
-      Route::get('/', 'CounselorsController@home');
+      Route::get('/', 'CounselorsController@sortByName');
       Route::get('/home', 'CounselorsController@sortByName');
       Route::get('/sortByDistrict', 'CounselorsController@sortByDistrict');
       Route::get('/sortByTroop', 'CounselorsController@sortByTroop');
