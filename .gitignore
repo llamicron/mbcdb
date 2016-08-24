@@ -4,9 +4,6 @@
 Homestead.yaml
 Homestead.json
 .env
-config/database.php
-database/database.sqlite
-config/Jdatabase.php
 
 
 # Elastic Beanstalk Files

@@ -53,7 +53,7 @@ to view the authed user's counselors --}}
             <th><a href="/home">Name</a></th>
             <th><a href="/sortByTroop">Troop</a></th>
             <th><a href="/sortByDistrict">District</a></th>
-            <th><a href="#">Council</a></th>
+            <th>Council</th>
           </tr>
 
         </thead>

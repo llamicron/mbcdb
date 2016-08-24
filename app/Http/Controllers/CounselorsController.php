@@ -36,7 +36,8 @@ class CounselorsController extends Controller {
       // THANK YOU BESTMOMO!
       $counselors = Counselor::with('district.council')->orderBy(DB::raw('LENGTH(unit_num), unit_num'))->paginate(25);
       return view('counselors.index', compact('counselors'));
-    }
+    }		
+
 
     public function userCounselors(User $user) {
       $context = 'userCounselors';
