@@ -27,6 +27,7 @@ class LukeSeeder extends Seeder {
     $user->name = "Luke Sweeney";
     $user->email = "luke@thesweeneys.org";
     $user->isAdmin = 1;
+		$user->verified = 1;
     $user->password = bcrypt("password");
     $user->save();
 
@@ -41,6 +42,7 @@ class LukeSeeder extends Seeder {
     $user->name = "Luke's Non Admin";
     $user->email = "lukesjunk@thesweeneys.org";
     $user->isAdmin = 0;
+		$user->verified = 1;
     $user->password = bcrypt("password");
     $user->save();
 

@@ -25,13 +25,14 @@
             @endif
             <br>
             Troop {{ $counselor->unit_num }}<br>
-              {{ $counselor->district->name }} District<br>
-            <br>
-            {{--
-              For some reason, belongsTo was returning true every time.  I would write:
-                @if ($user->isAdmin || $counselor->belongsTo($user))
-              But it isnt working.
-            --}}
+            {{ $counselor->district->name }} District<br>
+						Unit Only:
+						@if ($counselor->unit_only)
+							{{ 'Yes' }}
+						@else
+							{{ 'No' }}
+						@endif
+            <br><br>
             @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
               <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
               <button class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
@@ -54,6 +55,14 @@
         </li>
         <br>
       </ul>
+
+			@if ($counselor->unit_only == 1)
+				<div class="alert alert-info">
+					<p>
+						This counselor has chosen to only teach scouts in their troop.  <br> If you are not in Troop {{ $counselor->unit_num }}, please do not contact this counselor.
+					</p>
+				</div>
+			@endif
 
     </div>
   </div>

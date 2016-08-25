@@ -42,12 +42,16 @@
               <input class="form-control" type="text" name="secondary_phone" value="{{ old('secondary_phone') }}" placeholder="Secondary Phone"><br>
               <input class="form-control" type="text" name="unit_num" value="{{ old('unit_num') }}" placeholder="* Unit Number"><br>
               <input class="form-control" type="text" name="bsa_id" value="{{ old('bsa_id') }}" placeholder="* BSA ID"><br>
-              <select class="form-control" placeholder="* District" name="district">
-                <option value="disabled" disabled selected>* Select a District</option>
-                @foreach ($districts as $district)
-                  <option value="{{ $district->id }}">{{ $district->name }}</option>
-                @endforeach
-              </select>
+							<select class="form-control" placeholder="* District" name="district">
+								<option value="disabled" disabled selected>* Select a District</option>
+								@foreach ($districts as $district)
+									<option value="{{ $district->id }}">{{ $district->name }}</option>
+								@endforeach
+							</select>
+							<br>
+							<input type="checkbox" name="unit_only" value="1">
+							<label for="unit_only">&nbsp; Unit Only</label><br>
+							<i>Does this counselor only want to teach scouts in their troop?</i>
               <hr>
               &nbsp;<button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
               <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>

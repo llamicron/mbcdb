@@ -34,6 +34,7 @@ $factory->define(App\Counselor::class, function (Faker\Generator $faker) {
 				'primary_phone' => $faker->phoneNumber,
 				'secondary_phone' => $faker->phoneNumber,
 				'unit_num' => $faker->buildingNumber,
+				'unit_only' => rand(0, 1),
 				'bsa_id' => $faker->randomNumber(7),
     ];
 });

@@ -14,7 +14,7 @@ use App\Http\Requests;
 class AdminsController extends Controller {
 
     public function __construct() {
-      $this->middleware('admin')->except('assign', 'assignStore');
+      $this->middleware('admin')->except('deleteUser', 'confirmDelete');
     }
 
     public function confirmAdmin() {
@@ -75,4 +75,23 @@ class AdminsController extends Controller {
       return redirect('/admin');
     }
 
+		public function confirmDelete(User $user)
+		{
+			return view('warnings.confirmDelete', compact('user'));
+		}
+
+		public function deleteUser(User $user, Request $request)
+		{
+			$this->validate($request, [
+				'name' => 'required'
+			]);
+
+			if ($request->name != $user->name) {
+				\Session::flash('error', 'The name you entered does not match');
+				return redirect()->back();
+			}
+			$user->delete();
+			\Session::flash('status', 'User Deleted');
+			return redirect('/');
+		}
 }

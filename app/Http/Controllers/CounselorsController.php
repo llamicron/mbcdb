@@ -36,7 +36,7 @@ class CounselorsController extends Controller {
       // THANK YOU BESTMOMO!
       $counselors = Counselor::with('district.council')->orderBy(DB::raw('LENGTH(unit_num), unit_num'))->paginate(25);
       return view('counselors.index', compact('counselors'));
-    }		
+    }
 
 
     public function userCounselors(User $user) {
@@ -84,7 +84,7 @@ class CounselorsController extends Controller {
       $counselor->secondary_phone = $request->secondary_phone;
       $counselor->unit_num = trim($request->unit_num);
       $counselor->bsa_id = $request->bsa_id;
-      $counselor->unit_only = 0;
+      $counselor->unit_only = $request->unit_only;
       $counselor->save();
 
       // Getting the district and setting the relationship

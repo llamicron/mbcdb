@@ -18,5 +18,7 @@ class AdminsRouter implements RouterInterface {
 			Route::get('/users/sortByEmail', 'AdminsController@sortByEmail');
 			Route::get('/users/sortByPrivilege', 'AdminsController@sortByPrivilege');
 
+			Route::get('/users/{user}/delete', 'AdminsController@confirmDelete');
+			Route::post('/users/{user}/delete', 'AdminsController@deleteUser');
     }
 }

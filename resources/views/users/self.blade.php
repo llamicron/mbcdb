@@ -49,20 +49,16 @@
 			  <label class="col-md-4 control-label" for="cancel"></label>
 			  <div class="col-md-8">
 			    <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
-			    <button id="cancel" onClick="location='/'" name="cancel" class="btn btn-danger">Cancel</button>
+					<button type="button" onClick="location='/'" class="btn btn-danger" name="cancel">Cancel</button>
+					<br><br>
+					<u><a href="/users/{{ \Auth::user()->id }}/delete">Delete account</a></u>
 			  </div>
 			</div>
 
 			</fieldset>
 			</form>
 
-			@if($errors->has())
-		    @foreach ($errors->all() as $error)
-		  	 <div class="alert alert-danger">
-			 	  	<li>{{ $error }}</li>
-				 </div>
-    	  @endforeach
-			@endif
+
 		</div>
 	</div>
 @endsection
