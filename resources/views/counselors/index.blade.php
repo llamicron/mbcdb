@@ -13,9 +13,6 @@ to view the authed user's counselors --}}
   @else
     <li><a href="/counselors/{{ Auth::user()->id }}">Your Counselors</a></li>
   @endif
-  <li><a href="/counselors/add">
-    Add a Counselor
-  </a></li>
 @endsection
 
 @section('content')

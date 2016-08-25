@@ -13,7 +13,7 @@ class MailController extends Controller
 	{
 		\Mail::send('emails.welcome', $data, function ($message) {
 			$message->to($data['email'])
-							->subject('Welcome to MBCDB');
+							->subject('Welcome to mbc.arrowmoon.org');
 		});
 	}
 

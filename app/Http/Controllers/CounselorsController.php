@@ -23,25 +23,25 @@ class CounselorsController extends Controller {
 // ----------------- counselors/index view sorting functions ----------------------
 
     public function sortByName() {
-      $counselors = Counselor::with('district.council')->orderBy('last_name', 'ASC')->paginate(25);
+      $counselors = Counselor::with('district.council')->orderBy('last_name', 'ASC')->paginate(35);
       return view('counselors.index', compact('counselors'));
     }
 
     public function sortByDistrict() {
-      $counselors = Counselor::with('district.council')->orderBy('district_id', 'DESC')->paginate(25);
+      $counselors = Counselor::with('district.council')->orderBy('district_id', 'DESC')->paginate(35);
       return view('counselors.index', compact('counselors'));
     }
 
     public function sortByTroop() {
       // THANK YOU BESTMOMO!
-      $counselors = Counselor::with('district.council')->orderBy(DB::raw('LENGTH(unit_num), unit_num'))->paginate(25);
+      $counselors = Counselor::with('district.council')->orderBy(DB::raw('LENGTH(unit_num), unit_num'))->paginate(35);
       return view('counselors.index', compact('counselors'));
     }
 
 
     public function userCounselors(User $user) {
       $context = 'userCounselors';
-			$counselors = Counselor::where('user_id', \Auth::user()->id)->paginate(25);
+			$counselors = Counselor::where('user_id', \Auth::user()->id)->paginate(35);
       return view('counselors.index', compact('counselors', 'user', 'context'));
     }
 
