@@ -19,8 +19,8 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="textinput">Name</label>
-			  <div class="col-md-4">
+			  <label class="col-sm-4 control-label" for="textinput">Name</label>
+			  <div class="col-sm-7">
 			  <input id="name" name="name" type="text" value="{{ \Auth::user()->name }}" class="form-control input-md">
 			  <span class="help-block"></span>
 			  </div>
@@ -28,8 +28,8 @@
 
 			<!-- Password input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="passwordinput">New Password</label>
-			  <div class="col-md-4">
+			  <label class="col-sm-4 control-label" for="passwordinput">New Password</label>
+			  <div class="col-sm-7">
 			    <input id="new-password" name="new_password" type="password" placeholder="New Password" class="form-control input-md">
 			    <span class="help-block"></span>
 			  </div>
@@ -37,8 +37,8 @@
 
 			<!-- Password input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="passwordinput">Confirm New Password</label>
-			  <div class="col-md-4">
+			  <label class="col-sm-4 control-label" for="passwordinput">Confirm New Password</label>
+			  <div class="col-sm-7">
 			    <input id="Confirm new-password" name="confirm_new_password" type="password" placeholder="Confirm New Password" class="form-control input-md">
 			    <span class="help-block"></span>
 			  </div>
@@ -46,8 +46,8 @@
 
 			<!-- Button (Double) -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="cancel"></label>
-			  <div class="col-md-8">
+			  <label class="col-sm-4 control-label" for="cancel"></label>
+			  <div class="col-sm-7">
 			    <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
 					<button type="button" onClick="location='/'" class="btn btn-danger" name="cancel">Cancel</button>
 					<br><br>

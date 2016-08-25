@@ -86,6 +86,17 @@
 					width: 10%;
         }
 
+				input.quarter {
+					width: inherit;
+					float: left;
+					margin-right: 0em;
+					margin-bottom: 0em;
+				}
+
+				.nopadding {
+			    padding: 0.1em !important;
+					margin-bottom: 0.3em;
+				}
     </style>
 </head>
 <body id="app-layout">

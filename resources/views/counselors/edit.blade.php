@@ -24,19 +24,21 @@
       <form class="form-group" action="/counselors/{{ $counselor->id }}/edit" method="post">
         <input type="hidden" name="_method" value="PATCH">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-          <div class="form-inline">
-            <input class="form-control" value="{{ $counselor->first_name }}" style=" width: 45%" type="text" name="first_name" placeholder="First Name">&nbsp;&nbsp;
-            <input class="form-control" value="{{ $counselor->last_name }}" style=" width: 53%" type="text" name="last_name" placeholder="Last Name">
-          </div>
+          <input class="form-control" value="{{ $counselor->first_name }}" type="text" name="first_name" placeholder="First Name">&nbsp;&nbsp;
+          <input class="form-control" value="{{ $counselor->last_name }}" type="text" name="last_name" placeholder="Last Name">
           <br>
-          <div class="form-inline">
-            <input class="form-control" value="{{ $counselor->address }}" style=" width: 41%" type="text" name="address" placeholder="Address">
-            <input class="form-control" value="{{ $counselor->city }}" style=" width: 25%" type="text" name="city" placeholder="City">
-            <input class="form-control" value="{{ $counselor->state }}" style=" width: 16%" type="text" name="state" placeholder="State">
-            <input class="form-control" value="{{ $counselor->zip }}" style=" width: 16%" type="text" name="zip" placeholder="Zip">
-            <br>
-          </div>
+					<div class="col-sm-3 nopadding">
+						<input class="form-control" value="{{ $counselor->address }}" type="text" name="address" placeholder="Address">
+					</div>
+					<div class="col-sm-3 nopadding">
+						<input class="form-control" value="{{ $counselor->city }}" type="text" name="city" placeholder="City">
+					</div>
+					<div class="col-sm-3 nopadding">
+						<input class="form-control" value="{{ $counselor->state }}" type="text" name="state" placeholder="State">
+					</div>
+					<div class="col-sm-3 nopadding">
+						<input class="form-control" value="{{ $counselor->zip }}" type="text" name="zip" placeholder="Zip">
+					</div>
           <br>
           <input class="form-control" value="{{ $counselor->email }}" type="text" name="email" placeholder="Email"><br>
           <input class="form-control" value="{{ $counselor->primary_phone }}" type="text" name="primary_phone" placeholder="Primary Phone"><br>

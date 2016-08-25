@@ -23,19 +23,22 @@
         <h1>Add a Counselor</h1>
 
           <form class="form-group" action="/counselors/add" method="post">
-            {{ csrf_field() }}
-              <div class="form-inline">
-                <input class="form-control" style=" width: 45%" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="* First Name">&nbsp;&nbsp;
-                <input class="form-control" style=" width: 53%" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="* Last Name">
-              </div>
+        			{{ csrf_field() }}
+							<input class="form-control" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="* First Name">&nbsp;&nbsp;
+							<input class="form-control" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="* Last Name">
               <br>
-              <div class="form-inline">
-                <input class="form-control" style=" width: 41%" type="text" name="address" value="{{ old('address') }}" placeholder="Address">
-                <input class="form-control" style=" width: 25%" type="text" name="city" value="{{ old('city') }}" placeholder="City">
-                <input class="form-control" style=" width: 16%" type="text" name="state" value="{{ old('state') }}" placeholder="State">
-                <input class="form-control" style=" width: 16%" type="text" name="zip" value="{{ old('zip') }}" placeholder="Zip">
-                <br>
-              </div>
+							<div class="col-sm-3 nopadding">
+								<input class="form-control" type="text" name="address" value="{{ old('address') }}" placeholder="Address">
+							</div>
+							<div class="col-sm-3 nopadding">
+								<input class="form-control" type="text" name="city" value="{{ old('city') }}" placeholder="City">
+							</div>
+							<div class="col-sm-3 nopadding">
+								<input class="form-control" type="text" name="state" value="{{ old('state') }}" placeholder="State">
+							</div>
+							<div class="col-sm-3 nopadding">
+								<input class="form-control" type="text" name="zip" value="{{ old('zip') }}" placeholder="Zip">
+							</div>
               <br>
               <input class="form-control" type="text" name="email" value="{{ old('email') }}" placeholder="* Email"><br>
               <input class="form-control" type="text" name="primary_phone" value="{{ old('primary_phone') }}" placeholder="* Primary Phone"><br>
