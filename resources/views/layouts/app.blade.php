@@ -97,6 +97,10 @@
 			    padding: 0.1em !important;
 					margin-bottom: 0.3em;
 				}
+
+				.double-button {
+					margin-bottom: 0.5em;
+				}
     </style>
 </head>
 <body id="app-layout">

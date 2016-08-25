@@ -56,8 +56,13 @@
 							<label for="unit_only">&nbsp; Unit Only</label><br>
 							<i>Does this counselor only want to teach scouts in their troop?</i>
               <hr>
-              &nbsp;<button type="submit" class="btn btn-primary form-control" style=" width: 49%" name="submit">Submit</button>
-              <button type="button" class="btn btn-danger form-control" style=" width: 49%" onClick="location='/home'" name="cancel">Cancel</button>
+							<div class="col-sm-6 double-button">
+								<button type="submit" class="btn btn-primary form-control" name="submit">Submit</button>
+							</div>
+							<div class="col-sm-6 double-button">
+								<button type="button" class="btn btn-danger form-control" onClick="location='/home'" name="cancel">Cancel</button>
+							</div>
+
           </form>
             <div class="text-left">
               <i>* Required field</i>
