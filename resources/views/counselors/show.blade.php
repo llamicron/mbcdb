@@ -34,8 +34,8 @@
 						@endif
             <br><br>
             @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
-              <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
-              <button class="btn btn-danger" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
+								<button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
+								<button class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
             @endif
         </li>
         <li class="list-group-item">
