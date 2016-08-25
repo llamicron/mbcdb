@@ -5,7 +5,9 @@
 @endsection
 
 @section('message')
+	An email was sent to the address you registered with. <br>
 	Please confirm your email before logging in
+
 @endsection
 
 @section('buttons')
