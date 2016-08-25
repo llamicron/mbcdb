@@ -8,17 +8,6 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
 
-      <!-- echo errors -->
-        @if(count($errors))
-          <div class="alert alert-danger">
-          <ul>
-            @foreach($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
-
       <h1>Edit {{ $counselor->first_name . " " . $counselor->last_name}}</h1>
 
       <form class="form-group" action="/counselors/{{ $counselor->id }}/edit" method="post">
