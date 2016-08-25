@@ -14,7 +14,8 @@ class SearchController extends Controller {
   }
 
   public function searchStub() {
-    return view('counselors.search');
+		$results = null;
+    return view('counselors.results', compact('results'));
   }
 
 	public function noResults()

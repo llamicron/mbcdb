@@ -33,13 +33,7 @@
 
 
               {{-- <TABLE> --}}
-        @if (is_null($results))
-          <div class="text-center">
-            <h2>
-              {{ "Sorry, we couldn't find anything" }}
-            </h2>
-          </div>
-        @else
+        @if (!is_null($results))
         <table class="table table-striped">
 
           <thead>
@@ -87,7 +81,7 @@
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 			<div class="text-center">
-				<h3>Refine your search: </h3>
+				<h3>Advanced search: </h3>
 				<h4>
 					<form class="" action="/search" method="post">
 						{{ csrf_field() }}
