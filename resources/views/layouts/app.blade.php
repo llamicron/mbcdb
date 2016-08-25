@@ -78,13 +78,14 @@
           font-weight: 300;
         }
 
-        .table {
+        table {
           table-layout:fixed;
         }
 
-        .table td {
-
+        th.narrow {
+					width: 10%;
         }
+
     </style>
 </head>
 <body id="app-layout">

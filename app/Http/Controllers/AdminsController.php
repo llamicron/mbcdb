@@ -14,7 +14,7 @@ use App\Http\Requests;
 class AdminsController extends Controller {
 
     public function __construct() {
-      $this->middleware('admin');
+      $this->middleware('admin')->except('assign', 'assignStore');
     }
 
     public function confirmAdmin() {
