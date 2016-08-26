@@ -209,7 +209,7 @@
     <div id="footer">
 			<a href="/feedback">&nbsp;Send Feedback</a>
       <div class="pull-right">
-        <i><a target="_blank" href="https://laravel.com/">Made with Laravel&nbsp;</a></i>
+        <a target="_blank" href="https://www.shac.org/">Sam Houston Area Council</a>
       </div>
     </div>
 </body>
