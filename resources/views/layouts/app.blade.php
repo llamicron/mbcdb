@@ -62,10 +62,10 @@
 
         .message-page {
           font-family: 'Lato';
-          font-weight: 100;
+          font-weight: 300;
           text-align: center;
           vertical-align: middle;
-          font-size: 3em;
+          font-size: 2em;
         }
 
         p.about {

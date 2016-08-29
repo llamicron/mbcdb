@@ -47,16 +47,23 @@ class AdminsController extends Controller {
     }
 
     public function confirmRemoval(User $user) {
-      $item = "user";
-      return view('warnings.confirmRemoval', compact('user', 'item'));
+      return view('warnings.confirmUserRemoval', compact('user'));
     }
 
     public function delete(User $user) {
       if ($user->isAdmin == 0) {
-        $user->delete();
-        return redirect('/admin');
+				if ($_GET['which'] == 'alone') {
+					$user->delete();
+					return redirect('/admin');
+				} elseif ($_GET['which'] == 'all') {
+					$user->counselors->each(function ($counselor) {
+						$counselor->delete();
+					});
+					$user->delete();
+					return redirect('/admin');
+				}
       } else {
-        return view('warnings.notOwner');
+        return view('warnings.isAdmin');
       }
     }
 
