@@ -34,6 +34,11 @@
           <input class="form-control" value="{{ $counselor->secondary_phone }}" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
           <input class="form-control" value="{{ $counselor->unit_num }}" type="text" name="unit_num" placeholder="Unit Number"><br>
           <input class="form-control" value="{{ $counselor->bsa_id }}" type="text" name="bsa_id" placeholder="BSA ID"><br>
+					<input type="hidden" name="unit_only" value="false">
+					<input type="checkbox" name="unit_only" value="1">
+					<label for="unit_only">&nbsp; Unit Only</label><br>
+					<i>Does this counselor only want to teach scouts in their troop?</i>
+					<br><br>
 					<div class="col-sm-6 double-button">
 						<button type="submit" class="btn btn-primary form-control" name="submit">Submit</button>
 					</div>
