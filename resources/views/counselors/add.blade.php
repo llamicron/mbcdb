@@ -52,7 +52,8 @@
 								@endforeach
 							</select>
 							<br>
-							<input type="checkbox" name="unit_only" value="1">
+							<input type="hidden" name="unit_only" value="false">
+							<input type="checkbox" name="unit_only" value="true">
 							<label for="unit_only">&nbsp; Unit Only</label><br>
 							<i>Does this counselor only want to teach scouts in their troop?</i>
               <hr>
