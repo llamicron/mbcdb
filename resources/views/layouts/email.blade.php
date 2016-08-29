@@ -9,6 +9,5 @@
 
 <body id="app-layout">
 	@yield('content')
-  <i style="float: right"><a target="_blank" href="https://laravel.com/">Made with Laravel&nbsp;</a></i>
 </body>
 </html>

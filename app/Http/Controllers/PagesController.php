@@ -29,6 +29,16 @@ class PagesController extends Controller
 
 			$user->save();
 
+			$data = [
+				'email' => $user->email,
+				'subject' => 'Recent Activity',
+			];
+			
+			\Mail::send('emails.confirm', $data, function ($message) use ($data) {
+				$message->to($data['email'])
+								->subject($data['subject']);
+			});
+
 			\Session::flash('status', 'User Updated');
 			return redirect('/');
 		}

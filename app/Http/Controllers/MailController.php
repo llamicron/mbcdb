@@ -8,15 +8,6 @@ use App\Http\Requests;
 
 class MailController extends Controller
 {
-
-	public function welcome($data)
-	{
-		\Mail::send('emails.welcome', $data, function ($message) {
-			$message->to($data['email'])
-							->subject('Welcome to mbc.arrowmoon.org');
-		});
-	}
-
 	public function verify()
 	{
 		$user = User::where('token', $_GET['token'])->first();
