@@ -11,9 +11,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-sm-1">
-    </div>
-    <div class="col-md-8 col-md-offset-1">
+    <div class="col-md-8 col-md-offset-2">
       <br>
       <ul class="list-group">
         <li class="list-group-item">
@@ -42,11 +40,15 @@
             <h3>Badges This Counselor Teaches:</h3>
 
             <ul>
-              @foreach($counselor->badges as $badge)
-                <li>
-                  {{ $badge->name }}
-                </li>
-              @endforeach
+							@if ($counselor->badges->isEmpty())
+								<li><i>This counselor doesn't teach any merit badges</i></li>
+							@else
+	              @foreach($counselor->badges as $badge)
+	                <li>
+	                  {{ $badge->name }}
+	                </li>
+	              @endforeach
+              @endif
             </ul>
             <br>
             @if($counselor->isChildOf(Auth::user()) || Auth::user()->isAdmin)
