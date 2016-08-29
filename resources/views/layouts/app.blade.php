@@ -209,7 +209,7 @@
     <div id="footer">
 			<a href="/feedback">&nbsp;Send Feedback</a>
       <div class="pull-right">
-        <a target="_blank" href="http://www.samhoustonbsa.org/">Sam Houston Area Council</a>
+        <a target="_blank" href="http://www.samhoustonbsa.org/``">Sam Houston Area Council</a>
       </div>
     </div>
 </body>
