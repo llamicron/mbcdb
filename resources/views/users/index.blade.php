@@ -11,15 +11,19 @@
 @section('content')
 <div class="row">
   <div class="col-md-12">
+		<div class="row">
+			<div class="col-sm-6">
+				<h1>All Users</h1>
+			</div>
+			<div class="col-sm-6">
+				<form action="/search" method="post">
+					{{ csrf_field() }}
+					<input type="hidden" name="class" value="App\User">
+					<input type="text" class="form-control" id="user-search" name="search" placeholder="Search Users" value="">
+				</form>
+			</div>
+		</div>
 
-		<h2>
-			<form class="" action="/search" method="post">
-				{{ csrf_field() }}
-				All Users
-				<input type="hidden" name="class" value="App\User">
-			 	<input type="test" class="form-control" style="width: 15%; float: right" name="search" placeholder="Search Users" value="">
-			</form>
-		</h2>
 
       {{-- <TABLE> --}}
       <table class="table table-striped">
@@ -30,7 +34,6 @@
         <th><a href="/users/sortByName">Name</a></th>
         <th><a href="/users/sortByEmail">Email</a></th>
         <th><a href="/users/sortByPrivilege">Privileges</a></th>
-        <th style=" text-align: right; ">Functions</th>
       </tr>
 
       </thead>
@@ -46,13 +49,6 @@
               User
             @endif
           </td>
-            <td class="truncate" style=" text-align: right; ">
-              <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
-              <button type="button" class="btn btn-danger"
-                onclick="location='/users/{{ $user->id }}/confirmRemoval'"
-                name="delete">Delete
-              </button>
-            </td>
 	        </tr>
 				@endforeach
 	      </tbody>

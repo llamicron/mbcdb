@@ -108,6 +108,10 @@
 				  overflow: hidden;
 				  text-overflow: ellipsis;
 				}
+
+				#user-search {
+					margin-top: 2em;
+				}
     </style>
 </head>
 <body id="app-layout">

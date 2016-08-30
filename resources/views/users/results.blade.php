@@ -11,16 +11,19 @@
 @section('content')
 	<div class="row">
 		<div class="col-md-12">
+			<div class="row">
+				<div class="col-sm-6">
+					<h1>Search Results</h1>
+				</div>
+				<div class="col-sm-6">
+					<form action="/search" method="post">
+						{{ csrf_field() }}
+						<input type="hidden" name="class" value="App\User">
+						<input type="text" class="form-control" id="user-search" name="search" placeholder="Search Users" value="">
+					</form>
+				</div>
+			</div>
 
-
-		<h2>
-			<form class="" action="/search" method="post">
-				{{ csrf_field() }}
-				Search Results
-				<input type="hidden" name="class" value="App\User">
-			 	<input type="test" class="form-control" style="width: 15%; float: right" name="search" placeholder="Search Users" value="">
-			</form>
-		</h2>
 
 
 			{{-- <TABLE> --}}
