@@ -12,10 +12,13 @@
 
       <form class="form-group" action="/counselors/{{ $counselor->id }}/edit" method="post">
         <input type="hidden" name="_method" value="PATCH">
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <input class="form-control" value="{{ $counselor->first_name }}" type="text" name="first_name" placeholder="First Name">&nbsp;&nbsp;
-          <input class="form-control" value="{{ $counselor->last_name }}" type="text" name="last_name" placeholder="Last Name">
-          <br>
+					{{ csrf_field() }}
+					<label for="first_name">First Name: </label>
+					<br>
+          <input class="form-control" value="{{ $counselor->first_name }}" type="text" name="first_name" placeholder="First Name"><br>
+					<label for="last_name">Last Name: </label>
+          <input class="form-control" value="{{ $counselor->last_name }}" type="text" name="last_name" placeholder="Last Name"><br>
+					<p style="font-weight: 900">Address: </p>
 					<div class="col-sm-3 nopadding">
 						<input class="form-control" value="{{ $counselor->address }}" type="text" name="address" placeholder="Address">
 					</div>
@@ -28,11 +31,16 @@
 					<div class="col-sm-3 nopadding">
 						<input class="form-control" value="{{ $counselor->zip }}" type="text" name="zip" placeholder="Zip">
 					</div>
-          <br>
+          <br><br><br>
+					<label for="email">Email: </label>
           <input class="form-control" value="{{ $counselor->email }}" type="text" name="email" placeholder="Email"><br>
+					<label for="primary_phone">Primary Phone: </label>
           <input class="form-control" value="{{ $counselor->primary_phone }}" type="text" name="primary_phone" placeholder="Primary Phone"><br>
+					<label for="secondary_phone">Secondary Phone: </label>
           <input class="form-control" value="{{ $counselor->secondary_phone }}" type="text" name="secondary_phone" placeholder="Secondary Phone"><br>
+					<label for="unit_num">Troop Number: </label>
           <input class="form-control" value="{{ $counselor->unit_num }}" type="text" name="unit_num" placeholder="Unit Number"><br>
+					<label for="bsa_id">BSA ID: </label>
           <input class="form-control" value="{{ $counselor->bsa_id }}" type="text" name="bsa_id" placeholder="BSA ID"><br>
 					<input type="hidden" name="unit_only" value="false">
 					<input type="checkbox" name="unit_only" value="1">

@@ -15,26 +15,26 @@
       <br>
       <ul class="list-group">
         <li class="list-group-item">
-            <h3>{{ $counselor->first_name }} {{ $counselor->last_name }}</h3><br>
-            Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
-            Primary Phone: {{ $counselor->primary_phone }}<br>
-            @if(isset($counselor->secondary))
-              Secondary Phone: {{ $counselor->secondary_phone }}<br>
-            @endif
-            <br>
-            Troop {{ $counselor->unit_num }}<br>
-            {{ $counselor->district->name }} District<br>
-						Unit Only:
-						@if ($counselor->unit_only)
-							{{ 'Yes' }}
-						@else
-							{{ 'No' }}
-						@endif
-            <br><br>
-            @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
-								<button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
-								<button class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
-            @endif
+          <h3>{{ $counselor->first_name }} {{ $counselor->last_name }}</h3><br>
+					Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
+          Primary Phone: {{ $counselor->primary_phone }}<br>
+          @if(isset($counselor->secondary))
+            Secondary Phone: {{ $counselor->secondary_phone }}<br>
+          @endif
+          <br>
+          Troop {{ $counselor->unit_num }}<br>
+          {{ $counselor->district->name }} District<br>
+					Unit Only:
+					@if ($counselor->unit_only)
+						{{ 'Yes' }}
+					@else
+						{{ 'No' }}
+					@endif
+          <br><br>
+          @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
+							<button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
+							<button class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
+          @endif
         </li>
         <li class="list-group-item">
             <h3>Badges This Counselor Teaches:</h3>
