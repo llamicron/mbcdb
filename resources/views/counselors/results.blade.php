@@ -25,11 +25,7 @@
             </button>
           </div>
         </h2>
-
-        <div class="text-center">
-          <i>Click a column name to sort</i>
-        </div>
-              {{-- </HEADER> --}}
+      {{-- </HEADER> --}}
 
 
               {{-- <TABLE> --}}
@@ -50,14 +46,14 @@
 	          @foreach($results as $result)
 							@foreach($result as $counselor)
 		            <tr>
-		              <td>
+		              <td class="truncate">
 		                <a href="/counselors/{{ $counselor->id }}/show">
 		                  {{ $counselor->first_name }} {{ $counselor->last_name }}
 		                </a>
 		              </td>
-		            	<td> {{ $counselor->unit_num }} </td>
-		              <td> {{ $counselor->district->name }} </td>
-		              <td> {{ $counselor->district->council->name }} </td>
+		            	<td class="truncate"> {{ $counselor->unit_num }} </td>
+		              <td class="truncate"> {{ $counselor->district->name }} </td>
+		              <td class="truncate"> {{ $counselor->district->council->name }} </td>
 		          	</tr>
 							@endforeach
 						@endforeach

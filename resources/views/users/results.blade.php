@@ -41,16 +41,16 @@
 					@foreach ($users as $user)
 
 	          <tr>
-	          <td><a href="/users/{{ $user->id }}/show">{{ $user->name }}</a></td>
-	          <td>{{ $user->email }}</td>
-	          <td>
+	          <td class="truncate"><a href="/users/{{ $user->id }}/show">{{ $user->name }}</a></td>
+	          <td class="truncate">{{ $user->email }}</td>
+	          <td class="truncate">
 	            @if($user->isAdmin == 1)
 	              Admin
 	            @else
 	              User
 	            @endif
 	          </td>
-	            <td style=" text-align: right; ">
+	            <td class="truncate" style=" text-align: right; ">
 	              <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
 	              <button type="button" class="btn btn-danger"
 	                onclick="location='/users/{{ $user->id }}/confirmRemoval'"

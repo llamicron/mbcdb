@@ -101,6 +101,13 @@
 				.double-button {
 					margin-bottom: 0.5em;
 				}
+
+				.truncate {
+				  width: 250px;
+				  white-space: nowrap;
+				  overflow: hidden;
+				  text-overflow: ellipsis;
+				}
     </style>
 </head>
 <body id="app-layout">
