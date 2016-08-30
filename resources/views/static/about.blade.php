@@ -21,7 +21,9 @@
 						<i>Reminder: Scouts can earn a badge with a counselor that is not in their troop</i>
 					</div>
           <hr>
-          To get started, <a href="/register">register</a> or <a href="/login">login</a>
+					@if (Auth::guest())
+						To get started, <a href="/register">register</a> or <a href="/login">login</a>
+					@endif
         </p>
       </div>
     </div>
