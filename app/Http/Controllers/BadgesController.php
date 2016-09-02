@@ -35,4 +35,25 @@ class BadgesController extends Controller
       return redirect()->action('BadgesController@add', ['counselor' => $counselor]);
     }
 
+		public function removeForm(Counselor $counselor)
+		{
+			return view('badges.remove', compact('counselor'));
+		}
+
+		public function remove(Counselor $counselor, Request $request)
+		{
+			$input = $request->all();
+			// This removes the token
+			array_shift($input);
+			// and this removes the submit input
+			array_pop($input);
+			foreach ($input as $badge => $id) {
+				DB::table('badge_counselor')->where('counselor_id', $counselor->id)->where('badge_id', $id)->delete();;
+			}
+			\Session::flash('status', 'Badges Removed');
+			return redirect("/counselors/$counselor->id/show");
+
+		}
+
+
 }

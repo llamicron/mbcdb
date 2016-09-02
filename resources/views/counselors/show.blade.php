@@ -13,6 +13,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <br>
+			{{-- Counselor Area --}}
       <ul class="list-group">
         <li class="list-group-item">
           <h3>{{ $counselor->first_name }} {{ $counselor->last_name }}</h3><br>
@@ -36,6 +37,7 @@
 							<button class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/confirmRemoval'">Remove Counselor</button>
           @endif
         </li>
+				{{-- Badge Area --}}
         <li class="list-group-item">
             <h3>Badges This Counselor Teaches:</h3>
 
@@ -52,7 +54,8 @@
             </ul>
             <br>
             @if($counselor->isChildOf(Auth::user()) || Auth::user()->isAdmin)
-              <button class="btn btn-primary" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge To This Counselor</button>
+              <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge</button>
+              <button class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/badges/remove'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove a Badge</button>
             @endif
         </li>
         <br>
