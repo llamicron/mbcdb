@@ -1,6 +1,6 @@
 Version: 0.9
 Pre-release
-Visit: <a href="mbc.arrowmoon.org">mbc.arrowmoon.org</a>
+Visit: mbc.arrowmoon.org
 
 ## Made with
 ----------------------------------------------------------------------------------------------------------------------------------------
