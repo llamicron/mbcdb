@@ -20,5 +20,7 @@ class AdminsRouter implements RouterInterface {
 
 			Route::get('/users/{user}/delete', 'AdminsController@confirmDelete');
 			Route::post('/users/{user}/delete', 'AdminsController@deleteUser');
+
+			Route::post('/users/bulk', 'AdminsController@bulk');
     }
 }

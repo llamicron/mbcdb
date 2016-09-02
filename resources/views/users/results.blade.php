@@ -35,7 +35,6 @@
         <th><a href="/users/sortByName">Name</a></th>
         <th><a href="/users/sortByEmail">Email</a></th>
         <th><a href="/users/sortByPrivilege">Privileges</a></th>
-        <th style=" text-align: right; ">Functions</th>
       </tr>
 
       </thead>
@@ -53,13 +52,6 @@
 	              User
 	            @endif
 	          </td>
-	            <td class="truncate" style=" text-align: right; ">
-	              <button type="button" class="btn btn-primary" onClick="location='/users/{{ $user->id }}/show'" name="view">View</button>
-	              <button type="button" class="btn btn-danger"
-	                onclick="location='/users/{{ $user->id }}/confirmRemoval'"
-	                name="delete">Delete
-	              </button>
-	            </td>
 	        	</tr>
 					@endforeach
 				@endforeach

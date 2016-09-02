@@ -100,6 +100,7 @@
 
 				.double-button {
 					margin-bottom: 0.5em;
+					margin-top: 1em;
 				}
 
 				.truncate {
@@ -110,7 +111,13 @@
 				}
 
 				#user-search {
+					float: right;
+					width: 50%;
 					margin-top: 2em;
+				}
+
+				#bulk-checkbox {
+
 				}
     </style>
 </head>
