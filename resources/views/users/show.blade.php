@@ -36,8 +36,8 @@
           </ul>
         </li>
       </ul>
-			<button type="button" class="btn btn-danger double-button" onClick="location='/users/{{ $user->id }}/confirmRemoval'" name="delete">Delete User</button>
-			<button type="button" onClick="location='/users/{{ $user->id }}/setAdmin'" class="btn btn-primary double-button" name="setAdmin">Make this user an Administrator</button>
+			<button type="button" class="btn btn-danger double-button" onClick="location='/users/{{ $user->id }}/confirmRemoval'" name="delete"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete User</button>
+			<button type="button" onClick="location='/users/{{ $user->id }}/setAdmin'" class="btn btn-primary double-button" name="setAdmin"><span class="glyphicon glyphicon-arrow-up"></span>&nbsp;Make this user an Administrator</button>
     </div>
   </div>
 @endsection

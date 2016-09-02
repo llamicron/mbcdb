@@ -67,14 +67,14 @@ class AdminsController extends Controller {
       }
     }
 
-		public function setAdminWarning(User $user) {
-      return view('warnings.confirmSetAdmin', compact('user'));
-    }
-
     public function setAdmin(User $user) {
+			if ($user->isAdmin == 1) {
+				\Session::flash('status', "$user->name is already an administrator");
+				return redirect("/users/$user->id/show");
+			}
       $user->isAdmin = 1;
       $user->save();
-			\Session::flash('status', "$user->name is now an admin");
+			\Session::flash('status', "$user->name is now an administrator");
       return redirect("/users/$user->id/show");
     }
 
@@ -122,9 +122,13 @@ class AdminsController extends Controller {
 				case 'delete':
 					foreach ($users as $name => $id) {
 						$user = User::find($id);
-						$user->delete();
+						if ($user->isAdmin == 1) {
+							\Session::flash('status', 'Some users you selected were administrators.  They were not deleted.');
+						} else {
+							$user->delete();
+							\Session::flash('status', 'Users deleted');
+						}
 					}
-					\Session::flash('status', 'Users deleted');
 					break;
 
 				case 'set-admin':
