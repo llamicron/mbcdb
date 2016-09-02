@@ -68,7 +68,7 @@ class CounselorsController extends Controller {
 
 
       $counselor = new Counselor;
-      $user = User::find(\Auth::user()->id);
+      $user = \Auth::user();
 
 
       // 'Instantiating' the counselor
