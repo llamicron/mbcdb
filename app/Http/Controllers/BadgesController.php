@@ -22,17 +22,15 @@ class BadgesController extends Controller
     }
 
     public function store(Counselor $counselor, Request $request) {
-			$badge = Badge::find($request->merit_badge);
-			$badges = $counselor->badges;
-			foreach ($badges as $counselor_badge) {
-				if ($counselor_badge->name == $badge->name) {
-						\Session::flash('status', 'This counselor already teaches that merit badge');
-						return redirect()->action('BadgesController@add', ['counselor' => $counselor]);
-				}
+			$input = $request->all();
+			array_shift($input);
+			array_pop($input);
+			foreach ($input as $badge => $id) {
+				$badge = Badge::find($id);
+				$counselor->badges()->save($badge);
 			}
-      $counselor->badges()->save($badge);
-      \Session::flash('status', "{$badge->name} Badge Added");
-      return redirect()->action('BadgesController@add', ['counselor' => $counselor]);
+      \Session::flash('status', "Badges Added");
+			return redirect("/counselors/$counselor->id/show");
     }
 
 		public function removeForm(Counselor $counselor)
