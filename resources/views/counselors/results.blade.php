@@ -13,10 +13,11 @@
 <div class="row">
   <div class="col-md-12 col-md-offset">
     <div class="container">
-              {{-- <HEADER> --}}
+			@if (!is_null($results))
+      	{{-- <HEADER> --}}
         <h2>
           <div class="pull-left">
-            Search Results
+						Search Results
           </div>
           <div class="pull-right">
             <button type="button" class="btn btn-primary" onClick="location='/counselors/add'" name="add_counselor">
@@ -29,7 +30,6 @@
 
 
               {{-- <TABLE> --}}
-        @if (!is_null($results))
         <table class="table table-striped">
 
           <thead>
