@@ -20,6 +20,7 @@ class CounselorsController extends Controller {
     }
 
 // here is a small change
+// here is another small change
 // ----------------- counselors/index view sorting functions ----------------------
 
     public function sortByName() {
