@@ -11,8 +11,10 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicExample()
+    public function testSeeLoginPage()
     {
-        $this->visit('/');
+      //  When not logged in, obviously
+      $this->visit('/')
+           ->see('Login');
     }
 }
