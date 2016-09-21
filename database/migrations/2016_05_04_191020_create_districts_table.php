@@ -16,7 +16,7 @@ class CreateDistrictsTable extends Migration
             $table->increments('id');
             $table->integer('council_id');
             $table->string('name');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

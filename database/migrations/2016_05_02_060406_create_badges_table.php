@@ -16,7 +16,7 @@ class CreateBadgesTable extends Migration
             $table->increments('id');
             $table->integer('code')->unsigned();
             $table->string('name');
-            $table->timestamps();
+            $table->nullableTimestamps();
 
         });
     }

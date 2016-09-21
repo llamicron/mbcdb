@@ -30,7 +30,7 @@ class CreateCounselorsTable extends Migration
             $table->integer('district_id');
 						$table->integer('council_id');
             $table->integer('user_id')->unsigned();
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

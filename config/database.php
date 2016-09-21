@@ -48,7 +48,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'database' => database_path('database.sqlite'),
             'prefix' => '',
         ],
 
@@ -56,6 +56,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST'),
             'port' => env('DB_PORT'),
+            'unix_socket' => env('UNIX_SOCK'),
             'database' => env('DB_DATABASE'),
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
