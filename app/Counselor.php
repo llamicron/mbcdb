@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Counselor extends Model
 {
 
+  protected $fillable = [
+    'name',
+    'first_name',
+    'last_name',
+    'address',
+    'city',
+    'state',
+    'zip'
+  ];
+
   // Relationships
 
   public function badges()
