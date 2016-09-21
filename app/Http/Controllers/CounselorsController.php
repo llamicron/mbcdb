@@ -19,7 +19,7 @@ class CounselorsController extends Controller {
       $this->middleware('auth');
     }
 
-
+// here is a small change
 // ----------------- counselors/index view sorting functions ----------------------
 
     public function sortByName() {
