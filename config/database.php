@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => 'mysql',
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,10 +56,23 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST'),
             'port' => env('DB_PORT'),
-            'unix_socket' => env('UNIX_SOCK'),
             'database' => env('DB_DATABASE'),
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
+        'mysql_testing' => [
+            'driver' => 'mysql',
+            'host' => env('TEST_DB_HOST'),
+            'port' => env('TEST_DB_PORT'),
+            'database' => env('TEST_DB_DATABASE'),
+            'username' => env('TEST_DB_USERNAME'),
+            'password' => env('TEST_DB_PASSWORD'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
