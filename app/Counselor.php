@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Counselor extends Model
 {
@@ -71,5 +72,28 @@ class Counselor extends Model
 	{
 		return $this->belongsTo('App\Council');
 	}
+
+  public static function alphabetizeBy($class)
+  {
+    switch ($class) {
+      case 'name':
+        $counselors = Counselor::with('district.council')->orderBy('last_name', 'ASC')->paginate(35);
+        break;
+
+      case 'district':
+        $counselors = Counselor::with('district.council')->orderBy('district_id', 'DESC')->paginate(35);
+        break;
+
+      case 'troop':
+        // Thank you to @bestmomo on stack overflow
+        $counselors = Counselor::with('district.council')->orderBy(DB::raw('LENGTH(unit_num), unit_num'))->paginate(35);
+        break;
+
+      default:
+        $counselors = Counselor::with('district.council')->orderBy('last_name', 'ASC')->paginate(35);
+        break;
+    }
+    return $counselors;
+  }
 
 }

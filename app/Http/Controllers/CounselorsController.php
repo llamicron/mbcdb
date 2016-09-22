@@ -7,7 +7,6 @@ use App\Counselor;
 use App\Badge;
 use App\District;
 use App\Council;
-use DB;
 use App\User;
 use App\Http\Requests;
 
@@ -24,19 +23,21 @@ class CounselorsController extends Controller {
 // ----------------- counselors/index view sorting functions ----------------------
 
     public function sortByName() {
-      $counselors = Counselor::with('district.council')->orderBy('last_name', 'ASC')->paginate(35);
-      return view('counselors.index', compact('counselors'));
+      return view('counselors.index')->with([
+        'counselors' => Counselor::alphabetizeBy('name')
+      ]);
     }
 
     public function sortByDistrict() {
-      $counselors = Counselor::with('district.council')->orderBy('district_id', 'DESC')->paginate(35);
-      return view('counselors.index', compact('counselors'));
+      return view('counselors.index')->with([
+        'counselors' => Counselor::alphabetizeBy('district'),
+      ]);
     }
 
     public function sortByTroop() {
-      // THANK YOU BESTMOMO!
-      $counselors = Counselor::with('district.council')->orderBy(DB::raw('LENGTH(unit_num), unit_num'))->paginate(35);
-      return view('counselors.index', compact('counselors'));
+      return view('counselors.index')->with([
+        'counselors' => Counselor::alphabetizeBy('troop')
+      ]);
     }
 
 
