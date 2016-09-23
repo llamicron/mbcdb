@@ -39,14 +39,6 @@ class BadgesController extends Controller
 			return view('warnings.notOwner');
     }
 
-		public function removeForm(Counselor $counselor)
-		{
-			if (\Auth::user()->isAdminOrOwner($counselor)) {
-				return view('badges.remove', compact('counselor'));
-			}
-			return view('warnings.notOwner');
-		}
-
 		public function remove(Counselor $counselor, Request $request)
 		{
 			if (\Auth::user()->isAdminOrOwner($counselor)) {
@@ -58,11 +50,9 @@ class BadgesController extends Controller
 				foreach ($input as $badge => $id) {
 					DB::table('badge_counselor')->where('counselor_id', $counselor->id)->where('badge_id', $id)->delete();;
 				}
-				\Session::flash('status', 'Badges Removed');
+				\Session::flash('status', "Badges Removed");
 				return redirect("/counselors/$counselor->id/show");
 			}
 			return view('warnings.notOwner');
 		}
-
-
 }

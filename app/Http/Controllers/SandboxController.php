@@ -16,8 +16,4 @@ class SandboxController extends Controller
       $this->middleware('admin');
     }
 
-    public function test() {
-			
-    }
-
 }

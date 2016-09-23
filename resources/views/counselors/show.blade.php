@@ -55,7 +55,7 @@
             <br>
             @if($counselor->isChildOf(Auth::user()) || Auth::user()->isAdmin)
               <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge</button>
-              <button class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/badges/remove'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove a Badge</button>
+              <button class="btn btn-danger double-button" onClick="location='#confirm2'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove a Badge</button>
             @endif
         </li>
         <br>
@@ -84,4 +84,25 @@
     </div>
     <button type="button" class="btn btn-primary confirm-button" onClick="location='/counselors/{{ $counselor->id }}/remove'" name="confirm">Yes, I'm Sure</button>
   </div>
+@endsection
+
+@section('confirm2-title')
+  Remove Badges
+@endsection
+
+@section('confirm2-content')
+	<h3>Select Badges to Remove</h3>
+	<hr>
+	<form action="/counselors/{{ $counselor->id }}/badges/remove" method="post">
+		{{ csrf_field() }}
+		@foreach ($counselor->badges as $badge)
+			<li>
+				<input type="checkbox" name="{{ $badge->name }}" value="{{ $badge->id }}">&nbsp;
+				{{ $badge->name }}
+			</li>
+		@endforeach
+		<hr>
+		<button class="btn btn-primary double-button" type="submit" name="submit">Submit</button>
+		<button type="button" class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/show'" name="cancel">Cancel</button>
+	</form>
 @endsection
