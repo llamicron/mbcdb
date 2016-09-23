@@ -127,7 +127,6 @@
           bottom: 0;
           left: 0;
           right: 0;
-          padding-top: 15em;
           /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+67 */
           background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 67%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
           background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -175,12 +174,31 @@
         .popup h2 {
           padding: 0.2em;
           margin-top: 0;
-          color: 	#d9534f;
+          color: 	#000;
           font-family: Lato, Arial, sans-serif;
         }
 
-        #popup-confirm {
+        #confirm {
+          padding-top: 16em;
+        }
+
+        #popup-button {
           width: 100%;
+        }
+
+        .overlay#feedback {
+          background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 20%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+          background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 20%,rgba(0,0,0,0) 75%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: radial-gradient(ellipse at center,  rgba(0,0,0,0.65) 20%,rgba(0,0,0,0) 75%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        }
+
+        #innerfeedback {
+          background-color: white;
+        }
+
+        #feedback-form {
+          width: 95%;
         }
 
         @media screen and (max-width: 700px){
@@ -257,7 +275,7 @@
 									<li><a href="/admin"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;Admin Panel</a></li>
 								@endif
 								<li><a href="/users/self/edit"><i class="fa fa-btn fa-cog"></i>Edit Account</a></li>
-								<li><a href="/feedback"><i class="fa fa-btn fa-send"></i>Send Feedback</a></li>
+								<li><a href="#feedback"><i class="fa fa-btn fa-send"></i>Send Feedback</a></li>
                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
               </ul>
             </li>
@@ -292,15 +310,75 @@
       <h2>Are you sure?</h2>
       <a class="close" href="#">&times;</a>
       <div class="content">
+        @yield('confirm-content')
         <a href="@yield('confirm-link')">
-          <button type="button" id="popup-confirm" class="btn btn-primary" name="confirm"><strong>Yes, I'm Sure</strong>&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span></button>
+          <button type="button" id="popup-button" class="btn btn-primary" name="confirm"><strong>Yes, I'm Sure</strong>&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span></button>
         </a>
       </div>
     </div>
   </div>
 
-  <div id="feedback" class="overlay">
+  {{-- Feedback Form popup --}}
 
+  <div id="feedback" class="overlay">
+    <div class="popup" id="innerfeedback">
+      <h2>Send Feedback</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+  			<form class="form-horizontal" id="feedback-form" action="/feedback" method="post">
+  			<fieldset>
+
+  			{{ csrf_field() }}
+
+  			<!-- Form Name -->
+  			<legend>Feedback</legend>
+
+  			<!-- Subject input-->
+  			<div class="form-group">
+  			  <label class="col-md-2 control-label" for="subject">Subject</label>
+  			  <div class="col-md-10">
+  			  <input id="subject" name="subject" type="text" class="form-control input-md">
+  			  </div>
+  			</div>
+
+  			<!-- Message input-->
+  			<div class="form-group">
+  				<label class="col-md-2 control-label" for="message">Message</label>
+  				<div class="col-md-10">
+  				<textarea name="message" class="form-control" rows="8" cols="40"></textarea>
+  				</div>
+  			</div>
+
+
+  			<!-- From input-->
+  			<div class="form-group">
+  			  <label class="col-md-2 control-label" for="from">From: </label>
+  			  <div class="col-md-10">
+  			  <input id="from" name="from" type="text" placeholder="example@gmail.com" value="{{ Auth::user()->email }}" class="form-control input-md">
+  			  </div>
+  			</div>
+
+  			<!-- Type of Feedback -->
+  			<div class="checkbox">
+  				<label><input class="" name="type" type="checkbox" value="bug">Is this a bug report?</label>
+  			</div>
+  			<br>
+
+  			<!-- Send Button -->
+  			<div class="form-group">
+  			  <div class="col-md-8 col-md-offset-2">
+  					<button id="send" name="send" class="form-control btn btn-success"><span class="glyphicon glyphicon-send">&nbsp;</span>Send</button>
+  			  </div>
+  			</div>
+
+  			</fieldset>
+  			</form>
+  			<hr>
+  			<div class="col-md-8 col-md-offset-2">
+  				<button onClick="location='/'" name="cancel" class="form-control btn btn-danger"><span class="glyphicon glyphicon-trash">&nbsp;</span>Cancel</button>
+  			</div>
+      </div>
+    </div>
   </div>
 
 
@@ -318,7 +396,7 @@
     </div>
   </div>
 	<div id="footer">
-		<a href="/feedback">&nbsp;Send Feedback</a>
+		<a href="#feedback">&nbsp;Send Feedback</a>
 		<div class="pull-right">
 			<a target="_blank" href="http://www.samhoustonbsa.org/">Sam Houston Area Council</a>
 		</div>

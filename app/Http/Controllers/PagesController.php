@@ -33,7 +33,7 @@ class PagesController extends Controller
 				'email' => $user->email,
 				'subject' => 'Recent Activity',
 			];
-			
+
 			\Mail::send('emails.confirm', $data, function ($message) use ($data) {
 				$message->to($data['email'])
 								->subject($data['subject']);
@@ -42,12 +42,6 @@ class PagesController extends Controller
 			\Session::flash('status', 'User Updated');
 			return redirect('/');
 		}
-
-		public function feedback()
-		{
-			return view('static.feedback');
-		}
-
 
 		public function sendFeedback(Request $request)
 		{
