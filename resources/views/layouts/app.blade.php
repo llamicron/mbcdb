@@ -18,6 +18,7 @@
     <!-- Josefin Slab and Yantramanav -->
     <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,300,300italic,700,700italic|Yantramanav:400,100,700' rel='stylesheet' type='text/css'>
 
+    <link rel="stylesheet" href="/confirmation.css" media="screen" title="no title" charset="utf-8">
     <style>
 
         body {
@@ -119,6 +120,73 @@
 				#bulk-checkbox {
 
 				}
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.7);
+          transition: opacity 500ms;
+          visibility: hidden;
+          display: hidden;
+          opacity: 0;
+        }
+        .overlay:target {
+          visibility: visible;
+          display: block;
+          opacity: 1;
+        }
+
+        .popup {
+          margin: 70px auto;
+          padding: 20px;
+          background: #fff;
+          border-radius: 5px;
+          width: 30%;
+          position: relative;
+          transition: all 5s ease-in-out;
+        }
+
+        .popup .close {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          transition: all 200ms;
+          font-size: 30px;
+          font-weight: bold;
+          text-decoration: none;
+          color: #000;
+        }
+        .popup .close:hover {
+          color: #5bc0de;
+        }
+        .popup .content {
+          max-height: 30%;
+          overflow: auto;
+        }
+
+        .popup h2 {
+          padding: 0.2em;
+          margin-top: 0;
+          color: 	#d9534f;
+          font-family: Lato, Arial, sans-serif;
+        }
+
+        #popup-confirm {
+          width: 100%;
+        }
+
+        @media screen and (max-width: 700px){
+          .box{
+            width: 70%;
+          }
+          .popup{
+            width: 70%;
+          }
+        }
+
     </style>
 </head>
 <body id="app-layout">
@@ -213,6 +281,19 @@
 			@endif
 
       @yield('content')
+
+  <div id="confirm" class="overlay">
+    <div class="popup">
+      <h2>Are you sure?</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        <a href="@yield('confirm-link')">
+          <button type="button" id="popup-confirm" class="btn btn-primary" name="confirm"><strong>Yes, I'm Sure</strong>&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span></button>
+        </a>
+      </div>
+    </div>
+  </div>
+
 
   <div class="row">
   	<div class="col-md-8 col-md-offset-2">
