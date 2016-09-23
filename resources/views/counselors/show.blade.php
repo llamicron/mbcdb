@@ -73,12 +73,15 @@
   </div>
 @endsection
 
-@section('confirm-content')
-  <div class="alert alert-danger">
-    <strong>This counselor will be deleted and cannot be restored.  Are you sure?</strong><br>
-  </div>
+@section('confirm-title')
+  Are You Sure?
 @endsection
 
-@section('confirm-link')
-  /counselors/{{ $counselor->id }}/remove
+@section('confirm-content')
+  <div class="alert alert-danger">
+    <div class="text-center">
+      <strong>This counselor will be deleted and cannot be restored.  Are you sure?</strong><br>
+    </div>
+    <button type="button" class="btn btn-primary confirm-button" onClick="location='/counselors/{{ $counselor->id }}/remove'" name="confirm">Yes, I'm Sure</button>
+  </div>
 @endsection
