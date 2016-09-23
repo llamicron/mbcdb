@@ -127,7 +127,13 @@
           bottom: 0;
           left: 0;
           right: 0;
-          background: rgba(0, 0, 0, 0.7);
+          padding-top: 15em;
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+67 */
+          background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 67%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+          background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: radial-gradient(ellipse at center,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
           transition: opacity 500ms;
           visibility: hidden;
           display: hidden;
@@ -135,7 +141,6 @@
         }
         .overlay:target {
           visibility: visible;
-          display: block;
           opacity: 1;
         }
 
@@ -292,6 +297,10 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <div id="feedback" class="overlay">
+
   </div>
 
 
