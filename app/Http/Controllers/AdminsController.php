@@ -46,10 +46,6 @@ class AdminsController extends Controller {
       return view('users.show', compact('user'));
     }
 
-    public function confirmRemoval(User $user) {
-      return view('warnings.confirmUserRemoval', compact('user'));
-    }
-
     public function delete(User $user) {
       if ($user->isAdmin == 0) {
 				if ($_GET['which'] == 'alone') {
@@ -81,11 +77,6 @@ class AdminsController extends Controller {
     public function home() {
       return redirect('/admin');
     }
-
-		public function confirmDelete(User $user)
-		{
-			return view('warnings.confirmDelete', compact('user'));
-		}
 
 		public function deleteUser(User $user, Request $request)
 		{

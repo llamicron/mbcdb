@@ -99,14 +99,6 @@ class CounselorsController extends Controller {
       return redirect()->action('BadgesController@add', compact('counselor'));
     }
 
-    public function confirmRemoval(Counselor $counselor) {
-			if (\Auth::user()->isAdminOrOwner($counselor)) {
-				$item = "counselor";
-				return view('warnings.confirmRemoval', compact('counselor', 'item'));
-			}
-      return view('warnings.notOwner');
-    }
-
     public function remove(Counselor $counselor) {
 			if (\Auth::user()->isAdminOrOwner($counselor)) {
 				$counselor->delete();

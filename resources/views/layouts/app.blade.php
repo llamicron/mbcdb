@@ -179,7 +179,11 @@
         }
 
         #confirm {
-          padding-top: 16em;
+          padding-top: 11em;
+        }
+
+        #confirm2 {
+          padding-top: 11em;
         }
 
         #popup-button {
@@ -199,6 +203,12 @@
 
         #feedback-form {
           width: 95%;
+        }
+
+        .confirm-button {
+          width: 100%;
+          margin-bottom: 0.5em;
+					margin-top: 1em;
         }
 
         @media screen and (max-width: 700px){
@@ -307,13 +317,20 @@
 
   <div id="confirm" class="overlay">
     <div class="popup">
-      <h2>Are you sure?</h2>
+      <h2>@yield('confirm-title')</h2>
       <a class="close" href="#">&times;</a>
       <div class="content">
         @yield('confirm-content')
-        <a href="@yield('confirm-link')">
-          <button type="button" id="popup-button" class="btn btn-primary" name="confirm"><strong>Yes, I'm Sure</strong>&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span></button>
-        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirm2" class="overlay">
+    <div class="popup">
+      <h2>@yield('confirm2-title')</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        @yield('confirm2-content')
       </div>
     </div>
   </div>
@@ -354,7 +371,7 @@
   			<div class="form-group">
   			  <label class="col-md-2 control-label" for="from">From: </label>
   			  <div class="col-md-10">
-  			  <input id="from" name="from" type="text" placeholder="example@gmail.com" value="{{ Auth::user()->email }}" class="form-control input-md">
+  			  <input id="from" name="from" type="text" placeholder="example@gmail.com" class="form-control input-md">
   			  </div>
   			</div>
 
