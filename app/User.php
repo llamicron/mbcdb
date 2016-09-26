@@ -48,11 +48,11 @@ class User extends Authenticatable
     public function savedCounselors()
     {
       $saves = $this->saves;
-      $counselors = new \Illuminate\Support\Collection;
+      $collection = collect();
       foreach ($saves as $save) {
-        $counselor = Counselor::find($save->counselor_id)->first();
-        $counselors->push($counselor);
+        $counselor = Counselor::where('id', $save->counselor_id)->first();
+        $collection->push($counselor);
       }
-      return $counselors;
+      return $collection;
     }
 }

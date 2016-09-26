@@ -97,11 +97,12 @@ class Counselor extends Model
     return $counselors;
   }
 
-  public function saveToUser()
+  public static function saveToUser($counselor)
   {
-    $save = new Save(['user_id' => \Auth::id(), 'counselor_id' => $this->id]);
+    $user = \Auth::user();
+    $save = new Save(['user_id' => $user->id, 'counselor_id' => $counselor->id]);
     // wow
-    $this->saves()->save($save);
+    $user->saves()->save($save);
   }
 
 
