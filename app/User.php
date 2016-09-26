@@ -56,6 +56,7 @@ class User extends Authenticatable
       return $collection;
     }
 
+    // This functions as a toggle
     public function hasSaved($counselor)
     {
       $user = \Auth::user();

@@ -15,19 +15,28 @@ class SavesTest extends TestCase
   /** @test if */
   public function a_counselor_can_be_saved()
   {
-    // given i have a counselor
     $counselor = factory(Counselor::class)->create();
-    // and an authed user
     $user = factory(User::class)->create();
     $this->actingAs($user);
-    // when they save a counselor
-    $counselor->saveToUser();
-    // We should see evidence in the database
-    // and the counselor should be saved for that user
+    Counselor::saveToUser($counselor);
     $this->seeInDatabase('saves', [
       'user_id' => $user->id,
       'counselor_id' => $counselor->id,
     ]);
   }
 
+  /** @test if */
+  public function a_counselor_can_be_unsaved()
+  {
+    // setup for counselor, user, and saving counselor to user
+    $counselor = factory(Counselor::class)->create();
+    $user = factory(User::class)->create();
+    $this->actingAs($user);
+    // saving the user
+    Counselor::saveToUser($counselor);
+    // unsaving the user (it's a toggle)
+    Counselor::saveToUser($counselor);
+
+    $this->assertEquals(false, $user->hasSaved($counselor));
+  }
 }

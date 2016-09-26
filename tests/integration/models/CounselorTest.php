@@ -3,6 +3,7 @@
 use App\Counselor;
 use App\District;
 use App\Badge;
+use App\User;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -58,5 +59,4 @@ class CounselorTest extends TestCase
     $x = $counselor->badges()->first();
     $this->assertEquals($badge->id, $x->id);
   }
-
 }
