@@ -55,4 +55,18 @@ class User extends Authenticatable
       }
       return $collection;
     }
+
+    public function hasSaved($counselor)
+    {
+      $user = \Auth::user();
+      $params = [
+        'user_id' => $user->id,
+        'counselor_id' => $counselor->id,
+      ];
+      $saveAttempt = Save::where($params)->first();
+      if (!$saveAttempt) {
+        return false;
+      }
+      return true;
+    }
 }

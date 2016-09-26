@@ -32,7 +32,13 @@
 						{{ 'No' }}
 					@endif
           <br><br>
-          <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/saveToUser'"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;Save</button>
+          <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/saveToUser'"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;
+            @if (Auth::user()->hasSaved($counselor))
+              Remove
+            @else
+              Save
+            @endif
+          </button>
           @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
 						<button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
 						<button class="btn btn-danger double-button" onClick="location='#confirm'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove Counselor</button>
