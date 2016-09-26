@@ -17,7 +17,7 @@ class CounselorsController extends Controller {
     {
       $this->middleware('auth');
     }
-    
+
 // ----------------- counselors/index view sorting functions ----------------------
 
     public function sortByName() {
@@ -155,7 +155,6 @@ class CounselorsController extends Controller {
     public function saveToUser(Counselor $counselor)
     {
       Counselor::saveToUser($counselor);
-      \Session::flash('status', 'Counselor Saved');
       return redirect("/counselors/$counselor->id/show");
     }
 

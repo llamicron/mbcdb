@@ -100,9 +100,22 @@ class Counselor extends Model
   public static function saveToUser($counselor)
   {
     $user = \Auth::user();
-    $save = new Save(['user_id' => $user->id, 'counselor_id' => $counselor->id]);
-    // wow
-    $user->saves()->save($save);
+    $params = [
+      'user_id' => $user->id,
+      'counselor_id' => $counselor->id,
+    ];
+    $saveAttempt = Save::where($params)->first();
+    if (!$saveAttempt) {
+      // if failed, make a new one.
+      $save = new Save(['user_id' => $user->id, 'counselor_id' => $counselor->id]);
+      // wow
+      $user->saves()->save($save);
+      \Session::flash('status', 'Counselor Saved');
+    } else {
+      $saveAttempt->delete();
+      \Session::flash('status', 'Counselor removed');
+    }
+    return true;
   }
 
 
