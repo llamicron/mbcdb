@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use App\Save;
 
 class Counselor extends Model
 {
@@ -94,6 +95,19 @@ class Counselor extends Model
         break;
     }
     return $counselors;
+  }
+
+  public function saveToUser()
+  {
+    $save = new Save(['user_id' => \Auth::id(), 'counselor_id' => $this->id]);
+    // wow
+    $this->saves()->save($save);
+  }
+
+
+  public function saves()
+  {
+    return $this->hasMany(Save::class);
   }
 
 }

@@ -154,4 +154,16 @@ class CounselorsController extends Controller {
       return redirect('/home');
     }
 
+    public function saveToUser(Counselor $counselor)
+    {
+      $counselor->saveToUser();
+      \Session::flash('status', 'Counselor Saved');
+      return redirect()->back();
+    }
+
+    public function viewSavedCounselors()
+    {
+      $counselors = \Auth::user()->SavedCounselors();
+      return view('counselors.saved', compact('counselors'));
+    }
 }

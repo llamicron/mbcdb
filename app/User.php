@@ -40,4 +40,19 @@ class User extends Authenticatable
 			return false;
 		}
 
+    public function saves()
+    {
+      return $this->hasMany(Save::class);
+    }
+
+    public function savedCounselors()
+    {
+      $saves = $this->saves;
+      $counselors = new \Illuminate\Support\Collection;
+      foreach ($saves as $save) {
+        $counselor = Counselor::find($save->counselor_id)->first();
+        $counselors->push($counselor);
+      }
+      return $counselors;
+    }
 }
