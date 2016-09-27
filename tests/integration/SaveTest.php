@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Counselor;
 use App\User;
 
@@ -38,5 +37,18 @@ class SavesTest extends TestCase
     Counselor::saveToUser($counselor);
 
     $this->assertEquals(false, $user->hasSaved($counselor));
+  }
+
+  /** @test if */
+  public function saved_counselors_are_displayed_correctly()
+  {
+    $user = factory(User::class)->create();
+    $this->actingAs($user);
+    $counselor = factory(Counselor::class)->create();
+    Counselor::saveToUser($counselor);
+
+    // working on this!
+    // $this->visit('/saved')->see();
+
   }
 }

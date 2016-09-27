@@ -21,7 +21,7 @@ class MustBeAdministrator
       if ($user && $user->isAdmin) {
         return $next($request);
       }
-
-      abort(403, "Sorry. Admin's Only.");
+      
+      abort(403);
     }
 }
