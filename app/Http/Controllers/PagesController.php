@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\User;
 
+
 class PagesController extends Controller
 {
     public function index() {
@@ -52,6 +53,10 @@ class PagesController extends Controller
 				'from' => "required|email"
 			]);
 
+      if (\Auth::guest()) {
+        \Session::flash('status', 'Please login to submit feedback');
+        return redirect('/login');
+      }
 
 			switch ($request['type']) {
 				case 'bug':

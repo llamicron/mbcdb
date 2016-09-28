@@ -12,7 +12,6 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- Fonts -->
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <!-- Josefin Slab and Yantramanav -->
@@ -378,7 +377,7 @@
 
   			<!-- Type of Feedback -->
   			<div class="checkbox">
-  				<label><input class="" name="type" type="checkbox" value="bug">Is this a bug report?</label>
+  				<label><input name="type" type="checkbox" value="bug">Is this a bug report?</label>
   			</div>
   			<br>
 
