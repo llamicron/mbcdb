@@ -56,7 +56,7 @@ class User extends Authenticatable
       return $collection;
     }
 
-    // This functions as a toggle
+    // TODO: Fix this shit
     public function hasSaved($counselor)
     {
       $user = \Auth::user();
@@ -64,9 +64,30 @@ class User extends Authenticatable
         'user_id' => $user->id,
         'counselor_id' => $counselor->id,
       ];
+      // find a Save record if it exists
       $saveAttempt = Save::where($params)->first();
       if (!$saveAttempt) {
         return false;
+      }
+      return true;
+    }
+
+    public function saveToUser(Counselor $counselor)
+    {
+      $params = [
+        'user_id' => $this->id,
+        'counselor_id' => $counselor->id,
+      ];
+      $saveAttempt = Save::where($params)->first();
+      if (!$saveAttempt) {
+        // if failed, make a new one.
+        $save = new Save(['user_id' => $this->id, 'counselor_id' => $counselor->id]);
+        // wow
+        $this->saves()->save($save);
+        \Session::flash('status', 'Counselor Saved');
+      } else {
+        $saveAttempt->delete();
+        \Session::flash('status', 'Counselor removed');
       }
       return true;
     }

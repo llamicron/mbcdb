@@ -154,7 +154,8 @@ class CounselorsController extends Controller {
 
     public function saveToUser(Counselor $counselor)
     {
-      Counselor::saveToUser($counselor);
+      $user = \Auth::user();
+      $user->saveToUser($counselor);
       return redirect("/counselors/$counselor->id/show");
     }
 

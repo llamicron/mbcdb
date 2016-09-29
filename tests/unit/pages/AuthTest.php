@@ -15,8 +15,8 @@ class AuthTest extends TestCase
   /** @test if */
   public function an_admin_can_access_the_admin_panel()
   {
-    $user = factory(User::class)->create(['isAdmin' => 1]);
-    $this->actingAs($user);
+    $admin = factory(User::class)->create(['isAdmin' => 1]);
+    $this->actingAs($admin);
 
     $this->visit('/admin')->seePageIs('/admin')->see('All Users');
   }
@@ -24,8 +24,8 @@ class AuthTest extends TestCase
   /** @test if */
   public function an_admin_can_see_the_home_page()
   {
-    $user = factory(User::class)->create(['isAdmin' => 1]);
-    $this->actingAs($user);
+    $admin = factory(User::class)->create(['isAdmin' => 1]);
+    $this->actingAs($admin);
 
     $this->visit('/')->seePageIs('/')->see('All Counselors');
 
@@ -36,26 +36,26 @@ class AuthTest extends TestCase
   /** @test if */
   public function an_admin_can_edit_all_counselors()
   {
-    $user = factory(User::class)->create(['isAdmin' => 1]);
+    $admin = factory(User::class)->create(['isAdmin' => 1]);
     $counselor = factory(Counselor::class)->create();
-    $this->actingAs($user);
+    $this->actingAs($admin);
     $this->visit("/counselors/$counselor->id/edit")->see("Edit $counselor->first_name $counselor->last_name");
   }
 
   /** @test if */
   public function an_admin_can_remove_all_counselors()
   {
-    $user = factory(User::class)->create(['isAdmin' => 1]);
+    $admin = factory(User::class)->create(['isAdmin' => 1]);
     $counselor = factory(Counselor::class)->create();
-    $this->actingAs($user);
+    $this->actingAs($admin);
     $this->visit("/counselors/$counselor->id/remove")->see("All Counselors");
   }
 
   /** @test if */
   public function an_admin_can_add_a_counselor()
   {
-    $user = factory(User::class)->create(['isAdmin' => 1]);
-    $this->actingAs($user);
+    $admin = factory(User::class)->create(['isAdmin' => 1]);
+    $this->actingAs($admin);
     // TODO: Expand upon this
     $this->visit("/counselors/add")->seePageIs('/counselors/add');
   }
@@ -125,6 +125,18 @@ class AuthTest extends TestCase
     $this->actingAs($user);
     // TODO: Expand upon this
     $this->visit("/counselors/add")->seePageIs('/counselors/add');
+  }
+
+  /** @test if */
+  public function an_authed_user_can_save_a_counselor()
+  {
+    $user = factory(User::class)->create();
+    $counselor = factory(Counselor::class)->create();
+
+    $this->assertEquals(0, $user->savedCounselors()->count());
+    $user->saveToUser($counselor);
+    $this->assertEquals(1, $user->savedCounselors()->count());
+
   }
 
 /* ---------------------------- /Authed User Tests -------------------------- */
