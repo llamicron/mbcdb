@@ -24,7 +24,7 @@
           @endif
           <br>
 
-          <h2>This user's counselors</h2>
+          <h3>{{ $user->name}}'s counselors</h3>
           <ul>
 						@if ($user->counselors->isEmpty())
 							<li><i>This user doesn't have any counselors</i></li>
@@ -33,6 +33,14 @@
 	              <li><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name . " " . $counselor->last_name}}</a></li>
 	          	@endforeach
 						@endif
+          </ul>
+        </li>
+        <li class="list-group-item">
+          <h3>{{ $user->name }}'s Favorited Counselors</h3>
+          <ul>
+            @foreach ($user->savedCounselors() as $counselor)
+              <li><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->name }}</a></li>
+            @endforeach
           </ul>
         </li>
       </ul>

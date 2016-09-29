@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('navbar-left')
+  <li><a href="/">All Counselors</a></li>
+@endsection
+
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset">
@@ -15,7 +19,7 @@
           Your Saved Counselors
         </h2>
       {{-- </HEADER> --}}
-      
+
       {{-- <TABLE> --}}
       <table class="table table-striped">
         <thead>

@@ -133,7 +133,6 @@ class AuthTest extends TestCase
     $user = factory(User::class)->create();
     $counselor = factory(Counselor::class)->create();
 
-    $this->assertEquals(0, $user->savedCounselors()->count());
     $user->saveToUser($counselor);
     $this->assertEquals(1, $user->savedCounselors()->count());
 

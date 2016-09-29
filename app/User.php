@@ -74,6 +74,9 @@ class User extends Authenticatable
 
     public function saveToUser(Counselor $counselor)
     {
+      // if (\Auth::user()->id() != $this->id || \Auth::user()->isAdmin != 1) {
+      //   abort(401);
+      // }
       $params = [
         'user_id' => $this->id,
         'counselor_id' => $counselor->id,

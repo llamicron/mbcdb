@@ -34,9 +34,9 @@
           <br><br>
           <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/saveToUser'"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;
             @if (Auth::user()->hasSaved($counselor))
-              Remove
+              Unfavorite
             @else
-              Save
+              Favorite
             @endif
           </button>
           @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
