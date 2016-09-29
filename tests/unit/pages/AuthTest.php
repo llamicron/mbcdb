@@ -13,6 +13,27 @@ class AuthTest extends TestCase
 /* ------------------------------ Admin Tests ------------------------------- */
 
   /** @test if */
+  public function an_admin_can_access_the_admin_panel()
+  {
+    $user = factory(User::class)->create(['isAdmin' => 1]);
+    $this->actingAs($user);
+
+    $this->visit('/admin')->seePageIs('/admin')->see('All Users');
+  }
+
+  /** @test if */
+  public function an_admin_can_see_the_home_page()
+  {
+    $user = factory(User::class)->create(['isAdmin' => 1]);
+    $this->actingAs($user);
+
+    $this->visit('/')->seePageIs('/')->see('All Counselors');
+
+  }
+
+  // Admin - Counselor CRUD tests
+
+  /** @test if */
   public function an_admin_can_edit_all_counselors()
   {
     $user = factory(User::class)->create(['isAdmin' => 1]);
@@ -22,16 +43,24 @@ class AuthTest extends TestCase
   }
 
   /** @test if */
-  public function an_admin_can_access_the_admin_panel()
+  public function an_admin_can_remove_all_counselors()
+  {
+    $user = factory(User::class)->create(['isAdmin' => 1]);
+    $counselor = factory(Counselor::class)->create();
+    $this->actingAs($user);
+    $this->visit("/counselors/$counselor->id/remove")->see("All Counselors");
+  }
+
+  /** @test if */
+  public function an_admin_can_add_a_counselor()
   {
     $user = factory(User::class)->create(['isAdmin' => 1]);
     $this->actingAs($user);
-
-    $this->visit('/admin')->seePageIs('/admin')->see('All Users');
+    // TODO: Expand upon this
+    $this->visit("/counselors/add")->seePageIs('/counselors/add');
   }
 
-/* ------------------------------ /Admin Tests ------------------------------- */
-
+/* ------------------------------ /Admin Tests ------------------------------ */
 /* ---------------------------- Authed User Tests --------------------------- */
 
   /** @test if */
@@ -80,16 +109,28 @@ class AuthTest extends TestCase
   }
 
   /** @test if */
-  public function a_user_can_add_a_counselor()
+  public function an_authed_user_cannot_delete_a_counselor_that_is_not_theirs()
   {
-    // TODO: Expand upon this
-    $this->visit("/counselors/add")->seePageIs('/counselor/add');
+    $user = factory(User::class)->create();
+    $counselor = factory(Counselor::class)->create();
+
+    $this->actingAs($user);
+    $this->visit("/counselors/$counselor->id/remove")->see("Sorry, but you're not authorized to do this");
   }
 
-/* ---------------------------- /Authed User Tests --------------------------- */
+  /** @test if */
+  public function an_authed_user_can_add_a_counselor()
+  {
+    $user = factory(User::class)->create();
+    $this->actingAs($user);
+    // TODO: Expand upon this
+    $this->visit("/counselors/add")->seePageIs('/counselors/add');
+  }
+
+/* ---------------------------- /Authed User Tests -------------------------- */
 
 /* --------------------------------- Misc Tests ----------------------------- */
-/* --------------------------------- /Misc Tests ----------------------------- */
+/* -------------------------------- /Misc Tests ----------------------------- */
 
 /* --------------------------- Un-Authed User Tests ------------------------- */
 
@@ -147,6 +188,12 @@ class AuthTest extends TestCase
     $this->visit("/counselors/add")->seePageIs('/login');
   }
 
+  /** @test if */
+  public function an_un_authed_user_cannot_delete_a_counselor()
+  {
+    $counselor = factory(Counselor::class)->create();
+    $this->visit("/counselors/$counselor->id/remove")->seePageIs('/login');
+  }
 /* --------------------------- /Un-Authed User Tests ------------------------- */
 
 }
