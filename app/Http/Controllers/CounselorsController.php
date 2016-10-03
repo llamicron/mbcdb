@@ -94,7 +94,7 @@ class CounselorsController extends Controller {
       // setting the user-counselor relationship
       $user->counselors()->save($counselor);
       \Session::flash('status', 'Counselor Added Successfully');
-      return redirect()->action('BadgesController@add', compact('counselor'));
+      return redirect("/counselors/$counselor->id/badges/add");
     }
 
     public function remove(Counselor $counselor) {

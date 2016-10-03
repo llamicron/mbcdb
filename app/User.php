@@ -56,7 +56,6 @@ class User extends Authenticatable
       return $collection;
     }
 
-    // TODO: Fix this shit
     public function hasSaved($counselor)
     {
       $user = \Auth::user();

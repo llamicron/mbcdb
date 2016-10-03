@@ -1,10 +1,2 @@
 # This file is for keeping Agile stories that i may want to keep track of.
 # The brackets are for keeping names and so that i can fold the stories up for more organization.
-
-an admin can remove saved counselors {
-  As an admin
-  i want to have the ability to remove user's saved counselors
-  so that i have more control over users.
-
-  Related test: an_admin_can_remove_counselors_from_users_saved_list in AuthTest.php
-}
