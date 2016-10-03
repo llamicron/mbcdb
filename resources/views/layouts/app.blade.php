@@ -74,6 +74,21 @@
 
         }
 
+        hr {
+          background-color: rgba(0, 0, 0, 0.4);
+          border-width:0;
+          color:#444;
+          height:2px;
+          line-height:0;
+          margin:-.5em 10px 1.8571em 10px;
+          margin-top: 2em;
+          page-break-after:always;
+          text-align:center;
+        }
+
+        hr:after {
+        }
+
         .alert-success {
           font-family: 'Lato';
           font-weight: 300;
