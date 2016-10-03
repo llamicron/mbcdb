@@ -52,27 +52,28 @@ class AuthTest extends TestCase
   }
 
   /** @test if */
-  public function an_admin_can_add_a_counselor()
-  {
-    $admin = factory(User::class)->create(['isAdmin' => 1]);
-    $this->actingAs($admin);
-    // TODO: Expand upon this
-    // $this->visit("/counselors/add")->seePageIs('/counselors/add');
-    $this->visit("/counselors/add")->seePageIs('/counselors/add')
-         ->type('Luke', 'first_name')
-         ->type('Sweeney', 'last_name')
-         ->type('123 Old Potato Rd.', 'address')
-         ->type('New Potato', 'city')
-         ->type('Texas', 'state')
-         ->type('77128', 'zip')
-         ->type('example@email.com', 'email')
-         ->type('123-456-789', 'primary_phone')
-         ->type('987-654-321', 'secondary_phone')
-         ->type('123', 'unit_num')
-         ->type('123123123', 'bsa_id')
-         ->select('4', 'district')
-         ->press('Submit');
-  }
+  // public function an_admin_can_add_a_counselor()
+  // {
+  //   $admin = factory(User::class)->create(['isAdmin' => 1]);
+  //   $this->actingAs($admin);
+  //   // TODO: Expand upon this
+  //   $this->get("/counselors/add")
+  //        ->seePageIs('/counselors/add')
+  //        ->type('Luke', 'first_name')
+  //        ->type('Sweeney', 'last_name')
+  //        ->type('123 Old Potato Rd.', 'address')
+  //        ->type('New Potato', 'city')
+  //        ->type('Texas', 'state')
+  //        ->type('77128', 'zip')
+  //        ->type('example@email.com', 'email')
+  //        ->type('123-456-789', 'primary_phone')
+  //        ->type('987-654-321', 'secondary_phone')
+  //        ->type('123', 'unit_num')
+  //        ->type('123123123', 'bsa_id')
+  //        ->select('4', 'district')
+  //        ->press('Submit')
+  //        ->see('Counselor Added Successfully');
+  // }
 
 /* ------------------------------ /Admin Tests ------------------------------ */
 /* ---------------------------- Authed User Tests --------------------------- */
