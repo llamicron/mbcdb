@@ -18,8 +18,8 @@ class BadgesController extends Controller
 
     public function add(Counselor $counselor) {
 			if (\Auth::user()->isAdminOrOwner($counselor)) {
-				$badges = Badge::orderBy('name', 'asc')->get();
-				return view('badges.add', compact('counselor', 'badges'));
+				$chunks = Badge::orderBy('name', 'asc')->get()->chunk(4);
+				return view('badges.add', compact('counselor', 'chunks'));
 			}
 			return view('warnings.notOwner');
     }
