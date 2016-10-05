@@ -56,6 +56,9 @@
         	margin-top:-32767px;/
         }
 
+        .help {
+          margin-top: 0.5em;
+        }
 
         .fa-btn {
             margin-right: 6px;

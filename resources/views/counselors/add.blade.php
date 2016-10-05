@@ -51,7 +51,13 @@
 							<label for="unit_num">* Troop Number: </label>
               <input class="form-control" type="text" name="unit_num" value="{{ old('unit_num') }}" placeholder="Troop Number"><br>
 							<label for="bsa_id">* BSA ID: </label>
-              <input class="form-control" type="text" name="bsa_id" value="{{ old('bsa_id') }}" placeholder="BSA ID"><br>
+              <input class="form-control" type="text" name="bsa_id" value="{{ old('bsa_id') }}" placeholder="BSA ID">
+              <div class="text-right">
+                <p class="help">
+                  You can find your BSA ID on your membership card
+                </p>
+              </div>
+              <br>
 							<label for="district">* District: </label>
 							<select class="form-control" name="district">
 								<option value="disabled" disabled selected>-- Select a District --</option>
@@ -59,11 +65,16 @@
 									<option value="{{ $district->id }}">{{ $district->name }}</option>
 								@endforeach
 							</select>
+              <div class="text-right">
+                <p class="help">
+                  Your district isn't here? <a href="#feedback">Submit some feedback</a>
+                </p>
+              </div>
 							<br>
 							<input type="hidden" name="unit_only" value="false">
 							<input type="checkbox" name="unit_only" value="1">
 							<label for="unit_only">&nbsp; Unit Only</label><br>
-							<i>Does this counselor only want to teach scouts in their troop?</i>
+							Does this counselor only want to teach scouts in their troop?
               <hr>
 							<div class="col-sm-6 double-button">
 								<button type="submit" class="btn btn-primary form-control" name="submit">Submit</button>
