@@ -20,6 +20,8 @@ class CreateSavesTable extends Migration
         });
     }
 
+    // This is a small change
+
     /**
      * Reverse the migrations.
      *
