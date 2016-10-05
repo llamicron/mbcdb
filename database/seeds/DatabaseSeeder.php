@@ -58,9 +58,20 @@ class LukeSeeder extends Seeder {
 class CouncilsTableSeeder extends Seeder {
 	public function run()
 	{
-		for ($y=0; $y < 15; $y++) {
-			$council = factory('App\Council')->create();
-		}
+    // Old way
+    //
+		// for ($y=0; $y < 15; $y++) {
+		// 	$council = factory('App\Council')->create();
+		// }
+
+    $councils = [
+      'Sam Houston Area'
+    ];
+
+    foreach ($councils as $councilName) {
+      $council = new App\Council(['name' => $councilName]);
+      $council->save();
+    }
 	}
 }
 
