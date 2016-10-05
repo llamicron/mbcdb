@@ -66,11 +66,47 @@ class CouncilsTableSeeder extends Seeder {
 
 class DistrictsTableSeeder extends Seeder {
 	public function run() {
-		for ($r=0; $r < 25; $r++) {
-			$district = factory('App\District')->create();
-			$council = App\Council::all()->random(1);
-			$council->districts()->save($district);
-		}
+    // for random $faker generated districts
+    //
+		// for ($r=0; $r < 25; $r++) {
+		// 	$district = factory('App\District')->create();
+		// 	$council = App\Council::all()->random(1);
+		// 	$council->districts()->save($district);
+		// }
+
+    $districts = [
+      'Aldine Pathfinder',
+      'Antares',
+      'Aquila',
+      'Arrowmoon',
+      'Big Cypress',
+      'Brahman',
+      'Brazos',
+      'Copperhead',
+      'David Crockett',
+      'Flaming Arrow',
+      'George Strake',
+      'Iron Horse',
+      'Mustang',
+      'North Star',
+      'Orion',
+      'Phoenix',
+      'Raven',
+      'San Jacinto',
+      'Skyline',
+      'Soaring Eagle',
+      'Tall Timbers',
+      'Tatanka',
+      'Texas Skies',
+      'Thunder Wolf',
+      'Twin Bayou',
+      'W.L. Davis',
+    ];
+    // cause fuck naming conventions, that's why
+    foreach ($districts as $districtName) {
+      $district = new App\District(['name' => $districtName, 'council_id' => 1]);
+      $district->save();
+    }
 	}
 }
 
