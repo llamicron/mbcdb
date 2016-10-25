@@ -4,15 +4,21 @@
   <title>All Counselors</title>
 @endsection
 
-{{-- $context variable is passed from CounselorsController.  It's set to "userCounselors" when you click the link below
-to view the authed user's counselors --}}
+@section('header-title')
+  All Counselors
+@endsection
 
-@section('navbar-left')
+@section('header-nav')
+
+@endsection
+
+@section('tray-links')
   @if(isset($context) && $context == 'userCounselors')
-    <li><a href="/home">All Counselors</a></li>
+    <a class="mdl-navigation__link" href="/home">All Counselors</a>
   @else
-    <li><a href="/counselors/{{ Auth::user()->id }}">Your Counselors</a></li>
+    <a class="mdl-navigation__link" href="/counselors/{{ Auth::user()->id }}">Your Counselors</a>
   @endif
+  <a class="mdl-navigation__link" href="/saved">Saved Counselors</a>
 @endsection
 
 @section('content')
