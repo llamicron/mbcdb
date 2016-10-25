@@ -83,6 +83,12 @@ class AuthTest extends TestCase
   {
     $user = factory(User::class)->create();
     $this->actingAs($user);
+
+    $this->visit('/#feedback')
+         ->type('Subject', 'subject')
+         ->type('This is the body', 'message')
+         ->type('example@example.com', 'from')
+         ->press('send');
   }
 
   /** @test if */
@@ -164,8 +170,8 @@ class AuthTest extends TestCase
   public function an_un_authed_user_cannot_submit_feedback()
   {
     $this->visit('#feedback')
-         ->type('This is the subject', 'subject')
-         ->type('This is the message', 'message')
+         ->type('Testing', 'subject')
+         ->type('This is the message sent from your phpunit tests', 'message')
          ->type('email@example.com', 'from')
          ->check('type')
          ->press('send');
