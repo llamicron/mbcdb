@@ -25,11 +25,29 @@
 
     <link rel="stylesheet" href="/confirmation.css" media="screen" title="no title" charset="utf-8">
 
+    <style media="screen">
+      td {
+        font-size: 16px;
+      }
+      .mdl-data-table {
+        width: 100%;
+      }
+      tr {
+        cursor: pointer;
+      }
+      .mdl-button--fab {
+        position: fixed;
+        right: 2em;
+        bottom: 1em;
+      }
+    </style>
+
 </head>
 <body id="app-layout">
 
+{{-- Header and Nav --}}
 <div class="mdl-layout mdl-js-layout">
-<header class="mdl-layout__header mdl-layout__header--scroll">
+<header class="mdl-layout__header mdl-layout__header--fixed">
   <img class="mdl-layout-icon"></img>
   <div class="mdl-layout__header-row">
     <span class="mdl-layout__title">@yield('header-title')</span>
@@ -37,10 +55,6 @@
     <nav class="mdl-navigation">
       @yield('header-nav')
     </nav>
-
-    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
-      <i class="material-icons">more_vert</i>
-    </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
       <a href="#"><li class="mdl-menu__item">User</li></a>
     </ul>
