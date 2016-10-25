@@ -40,6 +40,11 @@
         right: 2em;
         bottom: 1em;
       }
+      .counselor-card {
+        width: 85%;
+        margin-left: 2em;
+        margin-right: 2em;
+      }
     </style>
 
 </head>

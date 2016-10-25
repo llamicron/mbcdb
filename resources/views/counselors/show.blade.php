@@ -1,22 +1,57 @@
 @extends('layouts.app')
 
 @section('head')
-  <title>All Counselors</title>
+  <title>{{ $counselor->name }}</title>
 @endsection
 
-@section('navbar-left')
-    <li><a href="/home">All Counselors</a></li>
-    <li><a href="/counselors/add">Add a Counselor</a></li>
+@section('header-title')
+  {{ $counselor->name }}
+@endsection
+
+@section('tray-links')
+    <a class="mdl-navigation__link" href="/home">All Counselors</a>
+    <a class="mdl-navigation__link" href="/counselors/add">Add a Counselor</a>
 @endsection
 
 @section('content')
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <br>
-			{{-- Counselor Area --}}
-      <ul class="list-group">
-        <li class="list-group-item">
-          <h3>{{ $counselor->first_name }} {{ $counselor->last_name }}</h3><br>
+
+      <div class="demo-card-square counselor-card mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">{{ $counselor->name }}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
+          Primary Phone: {{ $counselor->primary_phone }} <br>
+          @if (isset($counselor->secondary_phone))
+            Secondary Phone: {{ $counselor->secondary_phone }} <br>
+          @endif
+          Troop: {{ $counselor->unit_num }} <br>
+          {{ $counselor->district->name }} District <br>
+          <br>
+          {{-- Chip --}}
+          @if ($counselor->unit_only == 1)
+            <span class="mdl-chip mdl-chip--contact">
+              <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">!</span>
+              <span class="mdl-chip__text">
+                This counselor has chosen to only teach scouts in their troop. If you are not in Troop {{ $counselor->unit_num }}, please do not contact this counselor.
+              </span>
+            </span>
+    			@endif
+          {{-- End Chip --}}
+
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            button
+          </a>
+        </div>
+      </div>
+
+        {{-- <li class="list-group-item">
+          <h3>{{ $counselor->name }}</h3><br>
 					Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
           Primary Phone: {{ $counselor->primary_phone }}<br>
           @if(isset($counselor->secondary))
@@ -43,9 +78,12 @@
 						<button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
 						<button class="btn btn-danger double-button" onClick="location='#confirm'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove Counselor</button>
           @endif
-        </li>
+        </li> --}}
+
+
+
 				{{-- Badge Area --}}
-        <li class="list-group-item">
+        {{-- <li class="list-group-item">
             <h3>Badges This Counselor Teaches:</h3>
 
             <ul>
@@ -64,52 +102,10 @@
               <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge</button>
               <button class="btn btn-danger double-button" onClick="location='#confirm2'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove a Badge</button>
             @endif
-        </li>
-        <br>
-      </ul>
+        </li> --}}
 
-			@if ($counselor->unit_only == 1)
-				<div class="alert alert-info">
-					<p>
-						This counselor has chosen to only teach scouts in their troop.  <br> If you are not in Troop {{ $counselor->unit_num }}, please do not contact this counselor.
-					</p>
-				</div>
-			@endif
-
+      <br>
+      <br>
     </div>
   </div>
-@endsection
-
-@section('confirm-title')
-  Are You Sure?
-@endsection
-
-@section('confirm-content')
-  <div class="alert alert-danger">
-    <div class="text-center">
-      <strong>This counselor will be deleted and cannot be restored.  Are you sure?</strong><br>
-    </div>
-    <button type="button" class="btn btn-primary confirm-button" onClick="location='/counselors/{{ $counselor->id }}/remove'" name="confirm">Yes, I'm Sure</button>
-  </div>
-@endsection
-
-@section('confirm2-title')
-  Remove Badges
-@endsection
-
-@section('confirm2-content')
-	<h3>Select Badges to Remove</h3>
-	<hr>
-	<form action="/counselors/{{ $counselor->id }}/badges/remove" method="post">
-		{{ csrf_field() }}
-		@foreach ($counselor->badges as $badge)
-			<li>
-				<input type="checkbox" name="{{ $badge->name }}" value="{{ $badge->id }}">&nbsp;
-				{{ $badge->name }}
-			</li>
-		@endforeach
-		<hr>
-		<button class="btn btn-primary double-button" type="submit" name="submit">Submit</button>
-		<button type="button" class="btn btn-danger double-button" onClick="location='/counselors/{{ $counselor->id }}/show'" name="cancel">Cancel</button>
-	</form>
 @endsection
