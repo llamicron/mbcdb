@@ -137,6 +137,7 @@ class CounselorsController extends Controller {
       $counselor->save();
 
 
+      \Session::flash('status', 'Counselor Updated');
       return redirect("/counselors/$counselor->id/show");
     }
 
