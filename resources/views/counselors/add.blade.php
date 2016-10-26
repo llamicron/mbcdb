@@ -52,7 +52,7 @@
 							  <label class="mdl-textfield__label" for="state">State</label>
 							</div>
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" name="zip" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('zip') }}" type="text" id="zip">
+                <input class="mdl-textfield__input" name="zip" pattern="(?![a-zA-Z]).+" value="{{ old('zip') }}" type="text" id="zip">
                 <label class="mdl-textfield__label" for="zip">Zip</label>
                 <span class="mdl-textfield__error">Zip must be a number</span>
               </div>
@@ -68,26 +68,26 @@
               <br>
 
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							  <input class="mdl-textfield__input" name="primary_phone" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('primary_phone') }}" type="text" id="primary_phone">
+							  <input class="mdl-textfield__input" name="primary_phone" pattern="(?![a-zA-Z]).+" value="{{ old('primary_phone') }}" type="text" id="primary_phone">
 							  <label class="mdl-textfield__label" for="primary_phone">Primary Phone</label>
-                <span class="mdl-textfield__error">Primary phone must be a number</span>
-
+                <span class="mdl-textfield__error">This must be a phone number (<i>e.g. 1-800-555-1234</i>)</span>
 							</div>
+
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							  <input class="mdl-textfield__input" name="secondary_phone" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('secondary_phone') }}" type="text" id="secondary_phone">
+							  <input class="mdl-textfield__input" name="secondary_phone" pattern="(?![a-zA-Z]).+" value="{{ old('secondary_phone') }}" type="text" id="secondary_phone">
 							  <label class="mdl-textfield__label" for="secondary_phone">Secondary Phone</label>
-                <span class="mdl-textfield__error">Secondary phone must be a number</span>
+                <span class="mdl-textfield__error">This must be a phone number (<i>e.g. 1-800-555-1234</i>)</span>
 							</div>
 
-              <br>
+              <br><br>
 
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							  <input class="mdl-textfield__input" name="unit_num" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('unit_num') }}" type="text" id="unit_num">
+							  <input class="mdl-textfield__input" name="unit_num" pattern="(?![a-zA-Z]).+" value="{{ old('unit_num') }}" type="text" id="unit_num">
 							  <label class="mdl-textfield__label" for="unit_num">Troop Number</label>
                 <span class="mdl-textfield__error">Troop Number must be a number</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							  <input class="mdl-textfield__input" name="bsa_id" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('bsa_id') }}" type="text" id="bsa_id">
+							  <input class="mdl-textfield__input" name="bsa_id" pattern="(?![a-zA-Z]).+" value="{{ old('bsa_id') }}" type="text" id="bsa_id">
 							  <label class="mdl-textfield__label" for="bsa_id">BSA ID</label>
                 <span class="mdl-textfield__error">BSA ID must be a number</span>
 							</div>
