@@ -19,10 +19,13 @@
       <br>
 
       <div class="demo-card-square counselor-card mdl-card mdl-shadow--4dp">
+
         <div class="mdl-card__title mdl-card--expand">
           <h2 class="mdl-card__title-text">{{ $counselor->name }}</h2>
         </div>
+
         <div class="mdl-card__supporting-text">
+          <p>
           Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
           Primary Phone: {{ $counselor->primary_phone }} <br>
           @if (isset($counselor->secondary_phone))
@@ -32,20 +35,47 @@
           {{ $counselor->district->name }} District <br>
           <br>
           {{-- Chip --}}
+          </p>
           @if ($counselor->unit_only == 1)
             <span class="mdl-chip mdl-chip--contact">
               <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">!</span>
               <span class="mdl-chip__text">
-                This counselor has chosen to only teach scouts in their troop. If you are not in Troop {{ $counselor->unit_num }}, please do not contact this counselor.
+                {{ $counselor->name }} has chosen to only teach scouts in their troop. If you're not in Troop {{ $counselor->unit_num }}, please don't contact this counselor.
               </span>
             </span>
     			@endif
           {{-- End Chip --}}
-
         </div>
+
         <div class="mdl-card__actions mdl-card--border">
           <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
             button
+          </a>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div class="mdl-card-square mdl-card counselor-card mdl-shadow--4dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">Merit Badges</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          {{ $counselor->name }} teaches the following merit badges:
+          <ul class="mdl-list">
+            @foreach ($counselor->badges as $badge)
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  {{ $badge->name }}
+                </span>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Button Text
           </a>
         </div>
       </div>

@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <!-- Josefin Slab and Yantramanav -->
     <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,300,300italic,700,700italic|Yantramanav:400,100,700' rel='stylesheet' type='text/css'>
-
     <link rel="stylesheet" href="/confirmation.css" media="screen" title="no title" charset="utf-8">
 
     <style media="screen">
@@ -31,6 +30,12 @@
       }
       .mdl-data-table {
         width: 100%;
+      }
+      .mdl-list__item {
+        line-height:1.5em;
+        width: 50%;
+        float:left;
+        display:inline;
       }
       tr {
         cursor: pointer;
@@ -41,9 +46,10 @@
         bottom: 1em;
       }
       .counselor-card {
-        width: 85%;
-        margin-left: 2em;
-        margin-right: 2em;
+        width: 95%;
+        margin-top: 2em;
+        margin-left: 1em;
+        margin-right: 1em;
       }
     </style>
 
@@ -73,9 +79,7 @@
   </nav>
 </div>
 <main class="mdl-layout__content">
-  <div>
     @yield('content')
-  </div>
 </main>
 </div>
 
