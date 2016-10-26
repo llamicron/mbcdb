@@ -52,6 +52,25 @@
         margin-left: 1em;
         margin-right: 1em;
       }
+      .login-card {
+        width: 100%;
+        margin-top: 3em;
+        padding: 2em;
+        padding-left: 4em;
+      }
+      .mdl-textfield--floating-label input[type=password]:-webkit-autofill ~ label {
+        transform: translate3d(0, -20px, 0);
+        visibility: hidden;
+      }
+
+      .mdl-textfield--floating-label input[type=password]:-webkit-autofill ~ label:after {
+        content: 'Password';
+        visibility: visible;
+        left: 0;
+        transform: translate3d(0, -20px, 0);
+        background: transparent;
+        color: inherit;
+      }
     </style>
 
 </head>
