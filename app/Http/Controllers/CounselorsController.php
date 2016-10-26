@@ -38,7 +38,6 @@ class CounselorsController extends Controller {
       ]);
     }
 
-
     public function userCounselors(User $user) {
       $context = 'userCounselors';
 			$counselors = Counselor::where('user_id', \Auth::user()->id)->paginate(35);

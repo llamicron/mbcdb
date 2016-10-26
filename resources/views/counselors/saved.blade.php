@@ -1,27 +1,41 @@
 @extends('layouts.app')
 
-@section('navbar-left')
-  <li><a href="/">All Counselors</a></li>
+@section('header-title')
+  Saved Counselors
+@endsection
+
+@section('tray-links')
+  <a class="mdl-navigation__link" href="/">All Counselors</a>
+  <a class="mdl-navigation__link" href="/counselors/{{ Auth::user()->id }}">Your Counselors</a>
 @endsection
 
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset">
     <div class="container">
-      {{-- <HEADER> --}}
-        <h2>
-          <div class="pull-right">
-            <button type="button" class="btn btn-primary" onClick="location='/counselors/add'" name="add_counselor">
-              <span class="glyphicon glyphicon-plus"></span>&nbsp;
-              Add a Counselor
-            </button>
-          </div>
-          Your Saved Counselors
-        </h2>
-      {{-- </HEADER> --}}
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Name</th>
+            <th class="mdl-data-table__cell--non-numeric">Troop</th>
+            <th class="mdl-data-table__cell--non-numeric">District</th>
+            <th class="mdl-data-table__cell--non-numeric">Council</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($counselors as $counselor)
+            <tr onClick="location='/counselors/{{ $counselor->id }}/show'">
+              <td class="mdl-data-table__cell--non-numeric">{{ $counselor->name }}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{ $counselor->unit_num }}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{ $counselor->district->name }}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{ $counselor->district->council->name }}</td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
 
-      {{-- <TABLE> --}}
-      <table class="table table-striped">
+
+      {{-- <table class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -44,7 +58,7 @@
             </tr>
           @endforeach
         </tbody>
-      </table>
+      </table> --}}
     	{{-- </TABLE> --}}
     </div>
   </div>

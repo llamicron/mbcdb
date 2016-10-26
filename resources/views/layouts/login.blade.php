@@ -26,21 +26,6 @@
 
 
     <style media="screen">
-      td {
-        font-size: 16px;
-      }
-      .mdl-data-table {
-        width: 100%;
-      }
-      .mdl-list__item {
-        line-height:1.5em;
-        width: 50%;
-        float:left;
-        display:inline;
-      }
-      tr {
-        cursor: pointer;
-      }
       .mdl-button--fab {
         position: fixed;
         right: 2em;
@@ -71,17 +56,6 @@
         background: transparent;
         color: inherit;
       }
-      .status {
-        padding: 2em;
-        text-align: center;
-      }
-      .mdl-data-table {
-        margin-top: 2em;
-      }
-      .search {
-        margin-left: 2em;
-        margin-right: 2em;
-      }
     </style>
 
 </head>
@@ -95,45 +69,21 @@
     <span class="mdl-layout__title">@yield('header-title')</span>
     <div class="mdl-layout-spacer"></div>
     <nav class="mdl-navigation">
-      {{-- User --}}
-      <a id="user" class="mdl-navigation__link" href="#">{{ \Auth::user()->name }}</a>
-      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user">
-        <a href="/logout"><li class="mdl-menu__item">Logout</li></a>
-      </ul>
       @yield('header-nav')
     </nav>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+      <a href="#"><li class="mdl-menu__item">User</li></a>
+    </ul>
   </div>
 </header>
 <div class="mdl-layout__drawer">
   <span class="mdl-layout__title">MBCDB</span>
   <nav class="mdl-navigation">
-    <!-- Expandable Textfield -->
-    <div class="search">
-      <form action="/search" method="POST">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-            <i class="material-icons">search</i>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" id="search">
-            <label class="mdl-textfield__label" for="sample-expandable">Search</label>
-          </div>
-        </div>
-      </form>
-    </div>
     @yield('tray-links')
   </nav>
 </div>
 <main class="mdl-layout__content">
-  @if (session('status'))
-    <div class="status">
-      <span class="mdl-chip mdl-chip--contact">
-        <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">✓</span>
-        <span class="mdl-chip__text">{{ session('status') }}</span>
-      </span>
-    </div>
-  @endif
-  @yield('content')
+    @yield('content')
 </main>
 </div>
 
