@@ -24,10 +24,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Counselor::class, function (Faker\Generator $faker) {
+  $first_name = $faker->firstName;
+  $last_name = $faker->lastName;
   return [
-    'name' => $faker->name,
-		'first_name' => $faker->firstName,
-		'last_name' => $faker->lastName,
+    'name' => $first_name . " " . $last_name,
+		'first_name' => $first_name,
+		'last_name' => $last_name,
     'email' => $faker->safeEmail,
 		'address' => $faker->buildingNumber . " " . $faker->streetName,
 		'state' => $faker->state,

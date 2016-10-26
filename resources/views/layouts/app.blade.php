@@ -24,6 +24,7 @@
     <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,300,300italic,700,700italic|Yantramanav:400,100,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/confirmation.css" media="screen" title="no title" charset="utf-8">
 
+
     <style media="screen">
       td {
         font-size: 16px;

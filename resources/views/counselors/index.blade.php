@@ -14,7 +14,7 @@
   @else
     <a class="mdl-navigation__link" href="/counselors/{{ Auth::user()->id }}">Your Counselors</a>
   @endif
-  <a class="mdl-navigation__link" href="/saved">Saved Counselors</a>
+  <a class="mdl-navigation__link" href="/saved">Favorited Counselors</a>
 @endsection
 
 @section('content')

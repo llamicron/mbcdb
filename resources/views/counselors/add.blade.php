@@ -2,63 +2,102 @@
 
 @section('head')
   <title>Add a Counselor</title>
-  {{-- Encrypting the form token so that it will post correctly --}}
-  {{-- P.S. This actually isnt the fix. The real fix is the <input name="_token" down there --}}
-  {{-- OR this: {{ csrf_field() }} --}}
-  {{-- Just keeping this in for clarity and so future me can see my mistakes --}}
-  <?php
-  //  $encrypter = app('Illuminate\Encryption\Encrypter');
-  //  $encrypted_token = $encrypter->encrypt(csrf_token());
-  ?>
 @endsection
 
-@section('navbar-left')
-  <li><a href="/home">All Counselors</a></li>
+@section('header-title')
+  Add a New Counselor
 @endsection
 
-{{-- i will need to add elements to the form to allow counselors to be related to users with Eloquent --}}
+@section('tray-links')
+<a class="mdl-navigation__link" href="/home">All Counselors</a>
+<a class="mdl-navigation__link" href="/counselors/{{ Auth::user()->id }}">Your Counselors</a>
+<a class="mdl-navigation__link" href="/saved">Favorited Counselors</a>
+@endsection
+
 @section('content')
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h1>Add a Counselor</h1>
 
+        <div class="counselor-card mdl-card mdl-shadow--4dp">
+          <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">Add a Counselor</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+
+
+          {{-- Form --}}
           <form class="form-group" action="/counselors/add" method="post">
         			{{ csrf_field() }}
-							<label for="first_name">* First Name: </label>
-							<input class="form-control" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="First Name"><br>
-							<label for="last_name">* Last Name: </label>
-							<input class="form-control" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name"><br>
-							<p style="font-weight: 900">&nbsp; Address</p>
-							<div class="col-sm-3 nopadding">
-								<input class="form-control" type="text" name="address" value="{{ old('address') }}" placeholder="Address">
-							</div>
-							<div class="col-sm-3 nopadding">
-								<input class="form-control" type="text" name="city" value="{{ old('city') }}" placeholder="City">
-							</div>
-							<div class="col-sm-3 nopadding">
-								<input class="form-control" type="text" name="state" value="{{ old('state') }}" placeholder="State">
-							</div>
-							<div class="col-sm-3 nopadding">
-								<input class="form-control" type="text" name="zip" value="{{ old('zip') }}" placeholder="Zip">
-							</div>
-              <br><br><br>
-							<label for="email">* Email: </label>
-              <input class="form-control" type="text" name="email" value="{{ old('email') }}" placeholder="Email"><br>
-							<label for="primary_phone">* Primary Phone: </label>
-              <input class="form-control" type="text" name="primary_phone" value="{{ old('primary_phone') }}" placeholder="Primary Phone"><br>
-							<label for="secondary_phone">Secondary Phone: </label>
-              <input class="form-control" type="text" name="secondary_phone" value="{{ old('secondary_phone') }}" placeholder="Secondary Phone"><br>
-							<label for="unit_num">* Troop Number: </label>
-              <input class="form-control" type="text" name="unit_num" value="{{ old('unit_num') }}" placeholder="Troop Number"><br>
-							<label for="bsa_id">* BSA ID: </label>
-              <input class="form-control" type="text" name="bsa_id" value="{{ old('bsa_id') }}" placeholder="BSA ID">
-              <div class="text-right">
-                <p class="help">
-                  You can find your BSA ID on your membership card
-                </p>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="first_name" value="{{ old('first_name') }}" type="text" id="first_name">
+                <label class="mdl-textfield__label" for="first_name">First Name</label>
               </div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="last_name" value="{{ old('last_name')}}" type="text" id="last_name">
+							  <label class="mdl-textfield__label" for="last_name">Last Name</label>
+							</div>
+
               <br>
-							<label for="district">* District: </label>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="address" value="{{ old('address') }}" type="text" id="address">
+							  <label class="mdl-textfield__label" for="address">Address</label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="city" value="{{ old('city') }}" type="text" id="city">
+							  <label class="mdl-textfield__label" for="city">City</label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="state" value="{{ old('state') }}" type="text" id="state">
+							  <label class="mdl-textfield__label" for="state">State</label>
+							</div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="zip" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('zip') }}" type="text" id="zip">
+                <label class="mdl-textfield__label" for="zip">Zip</label>
+                <span class="mdl-textfield__error">Zip must be a number</span>
+              </div>
+
+              <br><br><br>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" pattern=".+@.+\..+" name="email" value="{{ old('email') }}" type="text" id="email">
+							  <label class="mdl-textfield__label" for="email">Email</label>
+                <span class="mdl-textfield__error">Must be a valid email</span>
+							</div>
+
+              <br>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="primary_phone" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('primary_phone') }}" type="text" id="primary_phone">
+							  <label class="mdl-textfield__label" for="primary_phone">Primary Phone</label>
+                <span class="mdl-textfield__error">Primary phone must be a number</span>
+
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="secondary_phone" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('secondary_phone') }}" type="text" id="secondary_phone">
+							  <label class="mdl-textfield__label" for="secondary_phone">Secondary Phone</label>
+                <span class="mdl-textfield__error">Secondary phone must be a number</span>
+							</div>
+
+              <br>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="unit_num" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('unit_num') }}" type="text" id="unit_num">
+							  <label class="mdl-textfield__label" for="unit_num">Troop Number</label>
+                <span class="mdl-textfield__error">Troop Number must be a number</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							  <input class="mdl-textfield__input" name="bsa_id" pattern="-?[0-9]*(\.[0-9]+)?" value="{{ old('bsa_id') }}" type="text" id="bsa_id">
+							  <label class="mdl-textfield__label" for="bsa_id">BSA ID</label>
+                <span class="mdl-textfield__error">BSA ID must be a number</span>
+							</div>
+              <div class="mdl-tooltip mdl-tooltip--large" for="bsa_id">
+                You can find your BSA ID on your membership card
+              </div>
+
+              <br><br>
+
+							<label for="district">District: </label>
 							<select class="form-control" name="district">
 								<option value="disabled" disabled selected>-- Select a District --</option>
 								@foreach ($districts as $district)
@@ -72,21 +111,25 @@
               </div>
 							<br>
 							<input type="hidden" name="unit_only" value="false">
-							<input type="checkbox" name="unit_only" value="1">
-							<label for="unit_only">&nbsp; Unit Only</label><br>
-							Does this counselor only want to teach scouts in their troop?
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="unit_only">
+                <input type="checkbox" name="unit_only" value="1" id="unit_only" class="mdl-switch__input">
+                <span class="mdl-switch__label" id="unit_only_span">Unit Only?</span>
+              </label>
+              <br>
+              <div class="mdl-tooltip mdl-tooltip--large" for="unit_only_span">
+                Does this counselor only want to teach scouts in their troop?
+              </div>
               <hr>
-							<div class="col-sm-6 double-button">
-								<button type="submit" class="btn btn-primary form-control" name="submit">Submit</button>
-							</div>
-							<div class="col-sm-6 double-button">
-								<button type="button" class="btn btn-danger form-control" onClick="location='/home'" name="cancel">Cancel</button>
-							</div>
-
+              <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Submit
+              </button>
+              <button type="button" onClick="location='/'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                Cancel
+              </button>
           </form>
-        <div class="text-left">
-          <i>* Required field</i>
+          {{-- End Form --}}
         </div>
+      </div>
       </div>
     </div>
 @endsection

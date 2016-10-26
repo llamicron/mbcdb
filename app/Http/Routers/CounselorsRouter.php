@@ -20,6 +20,7 @@ class CounselorsRouter implements RouterInterface {
       Route::get('/counselors/{counselor}/edit', 'CounselorsController@edit');
       Route::patch('/counselors/{counselor}/edit', 'CounselorsController@update');
       Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
+      Route::get('/counselors/{counselor}/badges/add', 'BadgesController@add');
       Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
       // TODO: Fix this route
 			Route::get('/counselors/{counselor}/badges/remove', 'BadgesController@removeForm');
