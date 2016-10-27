@@ -80,8 +80,9 @@
       }
       .search {
         margin-left: 2em;
-        margin-right: 2em;
+        margin-right: 1em;
       }
+
     </style>
 
 </head>
@@ -110,12 +111,13 @@
     <!-- Expandable Textfield -->
     <div class="search">
       <form action="/search" method="POST">
+        {{ csrf_field() }}
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
           <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
             <i class="material-icons">search</i>
           </label>
           <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" id="search">
+            <input class="mdl-textfield__input" placeholder="Press Enter to Search" type="text" id="search">
             <label class="mdl-textfield__label" for="sample-expandable">Search</label>
           </div>
         </div>
