@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/confirmation.css" media="screen" title="no title" charset="utf-8">
 
 
+
     <style media="screen">
       td {
         font-size: 16px;
@@ -82,7 +83,6 @@
         margin-left: 2em;
         margin-right: 1em;
       }
-
     </style>
 
 </head>
@@ -127,11 +127,11 @@
   </nav>
 </div>
 <main class="mdl-layout__content">
-  @if (session('status'))
+  @if (\Session::has('status'))
     <div class="status">
       <span class="mdl-chip mdl-chip--contact">
         <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">✓</span>
-        <span class="mdl-chip__text">{{ session('status') }}</span>
+        <span class="mdl-chip__text">{{ session()->get('status') }}</span>
       </span>
     </div>
   @endif

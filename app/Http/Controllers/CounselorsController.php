@@ -99,7 +99,8 @@ class CounselorsController extends Controller {
     public function remove(Counselor $counselor) {
 			if (\Auth::user()->isAdminOrOwner($counselor)) {
 				$counselor->delete();
-				return redirect('/counselors');
+        \Session::flash('status', 'Counselor deleted');
+				return redirect('/');
 			}
 			return view('warnings.notOwner');
     }
