@@ -14,7 +14,6 @@
 
 // Admin Side
 // TODO: Add Search for Users
-// TODO: Add link to admin page nex to username
 
 // Mobile
 /*
@@ -32,6 +31,8 @@ TODO: Make while site responsive:
 // TODO: Make sure the top border on all cards look good
 // TODO: Make sure search works properly
 
+// For Production
+// TODO: Download BS and MDL instead of using the CDN
 
 // Colors:
 // Primary - Blue-grey: #607D8B

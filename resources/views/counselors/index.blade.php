@@ -9,7 +9,7 @@
 @endsection
 
 @section('tray-links')
-  
+
 @endsection
 
 @section('content')
@@ -41,7 +41,7 @@
 			<div class="text-center">
 				{{ $counselors->links() }}
 			</div>
-      <button onClick="location='/counselors/add'" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--colored">
+      <button onClick="location='/counselors/add'" id="add_counselor_fab" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--colored">
         <i class="material-icons">add</i>
       </button>
     </div>

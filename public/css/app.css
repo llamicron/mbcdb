@@ -1,0 +1,84 @@
+body {
+  background-color: grey;
+  background-image: url('../images/yosemite.jpg');
+  background-size: cover;
+}
+td {
+  font-size: 16px;
+}
+.mdl-data-table {
+  width: 100%;
+}
+.mdl-list__item {
+  line-height:1.5em;
+  width: 50%;
+  float:left;
+  display:inline;
+}
+tr {
+  cursor: pointer;
+  border-left: solid 3px #607D8B;
+}
+.mdl-button--fab {
+  position: fixed;
+  right: 2em;
+  bottom: 1em;
+}
+.counselor-card {
+  width: 95%;
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.login-card {
+  width: 100%;
+  margin-top: 3em;
+  padding: 2em;
+  padding-left: 4em;
+}
+.mdl-textfield--floating-label input[type=password]:-webkit-autofill ~ label {
+  transform: translate3d(0, -20px, 0);
+  visibility: hidden;
+}
+
+.mdl-textfield--floating-label input[type=password]:-webkit-autofill ~ label:after {
+  content: 'Password';
+  visibility: visible;
+  left: 0;
+  transform: translate3d(0, -20px, 0);
+  background: transparent;
+  color: inherit;
+}
+.status {
+  padding: 2em;
+  text-align: center;
+}
+.mdl-data-table {
+  margin-top: 2em;
+}
+.search {
+  margin-left: 2em;
+  margin-right: 1em;
+}
+.mdl-card {
+  border-left: 20px solid #607D8B;
+}
+.mdl-dialog {
+  border: 2px solid #607D8B;
+}
+
+.table-card {
+  /* a card containing a table */
+  padding-left: 2em;
+}
+.mdl-menu__item {
+  border-left: solid 4px #607D8B;
+}
+#profile-icon {
+  margin-bottom: 0.3em;
+}
+#add_counselor_fab {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+}
