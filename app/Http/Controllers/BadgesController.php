@@ -28,7 +28,6 @@ class BadgesController extends Controller
 			if (\Auth::user()->isAdminOrOwner($counselor)) {
 				$input = $request->all();
 				array_shift($input);
-				array_pop($input);
 				foreach ($input as $badge => $id) {
 					$badge = Badge::find($id);
 					$counselor->badges()->save($badge);
@@ -45,8 +44,6 @@ class BadgesController extends Controller
 				$input = $request->all();
 				// This removes the token
 				array_shift($input);
-				// and this removes the submit input
-				array_pop($input);
 				foreach ($input as $badge => $id) {
 					DB::table('badge_counselor')->where('counselor_id', $counselor->id)->where('badge_id', $id)->delete();;
 				}
@@ -55,4 +52,9 @@ class BadgesController extends Controller
 			}
 			return view('warnings.notOwner');
 		}
+
+    public function edit(Counselor $counselor) {
+      $badges = $counselor->badges;
+      return view('badges.remove', compact('badges', 'counselor'));
+    }
 }

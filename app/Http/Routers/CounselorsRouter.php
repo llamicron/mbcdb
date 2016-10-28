@@ -22,6 +22,8 @@ class CounselorsRouter implements RouterInterface {
       Route::get('/counselors/{counselor}/remove', 'CounselorsController@remove');
       Route::get('/counselors/{counselor}/badges/add', 'BadgesController@add');
       Route::post('/counselors/{counselor}/badges/add', 'BadgesController@store');
+      Route::get('/counselors/{counselor}/badges/edit', 'BadgesController@edit');
+      Route::post('/counselors/{counselor}/badges/edit', 'BadgesController@remove');
       // TODO: Fix this route
 			Route::get('/counselors/{counselor}/badges/remove', 'BadgesController@removeForm');
 			Route::post('/counselors/{counselor}/badges/remove', 'BadgesController@remove');

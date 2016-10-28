@@ -129,6 +129,12 @@
               @endif
             @else
               {{ $counselor->name }} teaches the following merit badges:
+              @if ($counselor->badges->isEmpty())
+                <button onClick="location='/counselors/{{ $counselor->id }}/badges/add'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  <span class="glyphicon glyphicon-edit"></span>&nbsp;
+                  Add Badges
+                </button>
+              @endif
               <ul>
                 @foreach ($counselor->badges as $badge)
                   <li class="mdl-list__item">
@@ -148,61 +154,6 @@
         </div>
 
       </div>
-
-        {{-- <li class="list-group-item">
-          <h3>{{ $counselor->name }}</h3><br>
-					Email: <a href="mailto:{{ $counselor->email }}">{{ $counselor->email }}</a><br>
-          Primary Phone: {{ $counselor->primary_phone }}<br>
-          @if(isset($counselor->secondary))
-            Secondary Phone: {{ $counselor->secondary_phone }}<br>
-          @endif
-          <br>
-          Troop {{ $counselor->unit_num }}<br>
-          {{ $counselor->district->name }} District<br>
-					Unit Only:
-					@if ($counselor->unit_only)
-						{{ 'Yes' }}
-					@else
-						{{ 'No' }}
-					@endif
-          <br><br>
-          <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/saveToUser'"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;
-            @if (Auth::user()->hasSaved($counselor))
-              Unfavorite
-            @else
-              Favorite
-            @endif
-          </button>
-          @if (Auth::user()->isAdmin || $counselor->isChildOf(Auth::user()))
-						<button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/edit'"><span class="glyphicon glyphicon-edit"></span>&nbsp;Update Counselor</button>
-						<button class="btn btn-danger double-button" onClick="location='#confirm'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove Counselor</button>
-          @endif
-        </li> --}}
-
-
-
-				{{-- Badge Area --}}
-        {{-- <li class="list-group-item">
-            <h3>Badges This Counselor Teaches:</h3>
-
-            <ul>
-							@if ($counselor->badges->isEmpty())
-								<li><i>This counselor doesn't teach any merit badges</i></li>
-							@else
-	              @foreach($counselor->badges as $badge)
-	                <li>
-	                  {{ $badge->name }}
-	                </li>
-	              @endforeach
-              @endif
-            </ul>
-            <br>
-            @if($counselor->isChildOf(Auth::user()) || Auth::user()->isAdmin)
-              <button class="btn btn-primary double-button" onClick="location='/counselors/{{ $counselor->id }}/badges/add'"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add A Badge</button>
-              <button class="btn btn-danger double-button" onClick="location='#confirm2'"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove a Badge</button>
-            @endif
-        </li> --}}
-
       <br>
       <br>
     </div>

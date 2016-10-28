@@ -8,6 +8,12 @@
   What does {{ $counselor->name }} teach?
 @endsection
 
+@section('tray-links')
+  <a class="mdl-navigation__link" href="/">All Counselors</a>
+  <a class="mdl-navigation__link" href="/counselors/{{ $counselor->id }}">Your Counselors</a>
+  <a class="mdl-navigation__link" href="/saved">Favorited Counselors</a>
+@endsection
+
 @section('content')
   <div class="row">
     <div class="col-md-12">
