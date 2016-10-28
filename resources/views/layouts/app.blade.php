@@ -83,6 +83,9 @@
         margin-left: 2em;
         margin-right: 1em;
       }
+      .mdl-card {
+        border-top: 20px solid #607D8B;
+      }
     </style>
 
 </head>
@@ -117,7 +120,7 @@
             <i class="material-icons">search</i>
           </label>
           <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" placeholder="Press Enter to Search" type="text" id="search">
+            <input class="mdl-textfield__input" name="search" placeholder="Press Enter to Search" type="text" id="search">
             <label class="mdl-textfield__label" for="sample-expandable">Search</label>
           </div>
         </div>

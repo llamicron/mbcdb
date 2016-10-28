@@ -27,9 +27,10 @@ class SearchController extends Controller {
 	public function search(Request $request)
 	{
 
-		if ($request['search'] == '') {
-			return redirect()->back();
+		if ($request['search'] == null || $request['search'] == " ") {
+			return redirect('/noResults');
 		}
+
 
 		switch ($request['class']) {
 

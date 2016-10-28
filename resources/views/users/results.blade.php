@@ -4,9 +4,7 @@
 	<title>Search Results</title>
 @endsection
 
-@section('navbar-left')
-	<li><a href="/admin">All Users</a></li>
-@endsection
+
 
 @section('content')
 	<div class="row">
