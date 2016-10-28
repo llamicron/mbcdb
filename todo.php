@@ -2,8 +2,13 @@
 
 // DAYS REMAINING: 14
 
+// IMPORTANT
+// TODO: Add ypt fields for counselors creation and updating
+// TODO: Fix badges page style
+
 // Core
 // TODO: Add field for YPT cert
+// TODO: Feedback has been broken. Fix it.
 
 // User Side
 // TODO: Add chip to user's counselors. "These are your counselors, you can..."

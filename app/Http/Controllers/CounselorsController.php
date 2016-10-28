@@ -89,6 +89,7 @@ class CounselorsController extends Controller {
       $counselor->unit_num = trim($request->unit_num);
       $counselor->bsa_id = $request->bsa_id;
       $counselor->unit_only = $request->unit_only;
+      $counselor->ypt = $request->ypt;
       $counselor->save();
 
       // Getting the district and setting the relationship
@@ -124,6 +125,7 @@ class CounselorsController extends Controller {
         'secondary_phone'   => 'required',
         'unit_num'          => 'required',
         'bsa_id'            => 'required',
+        'ypt'               => 'required',
       ]);
 
       $counselor->first_name = $request->first_name;
@@ -139,6 +141,7 @@ class CounselorsController extends Controller {
       $counselor->unit_num = $request->unit_num;
       $counselor->bsa_id = $request->bsa_id;
       $counselor->unit_only = $request->unit_only;
+      $counselor->ypt = $request->ypt;
 
       $counselor->save();
 

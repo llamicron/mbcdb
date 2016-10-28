@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-  <title>Edit {{ $counselor->first_name . " " . $counselor->last_name }}</title>
+  <title>Edit {{ $counselor->name }}</title>
 @endsection
 
 @section('header-title')
@@ -66,10 +66,33 @@
             </div>
             <input type="hidden" name="unit_only" value="false">
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="unit_only">
-              <input type="checkbox" value="1" id="unit_only" name="unit_only" class="mdl-switch__input">
-              <span id="unit_only_label" class="mdl-switch__label">Unit Only</span>
+              <input type="hidden" name="unit_only" value="0">
+              <input type="checkbox" value="1"
+              {{--
+              This will eval to:
+              <input type="checkbox" value="1" checked id="unit_only" name="unit_only" class="mdl-switch__input">
+              if it is set to true
+              and the same without the 'checked' if it is set to false
+               --}}
+              @php
+                if ($counselor->unit_only) {
+                  echo " checked ";
+                }
+              @endphp
+               id="unit_only" name="unit_only" class="mdl-switch__input">
+              <span id="unit_only_label" class="mdl-switch__label">Unit Only?</span>
             </label>
-            <!-- for="" should be the id of the element the tt is attached to -->
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="ypt">
+              <input type="hidden" name="ypt" value="0">
+              <input type="checkbox" value="1"
+              @php
+                if ($counselor->ypt == 1) {
+                  echo " checked ";
+                }
+              @endphp
+              id="ypt" name="ypt" class="mdl-switch__input">
+              <span id="ypt_label" class="mdl-switch__label">YPT Certified?</span>
+            </label>
             <div class="mdl-tooltip mdl-tooltip--large" for="unit_only_label">
               Does this counselor only want to teach scouts in their troop?
             </div>

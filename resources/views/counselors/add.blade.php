@@ -9,7 +9,7 @@
 @endsection
 
 @section('tray-links')
-  
+
 @endsection
 
 @section('content')
@@ -117,6 +117,11 @@
               <div class="mdl-tooltip mdl-tooltip--large" for="unit_only_span">
                 Does this counselor only want to teach scouts in their troop?
               </div>
+              <br>
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="ypt">
+                <input type="checkbox" id="ypt" name="ypt" value="1" class="mdl-switch__input">
+                <span class="mdl-switch__label">YPT Certified?</span>
+              </label>
               <hr>
               <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                 Submit

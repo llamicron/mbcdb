@@ -107,6 +107,7 @@
     </div>
   @endif
   @yield('content')
+  <br><br>
 </main>
 {{-- End Content --}}
 
