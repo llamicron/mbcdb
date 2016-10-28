@@ -2,9 +2,10 @@
 
 // DAYS REMAINING: 14
 
+// Core
+// TODO: Add field for YPT cert
 
 // User Side
-// TODO: Add icon next to username
 // TODO: Add chip to user's counselors. "These are your counselors, you can..."
 // TODO: Add 'No results' to saved counselors if there are no results
 // TODO: Search needs drastic improvements
@@ -17,7 +18,7 @@
 
 // Mobile
 /*
-TODO: Make while site responsive:
+TODO: Make whole site responsive:
   * Add margin to buttons for when columns collapse
   *
   *

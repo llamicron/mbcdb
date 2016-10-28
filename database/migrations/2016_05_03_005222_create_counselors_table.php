@@ -27,6 +27,7 @@ class CreateCounselorsTable extends Migration
             $table->string('unit_num');
             $table->string('bsa_id');
             $table->boolean('unit_only');
+            $table->boolean('ypt');
             $table->integer('district_id');
 						$table->integer('council_id');
             $table->integer('user_id')->unsigned();

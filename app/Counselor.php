@@ -16,7 +16,8 @@ class Counselor extends Model
     'address',
     'city',
     'state',
-    'zip'
+    'zip',
+    'ypt'
   ];
 
   // Relationships
@@ -43,11 +44,6 @@ class Counselor extends Model
     } else {
       return false;
     }
-  }
-
-  public function codes()
-  {
-    return $this->belongsToMany('App\Code');
   }
 
   public static function getFields()
@@ -103,4 +99,10 @@ class Counselor extends Model
     return $this->hasMany(Save::class);
   }
 
+  public function hasYPT() {
+    if ($this->ypt == true) {
+      return true;
+    }
+    return false;
+  }
 }

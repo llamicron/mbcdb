@@ -51,7 +51,12 @@ class CounselorsController extends Controller {
     }
 
     public function show(Counselor $counselor) {
-      return view('counselors.show', compact('counselor'));
+      if ($counselor->hasYPT()) {
+        $yptMessage = 'This counselor is YPT certified';
+      } else {
+        $yptMessage = 'This counselor is not YPT certified';
+      }
+      return view('counselors.show', compact('counselor', 'yptMessage'));
     }
 
     public function store(Request $request) {

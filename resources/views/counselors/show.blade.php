@@ -31,6 +31,7 @@
             Secondary Phone: {{ $counselor->secondary_phone }} <br>
           @endif
           Troop: {{ $counselor->unit_num }} <br>
+          {{ $yptMessage }} <br>
           {{ $counselor->district->name }} District <br>
           <br>
           {{-- Chip --}}

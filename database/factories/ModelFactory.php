@@ -35,6 +35,7 @@ $factory->define(App\Counselor::class, function (Faker\Generator $faker) {
 		'state' => $faker->state,
 		'city' => $faker->city,
 		'zip' => $faker->buildingNumber,
+    'ypt' => rand(0,1) == 1,
 		'primary_phone' => $faker->phoneNumber,
 		'secondary_phone' => $faker->phoneNumber,
 		'unit_num' => $faker->buildingNumber,
