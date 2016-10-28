@@ -9,7 +9,7 @@
 @endsection
 
 @section('tray-links')
-    
+
 @endsection
 
 @section('content')
@@ -136,6 +136,10 @@
                     </span>
                   </li>
                 @endforeach
+                {{-- Probably the most ghetto thing i have ever done --}}
+                {{-- Can't figure out another fix becasue im retarded --}}
+                <br><br><br><br><br>
+                {{-- KMS --}}
               </ul>
               @if (Auth::user()->isAdminOrOwner($counselor))
                 <button onClick="location='/counselors/{{ $counselor->id }}/badges/edit'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
