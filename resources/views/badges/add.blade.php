@@ -4,33 +4,38 @@
 <title>Add a Merit Badge</title>
 @endsection
 
+@section('header-title')
+  What does {{ $counselor->name }} teach?
+@endsection
+
 @section('content')
   <div class="row">
-    {{-- <div class="col-md-8 col-md-offset-2"> --}}
-      <h2>What Does {{ $counselor->first_name . " " . $counselor->last_name }} Teach?</h2>
+    <div class="col-md-12">
+      <br><br>
+      <form class="form-group" action="/counselors/{{ $counselor->id }}/badges/add" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @foreach ($chunks as $badges)
+            <div class="col-md-4 badges">
+              @foreach($badges as $badge)
+                {{-- <div class="checkbox">
+                  <label><input type="checkbox" id="badges" name="{{ $badge->name }}" value="{{ $badge->id }}">{{ $badge->name }}</label>
+                </div> --}}
+                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="{{ $badge->id }}">
+                  <input type="checkbox" id="{{ $badge->id }}" name="{{ $badge->name }}" value="{{ $badge->id }}" class="mdl-switch__input">
+                  <span class="mdl-switch__label">{{ $badge->name }}</span>
+                </label>
+              @endforeach
+              <hr>
+            </div>
+        @endforeach
 
-        <form class="form-group" action="/counselors/{{ $counselor->id }}/badges/add" method="post">
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-          @foreach ($chunks as $badges)
-            {{-- <div class="row"> --}}
-              <div class="col-md-4 badges">
-                @foreach($badges as $badge)
-                  <div class="checkbox">
-                    <label><input type="checkbox" id="badges" name="{{ $badge->name }}" value="{{ $badge->id }}">{{ $badge->name }}</label>
-                  </div>
-                @endforeach
-                <hr>
-              </div>
-            {{-- </div> --}}
-          @endforeach
-
-
-            <input type="submit" class="btn btn-primary double-button" name="submit" value="Add Badges">
-            <input type="button" class="btn btn-danger double-button" name="cancel" value="Cancel" onClick="location='/counselors{{ $counselor->id }}/show'"><br><br>
-
-
-        </form>
-    {{-- </div> --}}
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Add Badges
+        </button>
+        <button type="button" onClick="location='/counselors/{{ $counselor->id }}/show'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+          Cancel
+        </button>
+    </form>
+    </div>
   </div>
 @endsection
