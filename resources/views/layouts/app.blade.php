@@ -41,6 +41,7 @@
       }
       tr {
         cursor: pointer;
+        border-left: solid 3px #607D8B;
       }
       .mdl-button--fab {
         position: fixed;
@@ -85,6 +86,14 @@
       }
       .mdl-card {
         border-top: 20px solid #607D8B;
+      }
+      .mdl-dialog {
+        border: 2px solid #607D8B;
+      }
+
+      .table-card {
+        /* a card containing a table */
+        padding-left: 2em;
       }
     </style>
 

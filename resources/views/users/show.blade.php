@@ -4,79 +4,105 @@
   <title>{{ $user->name}}</title>
 @endsection
 
-@section('navbar-left')
-  <li><a href="/admin">All Users</a></li>
+@section('header-title')
+  {{ $user->name }}
 @endsection
 
 @section('content')
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-8 col-md-offset-2">
 
-      <ul class="list-group">
-        <li class="list-group-item">
-          <h2>{{ $user->name }}</h2><br>
-          Email: {{ $user->email }}<br>
-          Role:
-          @if($user->isAdmin == 1)
-            {{ "Admin" }}
-          @else
-            {{ "User" }}
-          @endif
-          <br>
+      {{-- User Card --}}
+      <div class="mdl-card counselor-card mdl-shadow--4dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">{{ $user->name }}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          {{-- Content --}}
+          <p>Email: {{ $user->email }}</p>
+          <p>
+            Role:
+            @if ($user->isAdmin())
+                Admin
+            @else
+              User
+            @endif
+          </p>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          {{-- Buttons --}}
+          {{-- Set Admin --}}
+          <button onClick="location='/users/{{ $user->id }}/setAdmin'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Make Administrator
+          </button>
 
-          <h3>{{ $user->name}}'s counselors</h3>
-          <ul>
-						@if ($user->counselors->isEmpty())
-							<li><i>This user doesn't have any counselors</i></li>
-						@else
-	            @foreach($user->counselors as $counselor)
-	              <li><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->first_name . " " . $counselor->last_name}}</a></li>
-	          	@endforeach
-						@endif
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <h3>{{ $user->name }}'s Favorited Counselors</h3>
-          <ul>
-            @foreach ($user->savedCounselors() as $counselor)
-              <li><a href="/counselors/{{ $counselor->id }}/show">{{ $counselor->name }}</a></li>
-            @endforeach
-          </ul>
-        </li>
-      </ul>
-			<button type="button" class="btn btn-danger double-button" onClick="location='#confirm'" name="delete"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete User</button>
-			<button type="button" onClick="location='#confirm2'" class="btn btn-primary double-button" name="setAdmin"><span class="glyphicon glyphicon-arrow-up"></span>&nbsp;Make this user an Administrator</button>
+          {{-- Delete --}}
+          <button class="mdl-button show-delete-modal mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+            Delete
+          </button>
+
+          <dialog class="mdl-dialog delete-dialog">
+            <div class="mdl-dialog__content">
+              <p>
+                Are you sure?
+              </p>
+            </div>
+            <div class="mdl-dialog__actions">
+              <button onClick="location='/users/{{ $user->id }}/delete'" type="button" class="mdl-button">Delete this User</button>
+              <button type="button" class="mdl-button close">Go Back</button>
+            </div>
+          </dialog>
+          <script>
+            var dialog = document.querySelector('.delete-dialog');
+            var showModalButton = document.querySelector('.show-delete-modal');
+            if (! dialog.showModal) {
+              dialogPolyfill.registerDialog(dialog);
+            }
+            showModalButton.addEventListener('click', function() {
+              dialog.showModal();
+            });
+            dialog.querySelector('.close').addEventListener('click', function() {
+              dialog.close();
+            });
+          </script>
+        </div>
+      </div>
+
+      {{-- User's Counselors Card --}}
+      <div class="mdl-card counselor-card mdl-shadow--4dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">{{ $user->name }}'s counselors</h2>
+        </div>
+        <div class="mdl-card__supporting-text table-card">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Name</th>
+                <th class="mdl-data-table__cell--non-numeric">Troop</th>
+                <th class="mdl-data-table__cell--non-numeric">District</th>
+                <th class="mdl-data-table__cell--non-numeric">Council</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($user->counselors as $counselor)
+                <tr onClick="location='/counselors/{{ $counselor->id }}/show'">
+                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->name }}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->unit_num }}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->district->name }}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->district->council->name }}</td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+
+
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          {{-- Buttons --}}
+
+
+        </div>
+      </div>
     </div>
-  </div>
-@endsection
-
-@section('confirm-title')
-  Are You Sure?
-@endsection
-
-@section('confirm-content')
-  <div class="alert alert-danger">
-    <div class="text-center">
-      <strong>This user will be deleted and cannot be restored. <br> Are you sure?</strong>
-      <button type="button" class="btn btn-primary confirm-button" onClick="location='/users/{{ $user->id }}/remove?which=alone'" name="confirm">Yes, I'm Sure. Delete this User</button>
-      <hr>
-      <p>
-        You can delete this user alone, or you can delete all the counselors that this user owns.
-      </p>
-      <button type="button" class="btn btn-primary confirm-button" onClick="location='/users/{{ $user->id }}/remove?which=all'" name="delete-all">Delete User and Counselors</button>
-    </div>
-  </div>
-@endsection
-
-@section('confirm2-title')
-  Are You Sure?
-@endsection
-
-@section('confirm2-content')
-  <div class="alert alert-danger">
-    <div class="text-center">
-      <strong>This user will have full administrator access, and will not be able to be deleted or demoted. <br> Are you sure?</strong>
-    </div>
-    <button type="button" class="btn btn-primary confirm-button" onClick="location='/users/{{ $user->id }}/setAdmin'" name="confirm-admin">Yes, I'm Sure</button>
   </div>
 @endsection

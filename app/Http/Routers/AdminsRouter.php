@@ -9,12 +9,11 @@ class AdminsRouter implements RouterInterface {
 
       Route::get('/admin', 'AdminsController@confirmAdmin');
       Route::get('/users/{user}/show', 'AdminsController@show');
-      Route::get('/users/{user}/remove', 'AdminsController@delete');
       Route::get('/users/{user}/setAdmin', 'AdminsController@setAdmin');
 			Route::get('/users/sortByName', 'AdminsController@sortByName');
 			Route::get('/users/sortByEmail', 'AdminsController@sortByEmail');
 			Route::get('/users/sortByPrivilege', 'AdminsController@sortByPrivilege');
-			Route::post('/users/{user}/delete', 'AdminsController@deleteUser');
+			Route::get('/users/{user}/delete', 'AdminsController@delete');
 			Route::post('/users/bulk', 'AdminsController@bulk');
     }
 }
