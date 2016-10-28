@@ -14,30 +14,15 @@ use App\Http\Requests;
 class AdminsController extends Controller {
 
     public function __construct() {
-      $this->middleware('admin')->except('deleteUser', 'confirmDelete');
+      $this->middleware('admin');
     }
 
     public function confirmAdmin() {
       if(\Auth::user()->isAdmin) {
-        $users = User::paginate(25);
+        $users = User::orderBy('name', 'ASC')->paginate(25);
         return view('users.index', compact('users'));
       }
     }
-
-		public function sortByName() {
-			$users = User::orderBy('name', 'ASC')->paginate(25);
-			return view('users.index', compact('users'));
-		}
-
-		public function sortByEmail() {
-			$users = User::orderBy('email', 'ASC')->paginate(25);
-			return view('users.index', compact('users'));
-		}
-
-		public function sortByPrivilege() {
-			$users = User::orderBy('isAdmin', 'DESC')->paginate(25);
-			return view('users.index', compact('users'));
-		}
 
     public function show(User $user) {
       return view('users.show', compact('user'));
@@ -52,10 +37,6 @@ class AdminsController extends Controller {
       $user->save();
 			\Session::flash('status', "$user->name is now an administrator");
       return redirect("/users/$user->id/show");
-    }
-
-    public function home() {
-      return redirect('/admin');
     }
 
 		public function delete(User $user)

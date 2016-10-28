@@ -13,15 +13,8 @@
 // TODO: Make buttons on badge card float down
 
 // Admin Side
-/*
-TODO: Move all admin pages to MDL:
-  * index
-  * results
-  * self
-  * show
-*/
-// TODO: Use selectable table for users/index
-
+// TODO: Add Search for Users
+// TODO: Add link to admin page nex to username
 
 // Mobile
 /*

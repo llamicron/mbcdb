@@ -85,7 +85,7 @@
         margin-right: 1em;
       }
       .mdl-card {
-        border-top: 20px solid #607D8B;
+        border-left: 20px solid #607D8B;
       }
       .mdl-dialog {
         border: 2px solid #607D8B;
@@ -94,6 +94,9 @@
       .table-card {
         /* a card containing a table */
         padding-left: 2em;
+      }
+      .mdl-menu__item {
+        border-left: solid 4px #607D8B;
       }
     </style>
 
@@ -111,7 +114,18 @@
       {{-- User --}}
       <a id="user" class="mdl-navigation__link" href="#">{{ \Auth::user()->name }}</a>
       <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user">
-        <a href="/logout"><li class="mdl-menu__item">Logout</li></a>
+        @if (\Auth::user()->isAdmin())
+          <a href="/admin">
+            <li class="mdl-menu__item">
+              Admin Panel
+            </li>
+          </a>
+        @endif
+        <a href="/logout">
+          <li class="mdl-menu__item">
+            Logout
+          </li>
+        </a>
       </ul>
       @yield('header-nav')
     </nav>
