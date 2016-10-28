@@ -129,12 +129,6 @@
               @endif
             @else
               {{ $counselor->name }} teaches the following merit badges:
-              @if ($counselor->badges->isEmpty())
-                <button onClick="location='/counselors/{{ $counselor->id }}/badges/add'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                  <span class="glyphicon glyphicon-edit"></span>&nbsp;
-                  Add Badges
-                </button>
-              @endif
               <ul>
                 @foreach ($counselor->badges as $badge)
                   <li class="mdl-list__item">
@@ -146,8 +140,12 @@
               </ul>
               @if (Auth::user()->isAdminOrOwner($counselor))
                 <button onClick="location='/counselors/{{ $counselor->id }}/badges/edit'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                  <span class="glyphicon glyphicon-edit"></span>&nbsp;
-                  Edit Badges
+                  <span class="glyphicon glyphicon-trash"></span>&nbsp;
+                  Remove Badges
+                </button>
+                <button onClick="location='/counselors/{{ $counselor->id }}/badges/add'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  <i class="material-icons">playlist_add</i>
+                  Add Badges
                 </button>
               @endif
             @endif
