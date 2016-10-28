@@ -9,12 +9,7 @@
 @endsection
 
 @section('tray-links')
-  @if(isset($context) && $context == 'userCounselors')
-    <a class="mdl-navigation__link" href="/home">All Counselors</a>
-  @else
-    <a class="mdl-navigation__link" href="/counselors/{{ Auth::user()->id }}">Your Counselors</a>
-  @endif
-  <a class="mdl-navigation__link" href="/saved">Favorited Counselors</a>
+  
 @endsection
 
 @section('content')

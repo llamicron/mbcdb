@@ -162,7 +162,8 @@ class CounselorsController extends Controller {
 
     public function viewSavedCounselors()
     {
-      $counselors = \Auth::user()->SavedCounselors();
+      $counselors = \Auth::user()->savedCounselors();
+
       return view('counselors.saved', compact('counselors'));
     }
 }

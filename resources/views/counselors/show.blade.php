@@ -9,8 +9,7 @@
 @endsection
 
 @section('tray-links')
-    <a class="mdl-navigation__link" href="/home">All Counselors</a>
-    <a class="mdl-navigation__link" href="/counselors/add">Add a Counselor</a>
+    
 @endsection
 
 @section('content')

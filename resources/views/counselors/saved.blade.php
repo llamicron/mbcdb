@@ -5,8 +5,7 @@
 @endsection
 
 @section('tray-links')
-  <a class="mdl-navigation__link" href="/">All Counselors</a>
-  <a class="mdl-navigation__link" href="/counselors/{{ Auth::user()->id }}">Your Counselors</a>
+
 @endsection
 
 @section('content')

@@ -124,6 +124,9 @@
       </form>
     </div>
     @yield('tray-links')
+    <a class="mdl-navigation__link" href="/">All Counselors</a>
+    <a class="mdl-navigation__link" href="/counselors/{{ \Auth::user()->id }}">Your Counselors</a>
+    <a class="mdl-navigation__link" href="/saved">Favorite Counselors</a>
   </nav>
 </div>
 <main class="mdl-layout__content">

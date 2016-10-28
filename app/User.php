@@ -51,7 +51,9 @@ class User extends Authenticatable
       $collection = collect();
       foreach ($saves as $save) {
         $counselor = Counselor::where('id', $save->counselor_id)->first();
-        $collection->push($counselor);
+        if ($counselor != null) {
+          $collection->push($counselor);
+        }
       }
       return $collection;
     }

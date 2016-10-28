@@ -9,9 +9,7 @@
 @endsection
 
 @section('tray-links')
-<a class="mdl-navigation__link" href="/home">All Counselors</a>
-<a class="mdl-navigation__link" href="/counselors/{{ Auth::user()->id }}">Your Counselors</a>
-<a class="mdl-navigation__link" href="/saved">Favorited Counselors</a>
+  
 @endsection
 
 @section('content')
