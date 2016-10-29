@@ -8,6 +8,8 @@ td {
 }
 .mdl-data-table {
   width: 100%;
+  margin-top: 2em;
+  border-left: solid 5px #607D8B;
 }
 .mdl-list__item {
   line-height:1.5em;
@@ -17,12 +19,11 @@ td {
 }
 tr {
   cursor: pointer;
-  border-left: solid 3px #607D8B;
 }
 .mdl-button--fab {
   position: fixed;
-  right: 2em;
-  bottom: 1em;
+  right: 10%;
+  bottom: 10%;
 }
 .counselor-card {
   width: 95%;
@@ -53,15 +54,12 @@ tr {
   padding: 2em;
   text-align: center;
 }
-.mdl-data-table {
-  margin-top: 2em;
-}
 .search {
   margin-left: 2em;
   margin-right: 1em;
 }
 .mdl-card {
-  border-left: 20px solid #455A64;
+  border-left: 15px solid #607D8B;
 }
 .mdl-dialog {
   border: 2px solid #607D8B;
@@ -71,17 +69,21 @@ tr {
   /* a card containing a table */
   padding-left: 2em;
 }
-.mdl-menu__item {
-  border-left: solid 4px #607D8B;
-}
 #profile-icon {
   margin-bottom: 0.3em;
 }
 #add_counselor_fab {
   position: fixed;
-  right: 1em;
-  bottom: 1em;
+  right: 2%;
+  bottom: 4%;
 }
 .badges {
   background-color: white;
+}
+.mdl-card__supporting-text, .mdl-card__supporting-text p {
+  font-size: 16px;
+}
+#user_counselors_li:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

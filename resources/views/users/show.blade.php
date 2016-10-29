@@ -74,32 +74,11 @@
           <h2 class="mdl-card__title-text">{{ $user->name }}'s counselors</h2>
         </div>
         <div class="mdl-card__supporting-text table-card">
-          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-            <thead>
-              <tr>
-                <th class="mdl-data-table__cell--non-numeric">Name</th>
-                <th class="mdl-data-table__cell--non-numeric">Troop</th>
-                <th class="mdl-data-table__cell--non-numeric">District</th>
-                <th class="mdl-data-table__cell--non-numeric">Council</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($user->counselors as $counselor)
-                <tr onClick="location='/counselors/{{ $counselor->id }}/show'">
-                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->name }}</td>
-                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->unit_num }}</td>
-                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->district->name }}</td>
-                  <td class="mdl-data-table__cell--non-numeric">{{ $counselor->district->council->name }}</td>
-                </tr>
-              @endforeach
-            </tbody>
-          </table>
-
-
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-          {{-- Buttons --}}
-
+          <ul class="mdl-list">
+            @foreach ($user->counselors as $counselor)
+              <a href="/counselors/{{ $counselor->id }}/show"><li id="user_counselors_li" class="mdl-list__item">{{ $counselor->name }}</li></a>
+            @endforeach
+          </ul>
 
         </div>
       </div>

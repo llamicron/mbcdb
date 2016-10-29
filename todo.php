@@ -3,12 +3,11 @@
 // DAYS REMAINING: 14
 
 // IMPORTANT
-// TODO: Add ypt fields for counselors creation and updating
 // TODO: Fix badges page style
 
 // Core
-// TODO: Add field for YPT cert
 // TODO: Feedback has been broken. Fix it.
+// TODO: Add intro
 
 // User Side
 // TODO: Add chip to user's counselors. "These are your counselors, you can..."
@@ -17,6 +16,7 @@
 // TODO: Fix badge adding and removing. It's shit rn.
 // TODO: Normalize all icons on buttons
 // TODO: Make buttons on badge card float down
+// TODO: Put message in tray for guest (un-authed) users to login
 
 // Admin Side
 // TODO: Add Search for Users

@@ -64,7 +64,6 @@ class AuthController extends Controller
     protected function create(array $data)
     {
 
-
 				$data['token'] = str_random(30);
 				\Mail::send('emails.welcome', $data, function ($message) use($data) {
 					$message->to($data['email'])
@@ -75,6 +74,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'first_visit' => 1,
         ]);
 
 				$user = User::where('email', $data['email'])->first();

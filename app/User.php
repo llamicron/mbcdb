@@ -73,8 +73,7 @@ class User extends Authenticatable
       return true;
     }
 
-    public function saveToUser(Counselor $counselor)
-    {
+    public function saveToUser(Counselor $counselor) {
       // if (\Auth::user()->id() != $this->id || \Auth::user()->isAdmin != 1) {
       //   abort(401);
       // }
@@ -94,5 +93,12 @@ class User extends Authenticatable
         \Session::flash('status', 'Counselor removed');
       }
       return true;
+    }
+
+    public function isFirstVisit() {
+      if ($this->first_visit == 1) {
+        return true;
+      }
+      return false;
     }
 }

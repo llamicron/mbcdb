@@ -27,6 +27,9 @@ class Authenticate
 				if (\Auth::user()->verified == 0) {
 					return view('errors.confirmEmail');
 				}
+        if (\Auth::user()->isFirstVisit()) {
+          return redirect('/intro');
+        }
 				return $next($request);
     }
 }
