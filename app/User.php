@@ -95,10 +95,4 @@ class User extends Authenticatable
       return true;
     }
 
-    public function isFirstVisit() {
-      if ($this->first_visit == 1) {
-        return true;
-      }
-      return false;
-    }
 }

@@ -25,7 +25,7 @@ tr {
   right: 10%;
   bottom: 10%;
 }
-.counselor-card {
+.mdl-card {
   width: 95%;
   margin-top: 2em;
   margin-left: 1em;
@@ -55,11 +55,10 @@ tr {
   text-align: center;
 }
 .search {
-  margin-left: 2em;
-  margin-right: 1em;
-}
-.mdl-card {
-  border-left: 15px solid #607D8B;
+  margin-left: 1em;
+  margin-right: 0.6em;
+  padding-left: 1em;
+  border-left: 5px solid #607D8B
 }
 .mdl-dialog {
   border: 2px solid #607D8B;
@@ -86,4 +85,9 @@ tr {
 #user_counselors_li:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+#about_link {
+  position: absolute;
+  bottom: 1em;
+  width: 100%;
 }

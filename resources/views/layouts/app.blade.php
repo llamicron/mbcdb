@@ -64,22 +64,26 @@
 <div class="mdl-layout__drawer">
   <span class="mdl-layout__title">MBCDB</span>
   <nav class="mdl-navigation">
-    <!-- Expandable Textfield -->
+    {{-- Search --}}
     <div class="search">
-      <form action="/search" method="POST">
+      <form action="/initialSearch" method="POST">
         {{ csrf_field() }}
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-            <i class="material-icons">search</i>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" name="search" placeholder="Press Enter to Search" type="text" id="search">
-            <label class="mdl-textfield__label" for="sample-expandable">Search</label>
+        <div class="mdl-textfield mdl-js-textfield">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" pattern="\d+" name="unit_num" type="text" id="unit_num">
+            <label class="mdl-textfield__label" for="unit_num">Troop Number</label>
           </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="badge" type="text" id="badge">
+            <label class="mdl-textfield__label" for="badge">Merit Badge</label>
+          </div>
+          <br><br><br>
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Search
+          </button>
         </div>
       </form>
     </div>
-    @yield('tray-links')
     <a class="mdl-navigation__link" href="/">
       <i class="material-icons">account_circle</i>
       All Counselors
@@ -92,6 +96,8 @@
       <i class="material-icons">favorite</i>
       Favorite Counselors
     </a>
+    @yield('tray-links')
+    <a class="mdl-navigation__link" id="about_link" href="/about">About / FAQ</a>
   </nav>
 </div>
 {{-- End Drawer --}}

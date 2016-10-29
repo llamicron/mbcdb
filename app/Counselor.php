@@ -105,4 +105,14 @@ class Counselor extends Model
     }
     return false;
   }
+
+  public function teaches($badge) {
+    $badges = $this->badges;
+    foreach ($badges as $counselorBadge) {
+      if ($counselorBadge->name == $badge) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

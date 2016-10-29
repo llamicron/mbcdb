@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
 						$table->string('token')->notnull();
 						$table->boolean('verified')->default(false);
             $table->integer('isAdmin');
-            $table->boolean('first_visit');
             $table->rememberToken();
             $table->nullableTimestamps();
         });

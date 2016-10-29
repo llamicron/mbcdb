@@ -17,6 +17,7 @@
 // TODO: Normalize all icons on buttons
 // TODO: Make buttons on badge card float down
 // TODO: Put message in tray for guest (un-authed) users to login
+// TODO: Move Error pages to MDL
 
 // Admin Side
 // TODO: Add Search for Users

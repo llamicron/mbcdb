@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+use App\Counselor;
 use App\Search;
 
 class SearchController extends Controller {
@@ -23,6 +24,20 @@ class SearchController extends Controller {
 		$results = null;
 		return view('counselors.results', compact('results'));
 	}
+
+  public function initialSearch(Request $request) {
+    $troop = Counselor::where('unit_num', $request->unit_num)->get();
+    $results = new \Illuminate\Database\Eloquent\Collection;
+    $results2 = new \Illuminate\Database\Eloquent\Collection;
+    foreach ($troop as $counselor) {
+      if ($counselor->teaches($request->badge)) {
+        $results2->add($counselor);
+      }
+    }
+    // Now this is some crappy code
+    $results->add($results2);
+    return view('counselors.results', compact('results'));
+  }
 
 	public function search(Request $request)
 	{
