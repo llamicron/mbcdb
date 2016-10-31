@@ -1,13 +1,10 @@
 <?php
 
-// DAYS REMAINING: 14
+// DAYS REMAINING: 12
 
 // IMPORTANT
-// TODO: Fix badges page style
-// TODO: Sort badges alphabetically
 
 // Core
-// TODO: Feedback has been broken. Fix it.
 
 // User Side
 // TODO: Add chip to user's counselors. "These are your counselors, you can..."

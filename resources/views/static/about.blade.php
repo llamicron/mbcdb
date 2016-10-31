@@ -24,7 +24,11 @@
               <hr>
     					@if (Auth::guest())
     						To get started, <a href="/register">register</a> or <a href="/login">login</a>
-    					@endif
+    					@else
+                <button onClick="location='/feedback'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  Submit some Feedback
+                </button>
+              @endif
             </p>
 
           </div>

@@ -44,6 +44,10 @@ class PagesController extends Controller
 			return redirect('/');
 		}
 
+    public function feedback() {
+      return view('static.feedback');
+    }
+
 		public function sendFeedback(Request $request)
 		{
 
