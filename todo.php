@@ -9,9 +9,7 @@ Core
 
 User Side
 TODO: Add chip to user's counselors. "These are your counselors, you can..."
-TODO: Add 'No results' to saved counselors if there are no results
 TODO: Search needs drastic improvements
-TODO: Fix badge adding and removing. It's shit rn.
 TODO: Normalize all icons on buttons
 TODO: Make buttons on badge card float down
 TODO: Put message in tray for guest (un-authed) users to login

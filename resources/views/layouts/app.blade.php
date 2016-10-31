@@ -72,7 +72,7 @@
 
     @if (!\Auth::guest())
     <a class="mdl-navigation__link" href="/">
-      <i class="material-icons">account_circle</i>
+      <i class="material-icons">view_headline</i>
       All Counselors
     </a>
     <a class="mdl-navigation__link" href="/counselors/{{ \Auth::user()->id }}">
