@@ -55,10 +55,13 @@ tr {
   text-align: center;
 }
 .search {
-  margin-left: 1em;
-  margin-right: 0.6em;
-  padding-left: 1em;
-  border-left: 5px solid #607D8B
+  padding: 0.1em;
+  margin: 0.1em;
+  margin-bottom: 1em;
+  margin-left: 0.3em;
+  position: absolute;
+  bottom: 5em;
+  border-left: 5px solid #607D8B;
 }
 .mdl-dialog {
   border: 2px solid #607D8B;
