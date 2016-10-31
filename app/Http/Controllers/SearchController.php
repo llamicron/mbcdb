@@ -35,7 +35,11 @@ class SearchController extends Controller {
       }
     }
     // Now this is some crappy code
+    // I need to to be one more 'dimension' deep because a long time ago i wrote some r/badcode
     $results->add($results2);
+    if ($results->first()->isEmpty()) {
+      return redirect('/noResults');
+    }
     return view('counselors.results', compact('results'));
   }
 
