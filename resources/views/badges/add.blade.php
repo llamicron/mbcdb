@@ -1,4 +1,4 @@
-@extends('layouts.app')
+  @extends('layouts.app')
 
 @section('head')
 <title>Add a Merit Badge</title>
@@ -17,16 +17,24 @@
   <div class="col-md-4 col-md-offset-4">
     <form action="/counselors/{{ $counselor->id }}/badges/add" method="post">
       {{ csrf_field() }}
-      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>
+            <th></th>
             <th class="mdl-data-table__cell--non-numeric">Badge</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($badges as $badge)
             <tr>
-              <td class="mdl-data-table__cell--non-numeric">{{ $badge->name }}</td>
+              <td>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ $badge->id }}">
+                  <input type="checkbox" id="{{ $badge->id }}" name="{{ $badge->name }}" class="mdl-checkbox__input">
+                </label>
+              </td>
+              <td class="mdl-data-table__cell--non-numeric">
+                {{ $badge->name }}
+              </td>
             </tr>
           @endforeach
         </tbody>

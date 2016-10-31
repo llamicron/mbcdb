@@ -17,25 +17,25 @@ class BadgesController extends Controller {
 
     public function add(Counselor $counselor) {
 			if (\Auth::user()->isAdminOrOwner($counselor)) {
-			  $badges = Badge::get();
+			  $badges = Badge::orderBy('name', 'ASC')->get();
 				return view('badges.add', compact('counselor', 'badges'));
 			}
 			return view('warnings.notOwner');
     }
 
     public function store(Counselor $counselor, Request $request) {
-      var_dump($request->all());
-			// if (\Auth::user()->isAdminOrOwner($counselor)) {
-			// 	$input = $request->all();
-			// 	array_shift($input);
-			// 	foreach ($input as $badge => $id) {
-			// 		$badge = Badge::find($id);
-			// 		$counselor->badges()->save($badge);
-			// 	}
-	    //   \Session::flash('status', "Badges Added");
-			// 	return redirect("/counselors/$counselor->id/show");
-			// }
-			// return view('warnings.notOwner');
+      if (\Auth::user()->isAdminOrOwner($counselor)) {
+        $input = $request->all();
+        array_shift($input);
+        foreach ($input as $badge => $id) {
+          $badge = str_replace('_', ' ', $badge);
+          $result = Badge::where('name', $badge)->first();
+          $counselor->badges()->save($result);
+        }
+        \Session::flash('status', 'Badges Added');
+        return redirect("/counselors/{$counselor->id}/show");
+      }
+      return redirect('warnings.notOwner');
     }
 
 		public function remove(Counselor $counselor, Request $request)
