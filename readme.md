@@ -1,13 +1,13 @@
 # [r/badcode](http://reddit.com/r/badcode)
 
-## Installation
+# Installation
 
-# Required programs
+## Required programs
 * php
 * composer
 * MySQL
 
-# Database setup
+## Database setup
 1. Create a database in MySQL called `mbcdb`
 
 2. Optional but reccomended: Create a user with permissions for only that database
@@ -15,7 +15,7 @@
 3. Put the database name and credentials in `.env` (If `.env` doesn't exist, duplicate `.env.example` and rename it to `.env`)
 
 
-# Project Setup
+## Project Setup
 1. Clone repo
 2. From within the repo, run `composer update` and `composer install`
 3. Run `php artisan key:generate`
