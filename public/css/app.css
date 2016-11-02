@@ -78,6 +78,7 @@ tr {
   position: fixed;
   right: 2%;
   bottom: 4%;
+  z-index: 1;
 }
 .badges {
   background-color: white;
