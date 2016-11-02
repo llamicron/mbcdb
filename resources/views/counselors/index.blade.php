@@ -13,9 +13,9 @@
 @endsection
 
 @section('content')
-<div class="row">
-  <div class="col-md-12 col-md-offset">
-    <div class="container">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 table-responsive">
       {{-- <TABLE> --}}
       <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
