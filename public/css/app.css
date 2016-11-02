@@ -78,6 +78,7 @@ tr {
   position: fixed;
   right: 2%;
   bottom: 4%;
+  z-index: 1;
 }
 .badges {
   background-color: white;
@@ -93,4 +94,7 @@ tr {
   position: absolute;
   bottom: 1em;
   width: 100%;
+}
+.card-with-border {
+  border-left: 5px solid #607D8B;
 }
