@@ -94,3 +94,6 @@ tr {
   bottom: 1em;
   width: 100%;
 }
+.card-with-border {
+  border-left: 5px solid #607D8B;
+}

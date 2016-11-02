@@ -34,8 +34,8 @@
           {{ $yptMessage }} <br>
           {{ $counselor->district->name }} District <br>
           <br>
-          {{-- Chip --}}
           </p>
+          {{-- Chip --}}
           @if ($counselor->unit_only == 1)
             <span class="mdl-chip mdl-chip--contact">
               <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">!</span>
@@ -157,6 +157,9 @@
       </div>
       <br>
       <br>
+      <button onClick="location='/counselors/add'" id="add_counselor_fab" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--colored">
+        <i class="material-icons">add</i>
+      </button>
     </div>
   </div>
 @endsection
