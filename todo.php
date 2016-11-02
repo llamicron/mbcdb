@@ -8,12 +8,9 @@ IMPORTANT
 Core
 
 User Side
-TODO: Add chip to user's counselors. "These are your counselors, you can..."
-TODO: Search needs drastic improvements
 TODO: Normalize all icons on buttons
 TODO: Make buttons on badge card float down
 TODO: Put message in tray for guest (un-authed) users to login
-TODO: Move Error pages to MDL
 
 Admin Side
 TODO: Add Search for Users
@@ -26,12 +23,13 @@ TODO: Make whole site responsive:
 *
 *
 *
+
 TODO: make header appear
 TODO:
 
 Testing
 Fuck unit tests
-TODO: Make sure the top border on all cards look good
+TODO: Make sure the left border on all cards look good
 TODO: Make sure search works properly
 
 For Production

@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Save;
 
-class Counselor extends Model
-{
+class Counselor extends Model {
 
   protected $fillable = [
     'name',

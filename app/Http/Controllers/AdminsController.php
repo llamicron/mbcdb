@@ -13,6 +13,8 @@ use App\Http\Requests;
 
 class AdminsController extends Controller {
 
+// --------------------------------------------------
+
     public function __construct() {
       $this->middleware('admin');
     }
@@ -39,11 +41,15 @@ class AdminsController extends Controller {
       return redirect("/users/$user->id/show");
     }
 
-		public function delete(User $user)
-		{
+		public function delete(User $user) {
 			$user->delete();
 			\Session::flash('status', 'User Deleted');
 			return redirect('/admin');
 		}
+
+    public function getUsersEmails() {
+      $users = User::get();
+      return view('users.emails', compact('users'));
+    }
 
 }

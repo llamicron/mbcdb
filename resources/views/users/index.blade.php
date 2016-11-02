@@ -13,7 +13,8 @@
   <div class="row">
     <div class="col-md-12">
 
-      {{-- New Table --}}
+
+      {{-- Table --}}
       <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>
@@ -41,7 +42,12 @@
       {{-- End New Table --}}
 			<div class="text-center">
 				{{ $users->links() }}
-			</div>
+      </div>
+      <div class="text-right">
+        <button onClick="location='/usersEmails'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Get all emails
+        </button>
+      </div>
   	</div>
   </div>
 </div>
