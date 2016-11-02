@@ -4,3 +4,4 @@
 Name: Jake Gutierrez
 Day 1: Luke doesn't know the process of making a front-end. I'm currently figuring out the process to go about integrating an MDL grid system. MDL looks like a pain to do, may God help me.
 EDIT: Bootstrap works somewhat fine, made some progress.
+Luke Edit: Keep it dank mobile-hostile out there. Fuck phones. 
