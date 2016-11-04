@@ -98,7 +98,7 @@ tr {
 .card-with-border {
   border-left: 5px solid #607D8B;
 }
-#admin-search {
+.admin-search {
   background: white;
   margin-top: 2em;
   border-radius: 40px;
@@ -106,7 +106,7 @@ tr {
   padding-left: 3em;
   right: 1em;
 }
-#admin-search-button {
+.admin-search-button {
   vertical-align: bottom;
   margin-bottom: 1em;
   color: grey;
