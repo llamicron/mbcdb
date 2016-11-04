@@ -16,7 +16,7 @@ Admin Side
 TODO: Add Search for Users
 
 Mobile
-*
+* JAKE?
 TODO: Make whole site responsive:
 * Add margin to buttons for when columns collapse
 *
