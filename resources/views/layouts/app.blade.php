@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-indigo.min.css" />
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <script src="{{ asset('js/dialog-polyfill.js') }}"></script>
+    <script src="{{ asset('js/dialog-polyfill.js')}}"></script>
     <link rel="stylesheet" href="{{ asset('css/dialog-polyfill.css') }}" media="screen">
 
     <!-- Styles -->
@@ -44,26 +44,27 @@
           <i class="material-icons" id="profile-icon">perm_identity</i>
           {{ \Auth::user()->name }}
         </a>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user">
-          @if (\Auth::user()->isAdmin())
-            <a href="/admin">
-              <li class="mdl-menu__item">
-                Admin Panel
-              </li>
-            </a>
-          @endif
-          <a href="/logout">
-            <li class="mdl-menu__item">
-              Logout
-            </li>
-          </a>
-        </ul>
+
         {{-- End User --}}
       @endif
       @yield('header-nav')
     </nav>
   </div>
 </header>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user">
+  @if (\Auth::user()->isAdmin())
+    <a href="/admin">
+      <li class="mdl-menu__item">
+        Admin Panel
+      </li>
+    </a>
+  @endif
+  <a href="/logout">
+    <li class="mdl-menu__item">
+      Logout
+    </li>
+  </a>
+</ul>
 {{-- End Header --}}
 
 
