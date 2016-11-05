@@ -77,30 +77,8 @@
               Remove Counselor
             </button>
 
-            <dialog class="mdl-dialog">
-              <div class="mdl-dialog__content">
-                <p>
-                  This counselor will be deleted and cannot be restored. Are you Sure?
-                </p>
-              </div>
-              <div class="mdl-dialog__actions">
-                <button onClick="location='/counselors/{{ $counselor->id }}/remove'" type="button" class="mdl-button">Yes, I'm Sure</button>
-                <button type="button" class="mdl-button close">Go Back</button>
-              </div>
-            </dialog>
-            <script>
-              var dialog = document.querySelector('dialog');
-              var showModalButton = document.querySelector('.show-modal');
-              if (! dialog.showModal) {
-                dialogPolyfill.registerDialog(dialog);
-              }
-              showModalButton.addEventListener('click', function() {
-                dialog.showModal();
-              });
-              dialog.querySelector('.close').addEventListener('click', function() {
-                dialog.close();
-              });
-            </script>
+
+
           @endif
         </div>
 
@@ -162,4 +140,28 @@
       </button>
     </div>
   </div>
+  <dialog class="mdl-dialog">
+    <div class="mdl-dialog__content">
+      <p>
+        This counselor will be deleted and cannot be restored. Are you Sure?
+      </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button onClick="location='/counselors/{{ $counselor->id }}/remove'" type="button" class="mdl-button">Yes, I'm Sure</button>
+      <button type="button" class="mdl-button close">Go Back</button>
+    </div>
+  </dialog>
+  <script>
+    var dialog = document.querySelector('dialog');
+    var showModalButton = document.querySelector('.show-modal');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showModalButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+  </script>
 @endsection

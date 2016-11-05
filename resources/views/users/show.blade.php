@@ -41,30 +41,8 @@
             Delete
           </button>
 
-          <dialog class="mdl-dialog delete-dialog">
-            <div class="mdl-dialog__content">
-              <p>
-                Are you sure?
-              </p>
-            </div>
-            <div class="mdl-dialog__actions">
-              <button onClick="location='/users/{{ $user->id }}/delete'" type="button" class="mdl-button">Delete this User</button>
-              <button type="button" class="mdl-button close">Go Back</button>
-            </div>
-          </dialog>
-          <script>
-            var dialog = document.querySelector('.delete-dialog');
-            var showModalButton = document.querySelector('.show-delete-modal');
-            if (! dialog.showModal) {
-              dialogPolyfill.registerDialog(dialog);
-            }
-            showModalButton.addEventListener('click', function() {
-              dialog.showModal();
-            });
-            dialog.querySelector('.close').addEventListener('click', function() {
-              dialog.close();
-            });
-          </script>
+
+
         </div>
       </div>
 
@@ -84,4 +62,28 @@
       </div>
     </div>
   </div>
+  <dialog class="mdl-dialog delete-dialog">
+    <div class="mdl-dialog__content">
+      <p>
+        Are you sure?
+      </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button onClick="location='/users/{{ $user->id }}/delete'" type="button" class="mdl-button">Delete this User</button>
+      <button type="button" class="mdl-button close">Go Back</button>
+    </div>
+  </dialog>
+  <script>
+    var dialog = document.querySelector('.delete-dialog');
+    var showModalButton = document.querySelector('.show-delete-modal');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showModalButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+  </script>
 @endsection

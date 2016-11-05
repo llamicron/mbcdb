@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-indigo.min.css" />
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script src="{{ asset('js/dialog-polyfill.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/dialog-polyfill.css') }}" media="screen">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" media="screen">
@@ -117,7 +119,7 @@
 {{-- End Drawer --}}
 
 {{-- Content --}}
-<main class="mdl-layout__content" style="">
+<div class="mdl-layout__content" style="">
   @if (\Session::has('status'))
     <div class="status">
       <span class="mdl-chip mdl-chip--contact">
@@ -128,7 +130,7 @@
   @endif
   @yield('content')
   <br><br>
-</main>
+</div>
 {{-- End Content --}}
 
 </div>
