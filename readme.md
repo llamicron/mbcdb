@@ -26,13 +26,16 @@
 5. Run `php artisan db:seed` (see \#2 in '.env' above)
 6. Run `php artisan serve`
 
+Visit localhost:8000 (or the port you specified)
+
 ## Afterwords
 ### Some helpful tips:
 * `php artisan migrate:refresh` will drop all the tables and re-migrate them. Can be very helpful if you'd like to change a column in the database
 * By default, `php artisan serve` will serve to port `8000`. When serving, you can say `php artisan serve --port=MY_PORT` and specify a different port
 
-Visit localhost:8000 (or the port you specified)
+### Issues
+If you find any issues, open a GitHub issue, or email me at mbcdb.help@gmail.com.
 
 ## Contributing
 
-Devs: [Luke Sweeney](https://github.com/SelectiveAlso), [Borgdude](https://github.com/Borgdude)
+Devs: [Luke Sweeney](https://github.com/SelectiveAlso), [Borgdude](https://github.com/Borgdude), [adaptiman](https://github.com/adaptiman) (for all the verbal help).
