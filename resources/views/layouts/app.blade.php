@@ -35,6 +35,7 @@
   <div class="mdl-layout__header-row">
     <span class="mdl-layout__title">@yield('header-title')</span>
     <div class="mdl-layout-spacer"></div>
+    @yield('right-header')
     <nav class="mdl-navigation">
       @if (\Auth::guest())
         <a class="mdl-navigation__link" href="/login">Login</a>

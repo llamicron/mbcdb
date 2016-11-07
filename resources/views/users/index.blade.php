@@ -8,10 +8,20 @@
   All Users
 @endsection
 
+@section('right-header')
+  <form action="/search" method="post">
+    {{ csrf_field() }}
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label search-field">
+      <input type="hidden" name="class" value="App\User">
+      <input class="mdl-textfield__input" name="search" type="text" id="search">
+      <label class="mdl-textfield__label" for="search">Search</label>
+    </div>
+  </form>
+@endsection
+
 @section('content')
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-8 admin-search">
+      {{--
       <form class="admin-search-form" action="/search" id="admin-search-form" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="class" value="App\User">
@@ -23,8 +33,7 @@
             <i class="material-icons admin-search-button">search</i>
           </a>
       </form>
-    </div>
-  </div>
+      --}}
   <div class="row">
     <div class="col-md-12">
 

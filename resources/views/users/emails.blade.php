@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
 
-      <div class="mdl-card card-with-border mdl-shadow--4dp">
+      <div class="mdl-card mdl-shadow--4dp">
         <div class="mdl-card__title mdl-card--expand">
           <h2 class="mdl-card__title-text">All Users Emails (CSV)</h2>
         </div>
