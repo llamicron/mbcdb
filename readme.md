@@ -14,9 +14,9 @@
 2. Optional but recommended: Create a user with permissions for only that database. You will need to provide Laravel login information for MySQL
 
 ## .env
-
 1. Put the database name and credentials in `.env` (If `.env` doesn't exist, duplicate `.env.example` and rename it to `.env`)
 2. Make sure that `PRODUCTION=false`. Currently this only affects database seeders. If you run the seeders with `php artisan db:seed` and it doesn't add fake counselors, you need to change the `PRODUCTION` value in `.env`
+3. In the mail section, you can supply a mail driver. Set `MAIL_DRIVER=LOG` if you don't have one set up.
 
 ## Project Setup
 1. Clone repo
