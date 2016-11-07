@@ -1,3 +1,5 @@
+# Notice: Material was merged with master. Use master now.
+
 # [r/badcode](http://reddit.com/r/badcode)
 
 # Installation
@@ -23,7 +25,7 @@
 5. Run `php artisan db:seed`
 6. Run `php artisan serve` (you may also specify a port to use, like this: `php artisan serve --port=8888`)
 
-Visit Localhost:8000 (or the port you specified) 
+Visit Localhost:8000 (or the port you specified)
 
 ## Made with
 ----------------------------------------------------------------------------------------------------------------------------------------
