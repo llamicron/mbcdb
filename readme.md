@@ -1,5 +1,3 @@
-# Notice: Material was merged with master. Use master now.
-
 # [r/badcode](http://reddit.com/r/badcode)
 
 # Installation
@@ -38,4 +36,4 @@ If you find any issues, open a GitHub issue, or email me at mbcdb.help@gmail.com
 
 ## Contributing
 
-Devs: [Luke Sweeney](https://github.com/SelectiveAlso), [Borgdude](https://github.com/Borgdude), [adaptiman](https://github.com/adaptiman) (for all the verbal help).
+Devs: [SelectiveAlso (Creator)](https://github.com/SelectiveAlso), [Borgdude](https://github.com/Borgdude), [adaptiman](https://github.com/adaptiman) (for all the verbal help).

@@ -18,7 +18,7 @@
       <br>
 
       {{-- Counselor Card --}}
-      <div class="demo-card-square counselor-card mdl-card mdl-shadow--4dp">
+      <div class="mdl-card mdl-shadow--4dp">
         <div class="mdl-card__title mdl-card--expand">
           <h2 class="mdl-card__title-text">{{ $counselor->name }}</h2>
         </div>
