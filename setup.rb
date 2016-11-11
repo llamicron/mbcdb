@@ -4,6 +4,9 @@ apt_update 'Update the apt cache daily' do
   action :periodic
 end
 
+# Install git
+package 'git'
+
 # Install mysql-server
 package 'mysql-server'
 
@@ -30,6 +33,8 @@ package 'php5'
 
 package 'php5-cli'
 
+# Install MySQL php extension
+package 'php5-mysql'
 
 # Install Apache
 package 'apache2'
@@ -85,7 +90,109 @@ file '/etc/apache2/sites-enabled/000-default.conf' do
         </Directory>
 </VirtualHost>'
 end
-#
-# file '/etc/apache2/apache2.conf' do
-#   content ""
-# end
+
+file '/etc/apache2/apache2.conf' do
+  content '
+            Mutex file:${APACHE_LOCK_DIR} default
+            PidFile ${APACHE_PID_FILE}
+            Timeout 300
+            KeepAlive On
+            MaxKeepAliveRequests 100
+            KeepAliveTimeout 5
+            User ${APACHE_RUN_USER}
+            Group ${APACHE_RUN_GROUP}
+            HostnameLookups Off
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            LogLevel warn
+            IncludeOptional mods-enabled/*.load
+            IncludeOptional mods-enabled/*.conf
+            Include ports.conf
+            <Directory />
+            	Options FollowSymLinks
+            	AllowOverride None
+            	Require all denied
+            </Directory>
+            <Directory /usr/share>
+            	AllowOverride None
+            	Require all granted
+            </Directory>
+            <Directory /var/www/html/mbcdb/public>
+            	Options Indexes FollowSymLinks
+            	AllowOverride None
+            	Require all granted
+            </Directory>
+            #<Directory /srv/>
+            #	Options Indexes FollowSymLinks
+            #	AllowOverride None
+            #	Require all granted
+            #</Directory>
+            AccessFileName .htaccess
+            <FilesMatch "^\.ht">
+            	Require all denied
+            </FilesMatch>
+            LogFormat "%v:%p %h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" vhost_combined
+            LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
+            LogFormat "%h %l %u %t \"%r\" %>s %O" common
+            LogFormat "%{Referer}i -> %U" referer
+            LogFormat "%{User-agent}i" agent
+            IncludeOptional conf-enabled/*.conf
+            IncludeOptional sites-enabled/*.conf
+          '
+end
+
+service 'apache2' do
+  action :restart
+end
+
+service 'mysql' do
+  action :restart
+end
+
+# * Supply
+file '/var/www/html/mbcdb/.env' do
+
+  content "APP_ENV=local
+APP_DEBUG=true
+APP_KEY=
+APP_URL=http://localhost
+PRODUCTION=false
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mbcdb
+DB_USERNAME=root
+DB_PASSWORD=
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=2525
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=tls
+"
+end
+
+execute 'composer_install' do
+  command '/var/www/html/mbcdb/ composer install'
+end
+
+execute 'key:generate' do
+  command '/var/www/html/mbcdb/ php artisan key:generate'
+end
+
+execute 'migrate' do
+  command '/var/www/html/mbcdb/ php artisan migrate'
+end
+
+execute 'seed' do
+  command '/var/www/html/mbcdb/ php artisan db:seed'
+end
