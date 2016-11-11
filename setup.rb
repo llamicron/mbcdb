@@ -313,7 +313,6 @@ file '/etc/apache2/apache2.conf' do
   # Include the virtual host configurations:
   IncludeOptional sites-enabled/*.conf
 
-  # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 '
 end
 
