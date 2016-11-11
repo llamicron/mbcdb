@@ -181,18 +181,22 @@ MAIL_ENCRYPTION=tls
 "
 end
 
+execute 'change_permissions' do
+  command 'sudo chmod 1777 /var/www/html/mbcdb/'
+end
+
 execute 'composer_install' do
-  command '/var/www/html/mbcdb/ composer install'
+  command '/var/www/html/mbcdb/ sudo composer install'
 end
 
 execute 'key:generate' do
-  command '/var/www/html/mbcdb/ php artisan key:generate'
+  command '/var/www/html/mbcdb/ sudo php artisan key:generate'
 end
-
-execute 'migrate' do
-  command '/var/www/html/mbcdb/ php artisan migrate'
-end
-
-execute 'seed' do
-  command '/var/www/html/mbcdb/ php artisan db:seed'
-end
+#
+# execute 'migrate' do
+#   command '/var/www/html/mbcdb/ php artisan migrate'
+# end
+#
+# execute 'seed' do
+#   command '/var/www/html/mbcdb/ php artisan db:seed'
+# end
