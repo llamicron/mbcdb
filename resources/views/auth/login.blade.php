@@ -57,9 +57,10 @@
 								<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
 									Login
 								</button>
-								<button type="button" onClick="location='{{ url('/password/reset') }}'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-									Forgot your Password?
+								<button type="button" onClick="location='/register'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+									Register
 								</button>
+								<a href="{{ url('/password/reset') }}">Forgot your password?</a>
 							</div>
 						</div>
 					</form>
