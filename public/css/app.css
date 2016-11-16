@@ -110,3 +110,6 @@ tr {
   margin-bottom: 1em;
   color: grey;
 }
+#confirm_email_card {
+  padding-left: 1em;
+}
