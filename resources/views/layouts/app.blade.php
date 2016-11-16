@@ -39,25 +39,27 @@
       @if (\Auth::guest())
         <a class="mdl-navigation__link" href="/login">Login</a>
       @else
-        {{-- User --}}
-        <a id="user" class="mdl-navigation__link" href="#">
-          <i class="material-icons" id="profile-icon">perm_identity</i>
-          {{ \Auth::user()->name }}
-        </a>
+      {{-- User --}}
+      <a id="user" class="mdl-navigation__link" href="#">
+        <i class="material-icons" id="profile-icon">perm_identity</i>
+        {{ \Auth::user()->name }}
+      </a>
 
-        {{-- End User --}}
+      {{-- End User --}}
       @endif
       @yield('header-nav')
     </nav>
   </div>
 </header>
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user">
-  @if (\Auth::user()->isAdmin())
-    <a href="/admin">
-      <li class="mdl-menu__item">
-        Admin Panel
-      </li>
-    </a>
+  @if (!\Auth::guest())
+    @if (\Auth::user()->isAdmin())
+      <a href="/admin">
+        <li class="mdl-menu__item">
+          Admin Panel
+        </li>
+      </a>
+    @endif
   @endif
   <a href="/logout">
     <li class="mdl-menu__item">
@@ -66,7 +68,6 @@
   </a>
 </ul>
 {{-- End Header --}}
-
 
 {{-- Drawer --}}
 <div class="mdl-layout__drawer">
