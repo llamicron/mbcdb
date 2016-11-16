@@ -32,7 +32,6 @@
       <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>
-            <th class="mdl-data-table__cell">ID</th>
             <th class="mdl-data-table__cell--non-numeric">Name</th>
             <th class="mdl-data-table__cell--non-numeric">Email</th>
             <th class="mdl-data-table__cell--non-numeric">Role</th>
@@ -41,7 +40,6 @@
         <tbody>
           @foreach ($users as $user)
             <tr onClick="location='/users/{{ $user->id }}/show'">
-              <td class="mdl-data-table__cell">{{ $user->id }}</td>
               <td class="mdl-data-table__cell--non-numeric">{{ $user->name }}</td>
               <td class="mdl-data-table__cell--non-numeric">{{ $user->email }}</td>
               <td class="mdl-data-table__cell--non-numeric">

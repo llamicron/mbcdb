@@ -25,6 +25,7 @@ class DevLukeSeeder extends Seeder {
   // Development Only Seeder
   public function run() {
     $user = new App\User;
+    $user->id = strtolower(str_replace(['.', ',', '/'], "", substr(bcrypt(time()), 10, 8)));
     $user->name = "Luke Sweeney";
     $user->email = "luke@thesweeneys.org";
     $user->isAdmin = 1;
@@ -40,6 +41,7 @@ class DevLukeSeeder extends Seeder {
 		}
 
     $user = new App\User;
+    $user->id = strtolower(str_replace(['.', ',', '/'], "", substr(bcrypt(time()), 10, 8)));
     $user->name = "Luke's Non Admin";
     $user->email = "lukesjunk@thesweeneys.org";
     $user->isAdmin = 0;

@@ -13,6 +13,7 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
   return [
+    'id' => strtolower(str_replace(['.', ',', '/'], "", substr(bcrypt(time()), 10, 8))),
     'name' => $faker->name,
     'email' => $faker->safeEmail,
     'isAdmin' => 0,
