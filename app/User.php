@@ -98,4 +98,22 @@ class User extends Authenticatable
       return true;
     }
 
+    public static function id_gen() {
+      $id = strtolower(str_replace(['.', ',', '/'], "", substr(bcrypt(time()), 10, 8)));
+      while (!User::isUnique($id)) {
+        $id = strtolower(str_replace(['.', ',', '/'], "", substr(bcrypt(time()), 10, 8)));
+      }
+      return $id;
+    }
+
+    public static function isUnique($id) {
+      $users = User::where('id', $id)->get();
+      if ($users->isEmpty()) {
+        return true;
+      } else {
+        return false;
+      }
+
+    }
+
 }

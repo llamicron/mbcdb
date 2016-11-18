@@ -70,10 +70,8 @@ class AuthController extends Controller
 									->subject('Thanks for signing up for mbc.arrowmoon.org');
 				});
 
-        $id = strtolower(str_replace(['.', ',', '/'], "", substr(bcrypt(time()), 10, 8)));
-
         $return = User::create([
-            'id' => $id,
+            'id' => User::id_gen(),
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
