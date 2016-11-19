@@ -1,5 +1,3 @@
-# [r/badcode](http://reddit.com/r/badcode)
-
 # Installation
 
 ## Required programs
