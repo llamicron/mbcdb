@@ -42,6 +42,7 @@ class AdminsController extends Controller {
     }
 
 		public function delete(User $user) {
+      // Middleware applies, only admins can do this
 			$user->delete();
 			\Session::flash('status', 'User Deleted');
 			return redirect('/admin');

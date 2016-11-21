@@ -38,6 +38,7 @@ class CounselorsController extends Controller {
       ]);
     }
 
+    // Returning only the authed users counselors
     public function userCounselors(User $user) {
       $context = 'userCounselors';
 			$counselors = Counselor::where('user_id', \Auth::user()->id)->paginate(35);
@@ -50,15 +51,13 @@ class CounselorsController extends Controller {
       return view('counselors.add', compact('districts'));
     }
 
+    // YPT is Youth Protection Training. Something adult leaders need.
     public function show(Counselor $counselor) {
-      if ($counselor->hasYPT()) {
-        $yptMessage = 'This counselor is YPT certified';
-      } else {
-        $yptMessage = 'This counselor is not YPT certified';
-      }
+      $yptMessage = $counselor->hasYPT() ? 'This counselor is YPT certified' : 'This counselor is not YPT certified';
       return view('counselors.show', compact('counselor', 'yptMessage'));
     }
 
+    // I'm not even gonna try for this one. Kms.
     public function store(Request $request) {
       $this->validate($request, [
         'first_name'        => 'required',
@@ -70,10 +69,8 @@ class CounselorsController extends Controller {
         'district'          => 'required',
       ]);
 
-
       $counselor = new Counselor;
       $user = \Auth::user();
-
 
       // 'Instantiating' the counselor
       $counselor->first_name = trim($request->first_name);
@@ -111,6 +108,7 @@ class CounselorsController extends Controller {
 			return view('warnings.notOwner');
     }
 
+    // Same as store()
     public function update(Counselor $counselor, Request $request) {
 
       $this->validate($request, [
@@ -161,17 +159,14 @@ class CounselorsController extends Controller {
       return redirect('/home');
     }
 
-    public function saveToUser(Counselor $counselor)
-    {
+    public function saveToUser(Counselor $counselor) {
       $user = \Auth::user();
       $user->saveToUser($counselor);
       return redirect("/counselors/$counselor->id/show");
     }
 
-    public function viewSavedCounselors()
-    {
+    public function viewSavedCounselors() {
       $counselors = \Auth::user()->savedCounselors();
-
       return view('counselors.saved', compact('counselors'));
     }
 }
