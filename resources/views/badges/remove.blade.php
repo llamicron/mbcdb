@@ -32,6 +32,7 @@
                 <input type="checkbox" id="{{ $badge->id }}" value="{{ $badge->id }}" name="{{ $badge->name }}" class="mdl-switch__input">
                 <span class="mdl-switch__label">{{ $badge->name }}</span>
               </label>
+              <br><br>
             @endforeach
 
 
