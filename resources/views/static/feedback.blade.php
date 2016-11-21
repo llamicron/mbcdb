@@ -28,10 +28,6 @@
               <textarea class="mdl-textfield__input" name="body" type="text" rows="8" id="body"></textarea>
               <label class="mdl-textfield__label" for="body">Message...</label>
             </div>
-            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="type">
-              <input type="checkbox" id="type" name="type" value="bug" class="mdl-switch__input">
-              <span class="mdl-switch__label">Is this a bug report?</span>
-            </label>
           </div>
           <div class="mdl-card__actions mdl-card--border">
             {{-- Buttons --}}
