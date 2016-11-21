@@ -12,5 +12,18 @@ class AdminsRouter implements RouterInterface {
       Route::get('/users/{user}/show', 'AdminsController@show');
 			Route::get('/users/{user}/delete', 'AdminsController@delete');
       Route::get('/usersEmails', 'AdminsController@getUsersEmails');
+      Route::get('/setBackground', function () {
+        $user = \Auth::user();
+        if ($user->wantsBackground()) {
+          $user->background = false;
+          $user->save();
+          \Session::flash('status', 'Background turned off');
+          return redirect('/');
+        }
+        $user->background = true;
+        $user->save();
+        \Session::flash('status', 'Background turned on');
+        return redirect('/');
+      });
     }
 }
