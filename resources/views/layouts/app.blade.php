@@ -22,6 +22,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" media="screen">
+    @if (Auth::user()->wantsBackground())
+      <link rel="stylesheet" href="{{ asset('css/background.css') }}" media="screen">
+    @endif
 
 </head>
 <body id="app-layout">
@@ -64,6 +67,15 @@
   <a href="/logout">
     <li class="mdl-menu__item">
       Logout
+    </li>
+  </a>
+  <a href="/setBackground">
+    <li class="mdl-menu__item">
+      @if (\Auth::user()->wantsBackground())
+        Turn background off
+      @else
+        Turn background on
+      @endif
     </li>
   </a>
 </ul>

@@ -113,7 +113,10 @@ class User extends Authenticatable
       } else {
         return false;
       }
+    }
 
+    public function wantsBackground() {
+      return $this->background;
     }
 
 }
