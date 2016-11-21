@@ -10,8 +10,7 @@ use App\Http\Requests;
 
 class BadgesController extends Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
       $this->middleware('auth');
     }
 
@@ -38,8 +37,7 @@ class BadgesController extends Controller {
       return redirect('warnings.notOwner');
     }
 
-		public function remove(Counselor $counselor, Request $request)
-		{
+		public function remove(Counselor $counselor, Request $request) {
 			if (\Auth::user()->isAdminOrOwner($counselor)) {
 				$input = $request->all();
 				// This removes the token
@@ -57,4 +55,5 @@ class BadgesController extends Controller {
       $badges = $counselor->badges;
       return view('badges.remove', compact('badges', 'counselor'));
     }
+
 }
