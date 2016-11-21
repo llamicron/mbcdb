@@ -12,7 +12,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
-
       <form action="/feedback" method="post">
         {{ csrf_field() }}
         <div class="mdl-card mdl-shadow--4dp">
@@ -22,19 +21,12 @@
           <div class="mdl-card__supporting-text">
             {{-- Content --}}
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" value="" name="subject" type="text" id="subject">
-              <label class="mdl-textfield__label" for="subject">Subject</label>
+              <input class="mdl-textfield__input" value="" name="title" type="text" id="title">
+              <label class="mdl-textfield__label" for="title">Subject</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield">
-              <textarea class="mdl-textfield__input" name="message" type="text" rows="8" id="message"></textarea>
-              <label class="mdl-textfield__label" for="message">Message...</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" name="from" value="{{ \Auth::user()->email }}" type="text" id="from">
-              <label class="mdl-textfield__label" for="from">From</label>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--large" for="from">
-              This should be your email address
+              <textarea class="mdl-textfield__input" name="body" type="text" rows="8" id="body"></textarea>
+              <label class="mdl-textfield__label" for="body">Message...</label>
             </div>
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="type">
               <input type="checkbox" id="type" name="type" value="bug" class="mdl-switch__input">
