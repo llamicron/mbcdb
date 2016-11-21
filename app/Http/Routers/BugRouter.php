@@ -4,10 +4,8 @@ namespace App\Http\Routers;
 
 use Route; // Route facade (Illuminate\Support\Facades\Route)
 
-class SandboxRouter implements RouterInterface {
+class BugRouter implements RouterInterface {
     public static function setRoutes() {
-      Route::get('/test', function () {
-        return view('static.blank');
-      });
+      Route::post('/feedback', 'BugController@submitIssue');
     }
 }
