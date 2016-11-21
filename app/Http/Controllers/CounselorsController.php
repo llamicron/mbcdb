@@ -38,6 +38,7 @@ class CounselorsController extends Controller {
       ]);
     }
 
+    // Returning only the authed users counselors
     public function userCounselors(User $user) {
       $context = 'userCounselors';
 			$counselors = Counselor::where('user_id', \Auth::user()->id)->paginate(35);
@@ -50,12 +51,9 @@ class CounselorsController extends Controller {
       return view('counselors.add', compact('districts'));
     }
 
+    // YPT is Youth Protection Training. Something adult leaders need.
     public function show(Counselor $counselor) {
-      if ($counselor->hasYPT()) {
-        $yptMessage = 'This counselor is YPT certified';
-      } else {
-        $yptMessage = 'This counselor is not YPT certified';
-      }
+      $yptMessage = $counselor->hasYPT() ? 'This counselor is YPT certified' : 'This counselor is not YPT certified';
       return view('counselors.show', compact('counselor', 'yptMessage'));
     }
 
